@@ -9,11 +9,13 @@ Per maggiori dettagli sulla licenza rimando a [questa voce](http://it.wikipedia.
 
 ![alt text](https://www.gnu.org/graphics/gplv3-88x31.png "LGPL Logo")
 
-##Progettto
+##Prototipo
 
-...in completamento il primo prototipo.
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=n3oExDMJfP0" target="_blank"><img src="http://img.youtube.com/vi/n3oExDMJfP0/0.jpg" alt="Rossonet" width="640" height="360" border="10" /></a>
 
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=B5Mmt7lzHgg" target="_blank"><img src="http://img.youtube.com/vi/B5Mmt7lzHgg/0.jpg" alt="Rossonet" width="640" height="360" border="10" /></a>
+
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=VD2OGaxWTA" target="_blank"><img src="http://img.youtube.com/vi/VD2OGaxWTA/0.jpg" alt="Rossonet" width="640" height="360" border="10" /></a>
 
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=0e1HDMZBxl4" target="_blank"><img src="http://img.youtube.com/vi/0e1HDMZBxl4/0.jpg" alt="Rossonet" width="640" height="360" border="10" /></a>
 

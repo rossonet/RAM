@@ -1,0 +1,7 @@
+su host per condividere la seriale:
+socat -d -d -v -x tcp-l:54321,reuseaddr,fork /dev/ttyUSB0,echo=0,b115200,waitlock=/var/run/ttyUSB0
+
+su client per esporre la seriale:
+socat PTY,link=/dev/ttyUSB99,b115200,raw,echo=0,wait-slave tcp:pitagora.rossonet.net:54321 &
+chown andrea:andrea /dev/ttyUSB99
+
