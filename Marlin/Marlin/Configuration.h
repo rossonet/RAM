@@ -96,18 +96,18 @@ Here are some standard links for getting your machine calibrated:
 // NOTE NB all values for DELTA_* values MUST be floating point, so always have a decimal point in them
 
 // Center-to-center distance of the holes in the diagonal push rods.
-#define DELTA_DIAGONAL_ROD 345.0 // mm
+#define DELTA_DIAGONAL_ROD 340.0 // mm
 
 // Horizontal offset from middle of printer to smooth rod center.
 //#define DELTA_SMOOTH_ROD_OFFSET 175.0 // mm
-#define DELTA_SMOOTH_ROD_OFFSET 240.0 // mm
+#define DELTA_SMOOTH_ROD_OFFSET 236.0 // mm
 
 // Horizontal offset of the universal joints on the end effector.
 //#define DELTA_EFFECTOR_OFFSET 33.0 // mm
-#define DELTA_EFFECTOR_OFFSET 40.0 // mm
+#define DELTA_EFFECTOR_OFFSET 30.0 // mm
 
 // Horizontal offset of the universal joints on the carriages.
-#define DELTA_CARRIAGE_OFFSET 30.0 // mm
+#define DELTA_CARRIAGE_OFFSET 27.0 // mm
 
 // Horizontal distance bridged by diagonal push rods when effector is centered.
 #define DELTA_RADIUS (DELTA_SMOOTH_ROD_OFFSET-DELTA_EFFECTOR_OFFSET-DELTA_CARRIAGE_OFFSET)
@@ -570,7 +570,7 @@ const bool Z_PROBE_ENDSTOP_INVERTING = true; // set to true to invert the logic 
 #ifdef MANUAL_HOME_POSITIONS
   #define MANUAL_X_HOME_POS 0
   #define MANUAL_Y_HOME_POS 0
-  #define MANUAL_Z_HOME_POS 470 // For delta: Distance between nozzle and print surface after homing.
+  #define MANUAL_Z_HOME_POS 425 // For delta: Distance between nozzle and print surface after homing.
 #endif
 
 /**
