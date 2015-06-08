@@ -113,7 +113,7 @@ Here are some standard links for getting your machine calibrated:
 #define DELTA_RADIUS (DELTA_SMOOTH_ROD_OFFSET-DELTA_EFFECTOR_OFFSET-DELTA_CARRIAGE_OFFSET)
 
 // Print surface diameter/2 minus unreachable space (avoid collisions with vertical towers).
-#define DELTA_PRINTABLE_RADIUS 120.0
+#define DELTA_PRINTABLE_RADIUS 112.0
 
 
 //===========================================================================
@@ -583,7 +583,7 @@ const bool Z_PROBE_ENDSTOP_INVERTING = true; // set to true to invert the logic 
 
 // default settings
 // delta speeds must be the same on xyz
-#define DEFAULT_AXIS_STEPS_PER_UNIT   {80, 80, 80, 760*1.1}  // default steps per unit for Kossel (GT2, 20 tooth)
+#define DEFAULT_AXIS_STEPS_PER_UNIT   {76, 76, 76, 760*1.1}  // default steps per unit for Kossel (GT2, 20 tooth)
 #define DEFAULT_MAX_FEEDRATE          {500, 500, 500, 25}    // (mm/sec)
 #define DEFAULT_MAX_ACCELERATION      {9000,9000,9000,10000}    // X, Y, Z, E maximum start speed for accelerated moves. E default values are good for skeinforge 40+, for older versions raise them a lot.
 
