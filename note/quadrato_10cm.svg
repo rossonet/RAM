@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 744.09448819 1052.3622047"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="quadrato_10cm.svg">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1"
+     inkscape:cx="202.87341"
+     inkscape:cy="514.28571"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1366"
+     inkscape:window-height="702"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Livello 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       id="rect3338"
+       width="354.33072"
+       height="354.33072"
+       x="235"
+       y="421.36221"
+       style="fill:none;stroke:#000000;stroke-opacity:1;stroke-width:7.08661413;stroke-miterlimit:4;stroke-dasharray:none" />
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot4140"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"><flowRegion
+         id="flowRegion4142"><rect
+           id="rect4144"
+           width="310"
+           height="104"
+           x="263"
+           y="443.36221" /></flowRegion><flowPara
+         id="flowPara4146">Quadrato</flowPara><flowPara
+         id="flowPara4148">10cm di lato</flowPara></flowRoot>    <path
+       style="fill:none;stroke:#000000;stroke-width:7.08661413;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path4150"
+       sodipodi:type="arc"
+       sodipodi:cx="334.5"
+       sodipodi:cy="631.36218"
+       sodipodi:rx="58"
+       sodipodi:ry="58"
+       sodipodi:start="0.87266463"
+       sodipodi:end="6.0213859"
+       d="m 371.78168,675.79276 a 58,58 0 0 1 -69.50475,3.79466 58,58 0 0 1 -23.09251,-65.66617 58,58 0 0 1 56.58084,-40.54526 58,58 0 0 1 54.75844,42.97469 L 334.5,631.36218 Z" />
+    <ellipse
+       style="fill:none;stroke:#000000;stroke-width:7.08661413;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path4152"
+       cx="326.5"
+       cy="606.86218"
+       rx="13.5"
+       ry="11.5" />
+    <circle
+       style="fill:none;stroke:#000000;stroke-width:7.08661413;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path4154"
+       cx="421"
+       cy="641.36218"
+       r="13" />
+    <circle
+       style="fill:none;stroke:#000000;stroke-width:7.08661413;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path4156"
+       cx="471"
+       cy="654.86218"
+       r="12.5" />
+    <circle
+       style="fill:none;stroke:#000000;stroke-width:7.08661413;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path4158"
+       cx="517.5"
+       cy="640.36218"
+       r="13" />
+    <circle
+       style="fill:none;stroke:#000000;stroke-width:7.08661413;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path4160"
+       cx="539"
+       cy="681.86218"
+       r="14.5" />
+    <circle
+       style="fill:none;stroke:#000000;stroke-width:7.08661413;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path4162"
+       cx="468"
+       cy="720.86218"
+       r="20.5" />
+    <circle
+       style="fill:none;stroke:#000000;stroke-width:7.08661413;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path4164"
+       cx="403.5"
+       cy="723.86218"
+       r="16.5" />
+    <circle
+       style="fill:none;stroke:#000000;stroke-width:7.08661413;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path4166"
+       cx="410"
+       cy="676.36218"
+       r="11" />
+  </g>
+</svg>
