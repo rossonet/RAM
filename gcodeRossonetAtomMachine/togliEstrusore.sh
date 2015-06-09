@@ -10,5 +10,5 @@ sed -i "s/T0//" temp.gcode
 sed -i "s/M106 S255//" temp.gcode
 sed -i "s/G92 E0/G92/" temp.gcode
 sed -i "s/E.*\.[0-9][0-9][0-9][0-9][0-9]//" temp.gcode
-cat temp.gcode | grep -v '^$' > elaborato_$1
+cat temp.gcode | grep -v '^$' > $1
 rm temp.gcode
