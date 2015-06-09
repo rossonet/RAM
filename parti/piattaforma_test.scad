@@ -144,7 +144,7 @@ module platform() {
 
 
 			//translate([-1.5, -70,  0]) cube(size = [3,50,40], center = false);	// groove for wiring
-    	cylinder(r=16, h=20,  center=false, $fn=4*q); 		            	  // M10 fixation hole for Merlin hotend
+    	translate([0, 0, -5]) cylinder(r=16, h=22,  center=false, $fn=4*q); 		      // M10 fixation hole for Merlin hotend
 			translate([0, 0, -20]) cylinder(r=99, h=20, center=false, $fn=q);     // Base Surfacing
 			translate([0, 0,  14]) cylinder(r=99, h=20, center=false, $fn=q);     // Top  Surfacing
 		}
