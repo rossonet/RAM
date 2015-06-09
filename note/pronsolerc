@@ -1,7 +1,7 @@
-set last_file_path /home/andrea/git/RAM/gcodeRossonetAtomMachine
-set recentfiles ["/home/andrea/git/RAM/gcodeRossonetAtomMachine/volto.gcode", "/home/andrea/git/RAM/gcodeRossonetAtomMachine/baginov.gcode", "/home/andrea/git/RAM/gcodeRossonetAtomMachine/quadrato_10cm_su_torre.gcode", "/home/andrea/git/RAM/gcodeRossonetAtomMachine/quadrato_10cm_su torre.gcode", "/home/andrea/git/RAM/gcodeRossonetAtomMachine/mosca_su_botte.gcode"]
-set last_window_maximized True
-set last_window_width 859
+set last_file_path /home/andrea/RAM/gcodeRossonetAtomMachine
+set recentfiles ["/home/andrea/RAM/gcodeRossonetAtomMachine/volto.gcode", "/home/andrea/RAM/gcodeRossonetAtomMachine/baginov.gcode", "/home/andrea/git/RAM/gcodeRossonetAtomMachine/volto.gcode", "/home/andrea/git/RAM/gcodeRossonetAtomMachine/baginov.gcode", "/home/andrea/git/RAM/gcodeRossonetAtomMachine/quadrato_10cm_su_torre.gcode"]
+set last_window_maximized False
+set last_window_width 1020
 set last_window_height 557
 set port /dev/ttyUSB99
 set last_sash_position 677
@@ -25,6 +25,6 @@ set circular_bed True
 button 0 "Centro (Z=10)" G1 X0 Y0 Z10 F5000
 set temperature_pla 215
 button 1 "Torre Rosa (Z=10)" G1 Y114 X0 Z10 F5000
-button 2 "Torre Rossa (Z=10)" G1 X−98,7269 Y-57 Z10 F5000
-button 3 "Torre Marrone (Z=10)" G1 X98,7269 Y-57 Z10 F5000
+button 2 "Torre Rossa (Z=10)" G1 X-98.7269 Y-57 Z10 F5000
+button 3 "Torre Marrone (Z=10)" G1 X98.7269 Y-57 Z10 F5000
 button 4 "heineken scrivi" G1 X0 Y0 Z311
