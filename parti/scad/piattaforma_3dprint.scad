@@ -42,7 +42,7 @@ module finestra() {
 	rotate([0, 0, 120]) translate([-30,1.5,12]) cube([60,27,15]);
 }
 module finestra_interna() {
-	rotate([0, 0, 120]) translate([-29.9,1.6,12.1]) cube([59.8,26.8,14.8]);
+	rotate([0, 0, 120]) translate([-29.9,1.6,12.1]) cube([59.8,26.3,14.8]);
 }
 
 
@@ -86,10 +86,10 @@ module ventilazione(){
 	rotate ([0,0,330])translate ([-2,-12,1]) rotate ([90,0,0]) cube([4,3,13]);
 
 	//viti
-	rotate([28, 0, 120]) translate([ 11.5, -6.5, 17])cylinder(r=1,h=12,center=true);
-	rotate([28, 0, 120]) translate([ 11.5, -29.5, 17])cylinder(r=1,h=9,center=true);
-	rotate([28, 0, 120]) translate([ -11.5, -6.5, 17])cylinder(r=1,h=12,center=true);
-	rotate([28, 0, 120]) translate([ -11.5, -29.5, 17])cylinder(r=1,h=9,center=true);
+	rotate([28, 0, 120]) translate([ 12, -6, 17])cylinder(r=1,h=12,center=true);
+	rotate([28, 0, 120]) translate([ 12, -30, 17])cylinder(r=1,h=9,center=true);
+	rotate([28, 0, 120]) translate([ -12, -6, 17])cylinder(r=1,h=12,center=true);
+	rotate([28, 0, 120]) translate([ -12, -30, 17])cylinder(r=1,h=9,center=true);
 }
 
 module magnetHolder() {
