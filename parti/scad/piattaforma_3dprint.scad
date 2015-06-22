@@ -258,7 +258,7 @@ module passacavi() {
 
 }
 
-
+module esploso() {
 $fn=220;
 
 base();
@@ -274,7 +274,9 @@ translate([-20,20,20]) aggancio();
 // parti esterne
 translate([0,0,12]) hotend();
 rotate([28, 0, 120]) translate([ 0, -16, 26])fan(30, 10, 23);
+}
 
+esploso();
 
 
 
