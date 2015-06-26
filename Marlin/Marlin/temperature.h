@@ -148,4 +148,6 @@ FORCE_INLINE void autotempShutdown() {
   #endif
 }
 
+
+
 #endif // TEMPERATURE_H
