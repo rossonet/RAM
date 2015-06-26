@@ -193,6 +193,7 @@ module carriage() {
 }
 //translate([ w,  0, 0]) cylinder(r=11  , h=H+dH+2, center=true);
 //import("/home/andrea/git/RAM/parti/carrello.stl");
+module carrello() {
 difference(){
 	union(){
 		intersection(){
@@ -214,3 +215,5 @@ translate([15, -17, 2]) cylinder(r=3.2, h=8, center=true, $fn=6);
 // Uncomment the following lines to check endstop alignment.
 // use <idler_end.scad>;
 // translate([0, 0, -20]) rotate([180, 0, 0]) idler_end();
+}
+carrello();

@@ -159,13 +159,13 @@ module poly_path4166(h)
   }
 }
 
-poly_path4150(100);
-poly_path4158(100);
-poly_rect3338(100);
-poly_path4152(100);
-poly_path4164(100);
-poly_path4162(100);
-poly_path4154(100);
-poly_path4156(100);
-poly_path4160(100);
-poly_path4166(100);
+poly_path4150(1);
+poly_path4158(1);
+poly_rect3338(1);
+poly_path4152(1);
+poly_path4164(1);
+poly_path4162(1);
+poly_path4154(1);
+poly_path4156(1);
+poly_path4160(1);
+poly_path4166(1);
