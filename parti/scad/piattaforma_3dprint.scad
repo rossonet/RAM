@@ -1,6 +1,7 @@
 include <hotend.scad>
 include <ventola.scad>
 use <Write.scad>
+use <9g_servo.scad>
 
 // Variabili iniziali
 q                     	=40;   	// Curves quality
@@ -22,7 +23,7 @@ play                  	=0.3; 	// Play required for tight adjustment
 
 magnet_tilt           	=30; 	// orientation of the magnetic joints
 magnet_diam           	=13;  	// Diameter of the magnet
-magnet_height         	=6;   	// Height of the magnet
+magnet_height         	=4;   	// Height of the magnet
 magnet_play           	= play;	// Play required for tight adjustment of the magnet
 
 th 						=2;   	// Magnet holder thickness
@@ -34,7 +35,7 @@ chamfRad				=0.25;
 
 module zona_calda() {
 	translate([0,0,10])cylinder(r1=14,r2=6,h=2);	
-	translate([0,0,-20])cylinder(r=14,h=30);
+	translate([0,0,-20])cylinder(r=15,h=30);
 	translate([0,0,-45])cylinder(r=35,h=29);
 }
 
@@ -48,10 +49,14 @@ module finestra_interna() {
 
 module ventilazione(){
 
-	rotate([28, 0, 120]) 
+	 
 	hull(){
-		translate([ 0, -18, 17])cube([23, 23, 1],center=true);
-		translate([ 0, -21, 15])cube([19,4,6],center=true);
+		rotate([28, 0, 120]) translate([ 0, -18, 17])cube([23, 23, 1],center=true);
+		rotate([28, 0, 120]) translate([ 0, -21, 15])cube([19,4,6],center=true);
+		rotate ([45,0,120])translate ([-10,-23,10]) cube([20,3,13]);
+		rotate ([-15,0,90])translate ([-2,-12,-2]) rotate ([90,0,0]) cube([4,3,13]);
+		rotate ([-15,0,150])translate ([-2,-12,-2]) rotate ([90,0,0]) cube([4,3,13]);
+		rotate([0, 0, 120])translate([0,-4,-9]) cube([10,10,5],center=true);
 	}
 
 	//ventola
@@ -59,28 +64,34 @@ module ventilazione(){
 
 	// canale
 	difference(){
-		cylinder(r=29,h=4.8);
+		difference(){
+			cylinder(r=29,h=4.8);
+			rotate ([0,0,240])translate ([-15,-31,-9]) cube([30,6,15]);
+		}
 		union() {
 			difference() {
 				translate([0,0,-2])cylinder(r=23,h=10);
 				rotate([0, 0, 120]) translate([ 100, -70, 0]) cylinder(r=103,h=4.8);
 			}
-			rotate([0, 0, 120]) translate([ 25.5, -15, 0]) cylinder(r=5,h=200,center=true);
+			rotate([0, 0, 120]) translate([ 25.5, -15, 0]) cylinder(r=5,h=200,center=true);			
 		}
 	}
+
+	//servo
+	rotate ([0,0,240])translate ([-11.7,-46.8,-6.5]) cube([23.4,20,13]);
+	rotate ([0,0,240])translate ([14,-40,0])rotate ([90,0,0]) cylinder(r=1.1,h=10,center=true);
+	rotate ([0,0,240])translate ([-14,-40,0])rotate ([90,0,0]) cylinder(r=1.1,h=10,center=true);
 
 	//verso il basso
 	rotate ([0,0,0])translate ([-5,-27,-9]) cube([10,3,13]);
 	//rotate ([0,0,60])translate ([-3,-27,-9]) cube([6,3,13]);
-	rotate ([0,0,120])translate ([-1.5,-27,-9]) cube([3,3,13]);
+	//rotate ([45,0,120])translate ([-10,-23,10]) cube([20,3,13]);
 	//rotate ([0,0,180])translate ([-3,-27,-9]) cube([6,3,13]);
-	rotate ([0,0,240])translate ([-5,-27,-9]) cube([10,3,13]);
+	//rotate ([0,0,240])translate ([-5,-27,-9]) cube([10,3,13]);
 	rotate ([0,0,300])translate ([-6,-27,-9]) cube([12,3,13]);
 
 	// laterali
 	//rotate ([0,0,30])translate ([-2,-12,1]) rotate ([90,0,0]) cube([4,3,13]);
-	rotate ([0,0,90])translate ([-2,-12,1]) rotate ([90,0,0]) cube([4,3,13]);
-	rotate ([0,0,150])translate ([-2,-12,1]) rotate ([90,0,0]) cube([4,3,13]);
 	//rotate ([0,0,210])translate ([-2,-12,1]) rotate ([90,0,0]) cube([4,3,13]);
 	rotate ([0,0,270])translate ([-2,-12,1]) rotate ([90,0,0]) cube([4,3,13]);
 	rotate ([0,0,330])translate ([-2,-12,1]) rotate ([90,0,0]) cube([4,3,13]);
@@ -241,6 +252,7 @@ module aggancio() {
 			finestra_interna();
 		}
 	bloccaggio();
+	translate([0,0,16])cylinder(r1=4,r2=7,h=6);
 	}
 }
 
@@ -259,24 +271,29 @@ module passacavi() {
 }
 
 module esploso() {
-$fn=220;
+	$fn=220;
 
-base();
-translate([-20,20,20]) aggancio();
+	base();
+	translate([-20,20,20]) aggancio();
 
-//zona_calda();
-//translate([0,0,4])ventilazione();
-//finestra();
-//rotate([-20, 0, 120]) percorso_hotend();
-//bloccaggio();
-//passacavi();
-
-// parti esterne
-translate([0,0,12]) hotend();
-rotate([28, 0, 120]) translate([ 0, -16, 26])fan(30, 10, 23);
+	// parti esterne
+	translate([0,0,12]) hotend();
+	rotate([28, 0, 120]) translate([ 0, -16, 26])fan(30, 10, 23);
+	rotate([90, 0, 240]) translate([ 0, 4, 40]) 9g_motor();
 }
 
-esploso();
+module vuoti() {
+	zona_calda();
+	translate([0,0,4])ventilazione();
+	finestra();
+	rotate([-20, 0, 120]) percorso_hotend();
+	bloccaggio();
+	passacavi();
+}
 
+//esploso();
+//base();
+aggancio();
 
+//vuoti();
 
