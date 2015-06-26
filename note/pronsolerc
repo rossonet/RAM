@@ -1,16 +1,16 @@
 set last_file_path /home/andrea/RAM/gcodeRossonetAtomMachine
-set recentfiles ["/home/andrea/RAM/gcodeRossonetAtomMachine/volto.gcode", "/home/andrea/RAM/gcodeRossonetAtomMachine/baginov.gcode", "/home/andrea/git/RAM/gcodeRossonetAtomMachine/volto.gcode", "/home/andrea/git/RAM/gcodeRossonetAtomMachine/baginov.gcode", "/home/andrea/git/RAM/gcodeRossonetAtomMachine/quadrato_10cm_su_torre.gcode"]
+set recentfiles ["/home/andrea/RAM/gcodeRossonetAtomMachine/quintoveda.gcode", "/home/andrea/RAM/gcodeRossonetAtomMachine/10cm.gcode", "/home/andrea/Scrivania/tracciato.gcode", "/home/andrea/RAM/gcodeRossonetAtomMachine/scritta_perimetro.gcode", "/home/andrea/RAM/gcodeRossonetAtomMachine/calamita.gcode"]
 set last_window_maximized False
-set last_window_width 1020
+set last_window_width 1018
 set last_window_height 557
 set port /dev/ttyUSB99
-set last_sash_position 677
+set last_sash_position 702
 set baudrate 115200
 set xy_feedrate 3000
 set z_feedrate 3000
-set e_feedrate 100
-set total_filament_used 22526.5249484
-set last_temperature 82.0
+set e_feedrate 120
+set total_filament_used 22726.7689472
+set last_temperature 274.0
 set last_bed_temperature 60.0
 set build_dimensions 228.00x228.00x420.00-114.00-114.00+0.00+0.00+0.00+0.00
 set extruders 1
@@ -22,9 +22,11 @@ set sliceoptscommand slic3r
 set uimode Standard
 set controlsmode Standard
 set circular_bed True
-button 0 "Centro (Z=10)" G1 X0 Y0 Z10 F5000
+button 0 "Centro (Z=40)" /c "GREEN" G1 X0 Y0 Z40 F9000
 set temperature_pla 215
-button 1 "Torre Rosa (Z=10)" G1 Y114 X0 Z10 F5000
-button 2 "Torre Rossa (Z=10)" G1 X-98.7269 Y-57 Z10 F5000
-button 3 "Torre Marrone (Z=10)" G1 X98.7269 Y-57 Z10 F5000
-button 4 "heineken scrivi" G1 X0 Y0 Z311
+button 1 "Torre Rosa (Z=40)" /c "PINK" G1 Y114 X0 Z40 F6000
+button 2 "Torre Rossa (Z=40)" /c "RED" G1 X-98.7269 Y-57 Z40 F6000
+button 3 "Torre Marrone (Z=40)" /c "BROWN" G1 X98.7269 Y-57 Z40 F6000
+button 4 "Z-PROBE" m666 x-3.3 y-10.3 z-0.2
+button 5 "Z-PROBE a -1" m666 x-4.3 y-11.3 z-1.2
+set last_extrusion 10
