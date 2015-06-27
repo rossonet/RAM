@@ -4,7 +4,7 @@ set last_window_maximized False
 set last_window_width 1018
 set last_window_height 557
 set port /dev/ttyUSB99
-set last_sash_position 702
+set last_sash_position 473
 set baudrate 115200
 set xy_feedrate 3000
 set z_feedrate 3000
@@ -22,11 +22,13 @@ set sliceoptscommand slic3r
 set uimode Standard
 set controlsmode Standard
 set circular_bed True
-button 0 "Centro (Z=40)" /c "GREEN" G1 X0 Y0 Z40 F9000
+button 0 "Centro (Z=50)" /c "GREEN" G1 X0 Y0 Z50 F9000
 set temperature_pla 215
-button 1 "Torre Rosa (Z=40)" /c "PINK" G1 Y114 X0 Z40 F6000
-button 2 "Torre Rossa (Z=40)" /c "RED" G1 X-98.7269 Y-57 Z40 F6000
-button 3 "Torre Marrone (Z=40)" /c "BROWN" G1 X98.7269 Y-57 Z40 F6000
-button 4 "Z-PROBE" m666 x-3.3 y-10.3 z-0.2
-button 5 "Z-PROBE a -1" m666 x-4.3 y-11.3 z-1.2
+button 1 "Torre Rosa (Z=50)" /c "PINK" G1 Y114 X0 Z50 F6000
+button 2 "Torre Rossa (Z=50)" /c "RED" G1 X-98.7269 Y-57 Z40 F6000
+button 3 "Torre Marrone (Z=50)" /c "BROWN" G1 X98.7269 Y-57 Z40 F6000
+button 4 "Z-SETTING" m666 x-3.3 y-10.3 z-0.2
+button 5 "Z-SETTING a -1" m666 x-4.3 y-11.3 z-1.2
 set last_extrusion 10
+button 6 "centro_sonda (+10)" G1 X37 Y47.20 Z51.60
+button 7 "Misura" G30
