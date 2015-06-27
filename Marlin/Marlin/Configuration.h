@@ -459,18 +459,18 @@ const bool Z_PROBE_ENDSTOP_INVERTING = true; // set to true to invert the logic 
 
     #define DELTA_PROBABLE_RADIUS 80 // (DELTA_PRINTABLE_RADIUS - 20)
 
-    #define LEFT_PROBE_BED_POSITION -90
+    #define LEFT_PROBE_BED_POSITION -100
     #define RIGHT_PROBE_BED_POSITION 70
     #define FRONT_PROBE_BED_POSITION -65
-    #define BACK_PROBE_BED_POSITION 90
+    #define BACK_PROBE_BED_POSITION 100
     
-    #define MIN_PROBE_EDGE 6 // The probe square sides can be no smaller than this
+    #define MIN_PROBE_EDGE 10 // The probe square sides can be no smaller than this
 
     // Non-linear bed leveling will be used.
     // Compensate by interpolating between the nearest four Z probe values for each point.
     // Useful for deltas where the print surface may appear like a bowl or dome shape.
     // Works best with ACCURATE_BED_LEVELING_POINTS 5 or higher.
-    #define AUTO_BED_LEVELING_GRID_POINTS 9
+    #define AUTO_BED_LEVELING_GRID_POINTS 5
 
   #else  // !AUTO_BED_LEVELING_GRID
 
@@ -487,8 +487,8 @@ const bool Z_PROBE_ENDSTOP_INVERTING = true; // set to true to invert the logic 
 
   // Offsets to the probe relative to the extruder tip (Hotend - Probe)
   // X and Y offsets must be integers
-  #define X_PROBE_OFFSET_FROM_EXTRUDER -37     // Probe on: -left  +right
-  #define Y_PROBE_OFFSET_FROM_EXTRUDER -47   // Probe on: -front +behind
+  #define X_PROBE_OFFSET_FROM_EXTRUDER 0     // Probe on: -left  +right
+  #define Y_PROBE_OFFSET_FROM_EXTRUDER 0   // Probe on: -front +behind
   #define Z_PROBE_OFFSET_FROM_EXTRUDER -39.40  // -below (always!)
 
   #define Z_RAISE_BEFORE_HOMING 4       // (in mm) Raise Z before homing (G28) for Probe Clearance.
