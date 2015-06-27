@@ -37,7 +37,8 @@
 #define Z_STEP_PIN         16 
 #define Z_DIR_PIN          11
 #define Z_ENABLE_PIN       3 
-#define Z_MIN_PIN          18
+//#define Z_MIN_PIN          18
+#define Z_PROBE_PIN          18
 #define Z_MAX_PIN          19 // put to -1 to disable
 
 #define E0_STEP_PIN        28

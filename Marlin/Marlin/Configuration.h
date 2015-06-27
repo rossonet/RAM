@@ -358,7 +358,7 @@ const bool Y_MAX_ENDSTOP_INVERTING = true; // set to true to invert the logic of
 const bool Z_MAX_ENDSTOP_INVERTING = true; // set to true to invert the logic of the endstop.
 const bool Z_PROBE_ENDSTOP_INVERTING = true; // set to true to invert the logic of the endstop.
 //#define DISABLE_MAX_ENDSTOPS
-//#define DISABLE_MIN_ENDSTOPS // Deltas only use min endstops for probing
+#define DISABLE_MIN_ENDSTOPS // Deltas only use min endstops for probing
 
 // For Inverting Stepper Enable Pins (Active Low) use 0, Non Inverting (Active High) use 1
 #define X_ENABLE_ON 0
@@ -457,12 +457,12 @@ const bool Z_PROBE_ENDSTOP_INVERTING = true; // set to true to invert the logic 
 
   #ifdef AUTO_BED_LEVELING_GRID
 
-    #define DELTA_PROBABLE_RADIUS 90 // (DELTA_PRINTABLE_RADIUS - 20)
+    #define DELTA_PROBABLE_RADIUS 80 // (DELTA_PRINTABLE_RADIUS - 20)
 
-    #define LEFT_PROBE_BED_POSITION -DELTA_PROBABLE_RADIUS
-    #define RIGHT_PROBE_BED_POSITION DELTA_PROBABLE_RADIUS
-    #define FRONT_PROBE_BED_POSITION -DELTA_PROBABLE_RADIUS
-    #define BACK_PROBE_BED_POSITION DELTA_PROBABLE_RADIUS
+    #define LEFT_PROBE_BED_POSITION -90
+    #define RIGHT_PROBE_BED_POSITION 65
+    #define FRONT_PROBE_BED_POSITION -90
+    #define BACK_PROBE_BED_POSITION 65
     
     #define MIN_PROBE_EDGE 10 // The probe square sides can be no smaller than this
 
@@ -470,7 +470,7 @@ const bool Z_PROBE_ENDSTOP_INVERTING = true; // set to true to invert the logic 
     // Compensate by interpolating between the nearest four Z probe values for each point.
     // Useful for deltas where the print surface may appear like a bowl or dome shape.
     // Works best with ACCURATE_BED_LEVELING_POINTS 5 or higher.
-    #define AUTO_BED_LEVELING_GRID_POINTS 9
+    #define AUTO_BED_LEVELING_GRID_POINTS 4
 
   #else  // !AUTO_BED_LEVELING_GRID
 
@@ -487,18 +487,18 @@ const bool Z_PROBE_ENDSTOP_INVERTING = true; // set to true to invert the logic 
 
   // Offsets to the probe relative to the extruder tip (Hotend - Probe)
   // X and Y offsets must be integers
-  #define X_PROBE_OFFSET_FROM_EXTRUDER 0     // Probe on: -left  +right
-  #define Y_PROBE_OFFSET_FROM_EXTRUDER 0   // Probe on: -front +behind
-  #define Z_PROBE_OFFSET_FROM_EXTRUDER 0  // -below (always!)
+  #define X_PROBE_OFFSET_FROM_EXTRUDER -37     // Probe on: -left  +right
+  #define Y_PROBE_OFFSET_FROM_EXTRUDER -47   // Probe on: -front +behind
+  #define Z_PROBE_OFFSET_FROM_EXTRUDER -39.40  // -below (always!)
 
   #define Z_RAISE_BEFORE_HOMING 4       // (in mm) Raise Z before homing (G28) for Probe Clearance.
                                         // Be sure you have this distance over your Z_MAX_POS in case
 
   #define XY_TRAVEL_SPEED 4000         // X and Y axis travel speed between probes, in mm/min
 
-  #define Z_RAISE_BEFORE_PROBING 15   //How much the extruder will be raised before traveling to the first probing point.
-  #define Z_RAISE_BETWEEN_PROBINGS 5  //How much the extruder will be raised when traveling from between next probing points
-  #define Z_RAISE_AFTER_PROBING 50    //How much the extruder will be raised after the last probing point.
+  #define Z_RAISE_BEFORE_PROBING 60   //How much the extruder will be raised before traveling to the first probing point.
+  #define Z_RAISE_BETWEEN_PROBINGS 10  //How much the extruder will be raised when traveling from between next probing points
+  #define Z_RAISE_AFTER_PROBING 150    //How much the extruder will be raised after the last probing point.
 
 //   #define Z_PROBE_END_SCRIPT "G1 Z10 F12000\nG1 X15 Y330\nG1 Z0.5\nG1 Z10" //These commands will be executed in the end of G29 routine.
                                                                             //Useful to retract a deployable probe.
@@ -524,7 +524,7 @@ const bool Z_PROBE_ENDSTOP_INVERTING = true; // set to true to invert the logic 
   //The value is the delay to turn the servo off after powered on - depends on the servo speed; 300ms is good value, but you can try lower it.
   // You MUST HAVE the SERVO_ENDSTOPS defined to use here a value higher than zero otherwise your code will not compile.
 
-//  #define PROBE_SERVO_DEACTIVATION_DELAY 300
+  #define PROBE_SERVO_DEACTIVATION_DELAY 600
 
 
 //If you have enabled the Bed Auto Leveling and are using the same Z Probe for Z Homing,
@@ -556,7 +556,7 @@ const bool Z_PROBE_ENDSTOP_INVERTING = true; // set to true to invert the logic 
   // D32 is currently selected in the RAMPS 1.3/1.4 pin file. All other boards will need changes to the respective pins_XXXXX.h file.
   // WARNING: Setting the wrong pin may have unexpected and potentially disastrous outcomes. Use with caution and do your homework.
 
-  //#define Z_PROBE_ENDSTOP
+  #define Z_PROBE_ENDSTOP
 
 #endif // ENABLE_AUTO_BED_LEVELING
 
@@ -783,7 +783,7 @@ const bool Z_PROBE_ENDSTOP_INVERTING = true; // set to true to invert the logic 
 // Use M851 to set the z-probe vertical offset from the nozzle. Store that setting with M500.
 //
 #define SERVO_ENDSTOPS {-1, -1, 0} // Servo index for X, Y, Z. Disable with -1
-#define SERVO_ENDSTOP_ANGLES {0,0, 0,0, 70,0} // X,Y,Z Axis Extend and Retract angles
+#define SERVO_ENDSTOP_ANGLES {0,0, 0,0, 105,19} // X,Y,Z Axis Extend and Retract angles
 
 /**********************************************************************\
  * Support for a filament diameter sensor
