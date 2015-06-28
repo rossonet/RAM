@@ -1851,7 +1851,6 @@ inline void gcode_G28() {
   saved_feedrate_multiplier = feedrate_multiplier;
   feedrate_multiplier = 100;
   refresh_cmd_timeout();
-  endstops_hit_on_purpose(); // by Ambrosini per bug g28
 
   enable_endstops(true);
 
@@ -1868,7 +1867,7 @@ inline void gcode_G28() {
     sync_plan_position();
 
     // Move all carriages up together until the first endstop is hit.
-    for (int i = X_AXIS; i <= Z_AXIS; i++) destination[i] = 3 * Z_MAX_LENGTH;
+    for (int i = X_AXIS; i <= Z_AXIS; i++) destination[i] = 10 * Z_MAX_LENGTH;
     feedrate = 1.732 * homing_feedrate[X_AXIS];
     line_to_destination();
     st_synchronize();
