@@ -1,0 +1,100 @@
+accessControl:
+  salt: ObXW6MWwmwi7eEvsVRJlYZ2pCjIPbgsj
+api:
+  key: 77DCF1D0F3FF43A0A7595FC31500E27E
+appearance:
+  color: red
+  name: Rossonet Atom Machine
+controls:
+- children:
+  - commands:
+    - G28
+    - G1 X0 Y0 Z100 F6000
+    - M117 Centro
+    - G30
+    - G1 X0 Y114 Z100 F6000
+    - M117 Torre Z
+    - G30
+    - G1 X-98.7269 Y-57 Z100 F6000
+    - M117 Torre X
+    - G30
+    - G1 X98.7269 Y-57 Z100 F6000
+    - M117 Torre Y
+    - G30
+    - G1 X0 Y0 Z100 F6000
+    - G1 X0 Y0 Z300 F6000
+    - G28
+    name: Rilevamento
+    regex: 'Bed X: ([\-0-9.]+) Y: ([\-0-9.]+) Z: ([\-0-9.]+)'
+    template: 'Rilevamento: X={0}, Y={1}, Z={2}'
+  - commands:
+    - M666 X%(deltax)s Y%(deltay)s Z%(deltaz)s
+    - M500
+    - G28
+    input:
+    - default: -3.3
+      name: deltaX
+      parameter: deltax
+    - default: -10.3
+      name: deltaY
+      parameter: deltay
+    - default: -0.2
+      name: deltaZ
+      parameter: deltaz
+    name: Configurazione
+    type: parametric_commands
+  name: Calibrazione
+feature: {}
+gcodeViewer: {}
+plugins:
+  discovery:
+    _config_version: null
+    httpPassword: null
+    httpUsername: null
+    model:
+      description: null
+      name: null
+      number: null
+      serial: null
+      url: null
+      vendor: null
+      vendorUrl: null
+    pathPrefix: null
+    publicHost: null
+    publicPort: null
+    upnpUuid: 57d649da-0595-4e68-9c44-ba6f3e2f8d80
+    zeroConf: []
+  softwareupdate:
+    _config_version: 2
+    cache_ttl: 1440
+    checks:
+      octoprint:
+        current: OctoPrint
+        displayName: OctoPrint
+        displayVersion: '{octoprint_version}'
+        repo: OctoPrint
+        restart: octoprint
+        type: github_release
+        update_script: '{python} "/home/rossonet/RAM/OctoPrint/venv/lib/python2.7/site-packages/OctoPrint-OctoPrint-py2.7.egg/octoprint/plugins/softwareupdate/scripts/update-octoprint.py"
+          --python="{python}" "{folder}" {target}'
+        user: foosel
+    environment_restart_command: null
+    octoprint_restart_command: null
+    pip_command: null
+printerParameters: {}
+printerProfiles:
+  default: ram
+  defaultProfile: {}
+serial:
+  autoconnect: true
+  baudrate: 115200
+  port: /dev/ttyUSB0
+  timeout:
+    sdStatus: 5.0
+    temperature: 10.0
+server:
+  firstRun: false
+  secretKey: fZPsB1b8RcECblDP4ORhJaxbDoXA5UEb
+system: {}
+temperature: {}
+webcam: {}
