@@ -1851,7 +1851,7 @@ inline void gcode_G28() {
   saved_feedrate_multiplier = feedrate_multiplier;
   feedrate_multiplier = 100;
   refresh_cmd_timeout();
-
+  endstops_hit_on_purpose();  // by Ambrosini
   enable_endstops(true);
 
   set_destination_to_current();
