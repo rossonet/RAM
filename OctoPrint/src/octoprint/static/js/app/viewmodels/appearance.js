@@ -8,16 +8,16 @@ $(function() {
 
         self.brand = ko.computed(function() {
             if (self.name())
-                return gettext("OctoPrint") + ": " + self.name();
+                return self.name();
             else
-                return gettext("OctoPrint");
+                return "Rossonet Atom Machine";
         });
 
         self.title = ko.computed(function() {
             if (self.name())
-                return self.name() + " [" + gettext("OctoPrint") + "]";
+                return self.name();
             else
-                return gettext("OctoPrint");
+                return "Rossonet Atom Machine";
         });
     }
 

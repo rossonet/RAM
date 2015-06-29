@@ -53,8 +53,12 @@ controls:
 feature: {}
 gcodeViewer: {}
 plugins:
+  ScreenSquish:
+    _config_version: null
+    octoprint_max_version: ''
   _disabled:
   - softwareupdate
+  - customControl
   cura:
     _config_version: null
     cura_engine: /home/rossonet/CuraEngine/build/CuraEngine
@@ -111,6 +115,19 @@ server:
 slicing:
   defaultProfiles:
     cura: ram
-system: {}
+system:
+  actions:
+  - action: shutdown
+    command: sudo shutdown -h now
+    confirm: You are about to shutdown the system.
+    name: Shutdown
+  - action: reboot
+    command: sudo shutdown -r now
+    confirm: You are about to reboot the system.
+    name: Reboot
+  - action: Permetti assistenza remota
+    command: ~/RAM/note/assistenza.sh
+    confirm: Permetti a Rossonet di intervenire.
+    name: Assistenza
 temperature: {}
 webcam: {}
