@@ -9,14 +9,52 @@ appearance:
 controls:
 - children:
   - commands:
+    - M666 X%(deltax)s Y%(deltay)s Z%(deltaz)s
+    - M500
+    - G28
+    input:
+    - default: -10.8
+      name: deltaX
+      parameter: deltax
+      slider: false
+    - default: -11.9
+      name: deltaY
+      parameter: deltay
+      slider: false
+    - default: 0
+      name: deltaZ
+      parameter: deltaz
+      slider: false
+    name: End Stop
+    type: parametric_commands
+  - commands:
+    - M665 L%(bracci)s R%(raggioutile)s S%(calcoli)s
+    - M500
+    - G28
+    input:
+    - default: 340.0
+      name: Bracci
+      parameter: bracci
+      slider: false
+    - default: 173.0
+      name: Raggio utile
+      parameter: raggioutile
+      slider: false
+    - default: 200
+      name: Calcoli al secondo
+      parameter: calcoli
+      slider: false
+    name: Parametri Delta
+    type: parametric_commands
+  - commands:
     - G28
     - G1 X37 Y47 Z100 F6000
     - M117 Centro
     - G30
-    - G1 X-114 Y-15 Z100 F6000
+    - G1 X-60 Y-19 Z100 F6000
     - M117 Torre X
     - G30
-    - G1 X114 Y21 Z100 F6000
+    - G1 X114 Y0 Z100 F6000
     - M117 Torre Y
     - G30
     - G1 X37 Y114 Z100 F6000
@@ -29,26 +67,7 @@ controls:
     name: Rilevamento
     regex: 'Bed X: ([\-0-9.]+) Y: ([\-0-9.]+) Z: ([\-0-9.]+)'
     template: 'Rilevamento: X={0}, Y={1}, Z={2}'
-  - commands:
-    - M666 X%(deltax)s Y%(deltay)s Z%(deltaz)s
-    - M500
-    - G28
-    input:
-    - default: -3.3
-      name: deltaX
-      parameter: deltax
-      slider: false
-    - default: -10.3
-      name: deltaY
-      parameter: deltay
-      slider: false
-    - default: -0.2
-      name: deltaZ
-      parameter: deltaz
-      slider: false
-    name: Configurazione
-    type: parametric_commands
-  layout: vertical
+  layout: horizontal_grid
   name: Calibrazione
 feature: {}
 gcodeViewer: {}
