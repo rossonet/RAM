@@ -8,6 +8,15 @@ appearance:
   name: Rossonet Atom Machine
 controls:
 - children:
+  - command: M106 S255
+    name: Attiva ventola
+    type: command
+  - command: M107
+    name: Disattiva ventola
+    type: command
+  layout: horizontal
+  name: Comandi Personalizzati
+- children:
   - commands:
     - M666 X%(deltax)s Y%(deltay)s Z%(deltaz)s
     - M500
