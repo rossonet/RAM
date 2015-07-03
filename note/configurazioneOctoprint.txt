@@ -38,7 +38,19 @@ controls:
     name: Rilevamento Assi
     regex: 'Bed X: ([\-0-9.]+) Y: ([\-0-9.]+) Z: ([\-0-9.]+)'
     template: 'Rilevamento: X={0}, Y={1}, Z={2}'
-  - command: G29 P5 F-73 B73 L-73 R73 V4 S9000
+  - commands:
+    - G28
+    - G29 P3 F-73 B73 L-73 R73 V4 S9000
+    - G28
+    - G29 P5 F-73 B73 L-73 R73 V4 S9000
+    - G28
+    - G29 P9 F-73 B73 L-73 R73 V4 S9000
+    - G28
+    - G29 P9 F-73 B73 L-73 R73 V4 S9000
+    - G28
+    - G29 P9 F-73 B73 L-73 R73 V4 S9000
+    - M500
+    - G28
     name: Allineamento Automatico
     type: command
   layout: horizontal
@@ -82,7 +94,7 @@ controls:
       parameter: calcoli
       slider: false
     - default: -20
-      name: Delta Estrusore<->Probe
+      name: Delta Estrusore Probe
       parameter: delta
       slider: false
     name: Parametri Delta

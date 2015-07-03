@@ -1506,7 +1506,7 @@ static void setup_for_endstop_move() {
     #if !defined(Z_PROBE_SLED) && !defined(Z_PROBE_ALLEN_KEY)
       if (probe_action & ProbeStow){
         clean_up_after_endstop_move();
-        do_blocking_move_to(current_position[X_AXIS], current_position[Y_AXIS], z_before);
+        do_blocking_move_to(0, 0, 150);
         stow_z_probe();
         setup_for_endstop_move();
       }
