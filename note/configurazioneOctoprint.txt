@@ -44,11 +44,11 @@ controls:
     - G28
     - G29 P5 F-73 B73 L-73 R73 V4 S9000
     - G28
-    - G29 P9 F-73 B73 L-73 R73 V4 S9000
+    - G29 P5 F-73 B73 L-73 R73 V4 S9000
     - G28
-    - G29 P9 F-73 B73 L-73 R73 V4 S9000
+    - G29 P5 F-73 B73 L-73 R73 V4 S9000
     - G28
-    - G29 P9 F-73 B73 L-73 R73 V4 S9000
+    - G29 P5 F-73 B73 L-73 R73 V4 S9000
     - M500
     - G28
     name: Allineamento Automatico
