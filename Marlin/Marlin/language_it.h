@@ -13,7 +13,7 @@
 //#define SIMULATE_ROMFONT
 #define DISPLAY_CHARSET_ISO10646_1
 
-#define WELCOME_MSG                         MACHINE_NAME " pronta."
+#define WELCOME_MSG                         MACHINE_NAME " pronto."
 #define MSG_SD_INSERTED                     "SD Card inserita"
 #define MSG_SD_REMOVED                      "SD Card rimossa"
 #define MSG_MAIN                            "Menu principale"
@@ -21,7 +21,7 @@
 #define MSG_DISABLE_STEPPERS                "Disabilita Motori"
 #define MSG_AUTO_HOME                       "Auto Home"
 #define MSG_SET_HOME_OFFSETS                "Setta offset home"
-#define MSG_SET_ORIGIN                      "Imposta. Rossonet"
+#define MSG_SET_ORIGIN                      "Imposta Origine"
 #define MSG_PREHEAT_PLA                     "Preriscalda PLA"
 #define MSG_PREHEAT_PLA_N                   "Preriscalda PLA "
 #define MSG_PREHEAT_PLA_ALL                 "Prer. PLA Tutto"
