@@ -170,7 +170,7 @@ Here are some standard links for getting your machine calibrated:
 // When temperature exceeds max temp, your heater will be switched off.
 // This feature exists to protect your hotend from overheating accidentally, but *NOT* from thermistor short/failure!
 // You should use MINTEMP for thermistor short/failure protection.
-#define HEATER_0_MAXTEMP 300
+#define HEATER_0_MAXTEMP 500
 #define HEATER_1_MAXTEMP 275
 #define HEATER_2_MAXTEMP 275
 #define HEATER_3_MAXTEMP 275
@@ -528,18 +528,18 @@ const bool Z_PROBE_ENDSTOP_INVERTING = true; // set to true to invert the logic 
 
   // Offsets to the probe relative to the extruder tip (Hotend - Probe)
   // X and Y offsets must be integers
-  #define X_PROBE_OFFSET_FROM_EXTRUDER -47     // Probe on: -left  +right
-  #define Y_PROBE_OFFSET_FROM_EXTRUDER -36   // Probe on: -front +behind
-  #define Z_PROBE_OFFSET_FROM_EXTRUDER -30  // -below (always!)
+  #define X_PROBE_OFFSET_FROM_EXTRUDER -40     // Probe on: -left  +right
+  #define Y_PROBE_OFFSET_FROM_EXTRUDER -30   // Probe on: -front +behind
+  #define Z_PROBE_OFFSET_FROM_EXTRUDER -18.3  // -below (always!)
 
   #define Z_RAISE_BEFORE_HOMING 4       // (in mm) Raise Z before homing (G28) for Probe Clearance.
                                         // Be sure you have this distance over your Z_MAX_POS in case
 
   #define XY_TRAVEL_SPEED 4000         // X and Y axis travel speed between probes, in mm/min
 
-  #define Z_RAISE_BEFORE_PROBING 40   //How much the extruder will be raised before traveling to the first probing point.
-  #define Z_RAISE_BETWEEN_PROBINGS 40  //How much the extruder will be raised when traveling from between next probing points
-  #define Z_RAISE_AFTER_PROBING 50    //How much the extruder will be raised after the last probing point.
+  #define Z_RAISE_BEFORE_PROBING 80   //How much the extruder will be raised before traveling to the first probing point.
+  #define Z_RAISE_BETWEEN_PROBINGS 80  //How much the extruder will be raised when traveling from between next probing points
+  #define Z_RAISE_AFTER_PROBING 80    //How much the extruder will be raised after the last probing point.
 
 //   #define Z_PROBE_END_SCRIPT "G1 Z10 F12000\nG1 X15 Y330\nG1 Z0.5\nG1 Z10" //These commands will be executed in the end of G29 routine.
                                                                             //Useful to retract a deployable probe.
@@ -680,7 +680,7 @@ const bool Z_PROBE_ENDSTOP_INVERTING = true; // set to true to invert the logic 
 #ifdef MANUAL_HOME_POSITIONS
   #define MANUAL_X_HOME_POS 0
   #define MANUAL_Y_HOME_POS 0
-  #define MANUAL_Z_HOME_POS 434 // For delta: Distance between nozzle and print surface after homing.
+  #define MANUAL_Z_HOME_POS 436.5 // For delta: Distance between nozzle and print surface after homing.
 #endif
 
 // @section movement

@@ -1491,18 +1491,25 @@ static void setup_for_endstop_move() {
   // Probe bed height at position (x,y), returns the measured z value
   static float probe_pt(float x, float y, float z_before, ProbeAction probe_action=ProbeDeployAndStow, int verbose_level=1) {
     // Move Z up to the z_before height, then move the probe to the given XY
-    do_blocking_move_to(current_position[X_AXIS], current_position[Y_AXIS], z_before); // this also updates current_position
-    do_blocking_move_to(x - X_PROBE_OFFSET_FROM_EXTRUDER, y - Y_PROBE_OFFSET_FROM_EXTRUDER, current_position[Z_AXIS]); // this also updates current_position
-
+   
     #if !defined(Z_PROBE_SLED) && !defined(Z_PROBE_ALLEN_KEY)
       if (probe_action & ProbeDeploy) deploy_z_probe();
     #endif
+    clean_up_after_endstop_move();
+    do_blocking_move_to(current_position[X_AXIS], current_position[Y_AXIS], z_before); // this also updates current_position
+    do_blocking_move_to(x - X_PROBE_OFFSET_FROM_EXTRUDER, y - Y_PROBE_OFFSET_FROM_EXTRUDER, current_position[Z_AXIS]); // this also updates current_position
+    setup_for_endstop_move();
 
     run_z_probe();
     float measured_z = current_position[Z_AXIS];
 
     #if !defined(Z_PROBE_SLED) && !defined(Z_PROBE_ALLEN_KEY)
-      if (probe_action & ProbeStow) stow_z_probe();
+      if (probe_action & ProbeStow){
+        clean_up_after_endstop_move();
+        do_blocking_move_to(current_position[X_AXIS], current_position[Y_AXIS], z_before);
+        stow_z_probe();
+        setup_for_endstop_move();
+      }
     #endif
 
     if (verbose_level > 2) {
@@ -1673,7 +1680,7 @@ static void homeaxis(AxisEnum axis) {
     #endif
 
     // Move towards the endstop until an endstop is triggered
-    destination[axis] = 1.5 * max_length(axis) * axis_home_dir;
+    destination[axis] = 2.5 * max_length(axis) * axis_home_dir;
     feedrate = homing_feedrate[axis];
     line_to_destination();
     st_synchronize();
@@ -2128,7 +2135,7 @@ inline void gcode_G28() {
     sync_plan_position();
 
     // Move all carriages up together until the first endstop is hit.
-    for (int i = X_AXIS; i <= Z_AXIS; i++) destination[i] = 3 * Z_MAX_LENGTH;
+    for (int i = X_AXIS; i <= Z_AXIS; i++) destination[i] = 10 * Z_MAX_LENGTH;
     feedrate = 1.732 * homing_feedrate[X_AXIS];
     line_to_destination();
     st_synchronize();
@@ -2600,18 +2607,30 @@ inline void gcode_G28() {
         if (left_out) {
           out_of_range_error(PSTR("(L)eft"));
           left_probe_bed_position = left_out_l ? MIN_PROBE_X : right_probe_bed_position - MIN_PROBE_EDGE;
+	  SERIAL_PROTOCOLPGM("MIN_PROBE_X: ");
+          SERIAL_PROTOCOL_F(MIN_PROBE_X,6);
+          SERIAL_PROTOCOLPGM("\n");
         }
         if (right_out) {
           out_of_range_error(PSTR("(R)ight"));
           right_probe_bed_position = right_out_r ? MAX_PROBE_X : left_probe_bed_position + MIN_PROBE_EDGE;
+	  SERIAL_PROTOCOLPGM("MAX_PROBE_X: ");
+          SERIAL_PROTOCOL_F(MAX_PROBE_X,6);
+          SERIAL_PROTOCOLPGM("\n");
         }
         if (front_out) {
           out_of_range_error(PSTR("(F)ront"));
           front_probe_bed_position = front_out_f ? MIN_PROBE_Y : back_probe_bed_position - MIN_PROBE_EDGE;
+	  SERIAL_PROTOCOLPGM("MIN_PROBE_Y: ");
+          SERIAL_PROTOCOL_F(MIN_PROBE_Y,6);
+          SERIAL_PROTOCOLPGM("\n");
         }
         if (back_out) {
           out_of_range_error(PSTR("(B)ack"));
           back_probe_bed_position = back_out_b ? MAX_PROBE_Y : front_probe_bed_position + MIN_PROBE_EDGE;
+	  SERIAL_PROTOCOLPGM("MAX_PROBE_Y: ");
+          SERIAL_PROTOCOL_F(MAX_PROBE_Y,6);
+          SERIAL_PROTOCOLPGM("\n");
         }
         return;
       }
@@ -2721,7 +2740,8 @@ inline void gcode_G28() {
             act = ProbeStow;
           else
             act = ProbeStay;
-
+	
+	  
           measured_z = probe_pt(xProbe, yProbe, z_before, act, verbose_level);
 
           #ifndef DELTA
