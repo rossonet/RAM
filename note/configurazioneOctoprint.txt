@@ -22,11 +22,11 @@ controls:
     - M500
     - G28
     input:
-    - default: -10.8
+    - default: -5.25
       name: deltaX
       parameter: deltax
       slider: false
-    - default: -11.9
+    - default: -11.42
       name: deltaY
       parameter: deltay
       slider: false
