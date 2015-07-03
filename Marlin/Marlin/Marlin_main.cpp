@@ -5032,7 +5032,6 @@ void process_commands() {
         gcode_G29();
         break;
     #endif
-
     #ifdef ENABLE_AUTO_BED_LEVELING
 
       #ifndef Z_PROBE_SLED
@@ -5605,7 +5604,6 @@ void clamp_to_software_endstops(float target[3]) {
   }
 
   #ifdef ENABLE_AUTO_BED_LEVELING
-
     // Adjust print surface height by linear interpolation over the bed_level array.
     void adjust_delta(float cartesian[3]) {
       if (delta_grid_spacing[0] == 0 || delta_grid_spacing[1] == 0) return; // G29 not done!
@@ -5628,21 +5626,6 @@ void clamp_to_software_endstops(float target[3]) {
       delta[Y_AXIS] += offset;
       delta[Z_AXIS] += offset;
 
-      /*
-      SERIAL_ECHOPGM("grid_x="); SERIAL_ECHO(grid_x);
-      SERIAL_ECHOPGM(" grid_y="); SERIAL_ECHO(grid_y);
-      SERIAL_ECHOPGM(" floor_x="); SERIAL_ECHO(floor_x);
-      SERIAL_ECHOPGM(" floor_y="); SERIAL_ECHO(floor_y);
-      SERIAL_ECHOPGM(" ratio_x="); SERIAL_ECHO(ratio_x);
-      SERIAL_ECHOPGM(" ratio_y="); SERIAL_ECHO(ratio_y);
-      SERIAL_ECHOPGM(" z1="); SERIAL_ECHO(z1);
-      SERIAL_ECHOPGM(" z2="); SERIAL_ECHO(z2);
-      SERIAL_ECHOPGM(" z3="); SERIAL_ECHO(z3);
-      SERIAL_ECHOPGM(" z4="); SERIAL_ECHO(z4);
-      SERIAL_ECHOPGM(" left="); SERIAL_ECHO(left);
-      SERIAL_ECHOPGM(" right="); SERIAL_ECHO(right);
-      SERIAL_ECHOPGM(" offset="); SERIAL_ECHOLN(offset);
-      */
     }
   #endif // ENABLE_AUTO_BED_LEVELING
 

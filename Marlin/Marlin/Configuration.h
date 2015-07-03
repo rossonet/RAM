@@ -100,7 +100,7 @@ Here are some standard links for getting your machine calibrated:
 
 // Horizontal offset from middle of printer to smooth rod center.
 //#define DELTA_SMOOTH_ROD_OFFSET 175.0 // mm
-#define DELTA_SMOOTH_ROD_OFFSET 236.0 // mm
+#define DELTA_SMOOTH_ROD_OFFSET 230.0 // mm
 
 // Horizontal offset of the universal joints on the end effector.
 //#define DELTA_EFFECTOR_OFFSET 33.0 // mm
@@ -457,7 +457,7 @@ const bool Z_PROBE_ENDSTOP_INVERTING = true; // set to true to invert the logic 
 
   #ifdef AUTO_BED_LEVELING_GRID
 
-    #define DELTA_PROBABLE_RADIUS 60 // (DELTA_PRINTABLE_RADIUS - 20)
+    #define DELTA_PROBABLE_RADIUS 67 // (DELTA_PRINTABLE_RADIUS - 20)
 
     #define LEFT_PROBE_BED_POSITION -DELTA_PROBABLE_RADIUS
     #define RIGHT_PROBE_BED_POSITION DELTA_PROBABLE_RADIUS
@@ -470,7 +470,7 @@ const bool Z_PROBE_ENDSTOP_INVERTING = true; // set to true to invert the logic 
     // Compensate by interpolating between the nearest four Z probe values for each point.
     // Useful for deltas where the print surface may appear like a bowl or dome shape.
     // Works best with ACCURATE_BED_LEVELING_POINTS 5 or higher.
-    #define AUTO_BED_LEVELING_GRID_POINTS 5
+    #define AUTO_BED_LEVELING_GRID_POINTS 3
 
   #else  // !AUTO_BED_LEVELING_GRID
 
@@ -487,8 +487,8 @@ const bool Z_PROBE_ENDSTOP_INVERTING = true; // set to true to invert the logic 
 
   // Offsets to the probe relative to the extruder tip (Hotend - Probe)
   // X and Y offsets must be integers
-  #define X_PROBE_OFFSET_FROM_EXTRUDER 0     // Probe on: -left  +right
-  #define Y_PROBE_OFFSET_FROM_EXTRUDER 0   // Probe on: -front +behind
+  #define X_PROBE_OFFSET_FROM_EXTRUDER -47      // Probe on: -left  +right
+  #define Y_PROBE_OFFSET_FROM_EXTRUDER -37   // Probe on: -front +behind
   #define Z_PROBE_OFFSET_FROM_EXTRUDER -36.50  // -below (always!)
 
   #define Z_RAISE_BEFORE_HOMING 10       // (in mm) Raise Z before homing (G28) for Probe Clearance.
@@ -496,11 +496,11 @@ const bool Z_PROBE_ENDSTOP_INVERTING = true; // set to true to invert the logic 
 
   #define XY_TRAVEL_SPEED 4000         // X and Y axis travel speed between probes, in mm/min
 
-  #define Z_RAISE_BEFORE_PROBING 70   //How much the extruder will be raised before traveling to the first probing point.
-  #define Z_RAISE_BETWEEN_PROBINGS 20  //How much the extruder will be raised when traveling from between next probing points
-  #define Z_RAISE_AFTER_PROBING 70    //How much the extruder will be raised after the last probing point.
+  #define Z_RAISE_BEFORE_PROBING 100   //How much the extruder will be raised before traveling to the first probing point.
+  #define Z_RAISE_BETWEEN_PROBINGS 100  //How much the extruder will be raised when traveling from between next probing points
+  #define Z_RAISE_AFTER_PROBING 100    //How much the extruder will be raised after the last probing point.
 
-//   #define Z_PROBE_END_SCRIPT "G1 Z10 F12000\nG1 X15 Y330\nG1 Z0.5\nG1 Z10" //These commands will be executed in the end of G29 routine.
+  #define Z_PROBE_END_SCRIPT "G1 X0 Y0 Z300 F6000" //These commands will be executed in the end of G29 routine.
                                                                             //Useful to retract a deployable probe.
                                                                            
   //#define Z_PROBE_SLED // turn on if you have a z-probe mounted on a sled like those designed by Charles Bell
@@ -570,7 +570,7 @@ const bool Z_PROBE_ENDSTOP_INVERTING = true; // set to true to invert the logic 
 #ifdef MANUAL_HOME_POSITIONS
   #define MANUAL_X_HOME_POS 0
   #define MANUAL_Y_HOME_POS 0
-  #define MANUAL_Z_HOME_POS 436 // For delta: Distance between nozzle and print surface after homing.
+  #define MANUAL_Z_HOME_POS 434 // For delta: Distance between nozzle and print surface after homing.
 #endif
 
 /**
@@ -583,7 +583,7 @@ const bool Z_PROBE_ENDSTOP_INVERTING = true; // set to true to invert the logic 
 
 // default settings
 // delta speeds must be the same on xyz
-#define DEFAULT_AXIS_STEPS_PER_UNIT   {76, 76, 76, 49}  // default steps per unit for Kossel (GT2, 20 tooth)
+#define DEFAULT_AXIS_STEPS_PER_UNIT   {76, 76, 76, 100}  // default steps per unit for Kossel (GT2, 20 tooth)
 #define DEFAULT_MAX_FEEDRATE          {500, 500, 500, 25}    // (mm/sec)
 #define DEFAULT_MAX_ACCELERATION      {6000,6000,6000,9000}    // X, Y, Z, E maximum start speed for accelerated moves. E default values are good for skeinforge 40+, for older versions raise them a lot.
 

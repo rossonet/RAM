@@ -83,7 +83,6 @@ gcodeViewer: {}
 plugins:
   ScreenSquish:
     _config_version: null
-    octoprint_max_version: ''
   _disabled:
   - softwareupdate
   - customControl
