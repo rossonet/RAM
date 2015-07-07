@@ -291,9 +291,9 @@ module vuoti() {
 	passacavi();
 }
 
-//esploso();
+esploso();
 //base();
-aggancio();
+//aggancio();
 
 //vuoti();
 
