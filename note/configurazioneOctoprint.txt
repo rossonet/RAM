@@ -8,28 +8,22 @@ appearance:
   name: Rossonet Atom Machine
 controls:
 - children:
-  - command: M106 S255
-    name: Attiva ventola
-    type: command
-  - command: M107
-    name: Disattiva ventola
-    type: command
   - commands:
     - M502
     - M500
     name: Azzera Impostazioni
   - commands:
     - G28
-    - G1 X37 Y47 Z100 F6000
+    - G1 X18 Y32 Z100 F6000
     - M117 Centro
     - G30
-    - G1 X-60 Y-19 Z100 F6000
+    - G1 X-53 Y-9 Z100 F6000
     - M117 Torre X
     - G30
-    - G1 X114 Y0 Z100 F6000
+    - G1 X89 Y-9 Z100 F6000
     - M117 Torre Y
     - G30
-    - G1 X37 Y114 Z100 F6000
+    - G1 X18 Y114 Z100 F6000
     - M117 Torre Z
     - G30
     - G1 X0 Y0 Z100 F6000
@@ -40,17 +34,8 @@ controls:
     template: 'Rilevamento: X={0}, Y={1}, Z={2}'
   - commands:
     - G28
-    - G29 P3 F-73 B73 L-73 R73 V4 S9000
-    - G28
-    - G29 P5 F-73 B73 L-73 R73 V4 S9000
-    - G28
-    - G29 P5 F-73 B73 L-73 R73 V4 S9000
-    - G28
-    - G29 P5 F-73 B73 L-73 R73 V4 S9000
-    - G28
-    - G29 P5 F-73 B73 L-73 R73 V4 S9000
+    - G29 S9000
     - M500
-    - G28
     name: Allineamento Automatico
     type: command
   layout: horizontal
@@ -61,7 +46,7 @@ controls:
     - M500
     - G28
     input:
-    - default: -5.25
+    - default: -6.25
       name: deltaX
       parameter: deltax
       slider: false
@@ -93,7 +78,7 @@ controls:
       name: Calcoli al secondo
       parameter: calcoli
       slider: false
-    - default: -20
+    - default: -17.1
       name: Delta Estrusore Probe
       parameter: delta
       slider: false
@@ -106,6 +91,7 @@ gcodeViewer: {}
 plugins:
   ScreenSquish:
     _config_version: null
+    octoprint_max_version: ''
   _disabled:
   - softwareupdate
   - customControl
@@ -164,7 +150,7 @@ server:
   secretKey: fZPsB1b8RcECblDP4ORhJaxbDoXA5UEb
 slicing:
   defaultProfiles:
-    cura: RamBase
+    cura: RAM
 system:
   actions:
   - action: shutdown

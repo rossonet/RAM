@@ -2728,7 +2728,12 @@ inline void gcode_G28() {
           #ifdef DELTA
             // Avoid probing the corners (outside the round or hexagon print surface) on a delta printer.
             float distance_from_center = sqrt(xProbe*xProbe + yProbe*yProbe);
-            if (distance_from_center > DELTA_PROBABLE_RADIUS) continue;
+            if (distance_from_center > DELTA_PROBABLE_RADIUS) {
+		SERIAL_PROTOCOLPGM("Fuori raggio: ");
+          	SERIAL_PROTOCOL_F(sqrt(xProbe*xProbe + yProbe*yProbe),6);
+          	SERIAL_PROTOCOLPGM("\n");
+		continue;
+	    }
           #endif //DELTA
 
           ProbeAction act;
