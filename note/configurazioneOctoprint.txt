@@ -46,11 +46,11 @@ controls:
     - M500
     - G28
     input:
-    - default: -6.25
+    - default: -3.4
       name: deltaX
       parameter: deltax
       slider: false
-    - default: -11.42
+    - default: -11.9
       name: deltaY
       parameter: deltay
       slider: false
@@ -70,7 +70,7 @@ controls:
       name: Bracci
       parameter: bracci
       slider: false
-    - default: 176.0
+    - default: 177.0
       name: Raggio utile
       parameter: raggioutile
       slider: false
