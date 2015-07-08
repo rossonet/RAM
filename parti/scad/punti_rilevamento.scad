@@ -1,0 +1,11 @@
+#translate([0,0,0]) sphere(r=10);
+#translate([0,82,0]) sphere(r=10);
+#rotate([0,0,120]) translate([0,82,0]) sphere(r=10);
+#rotate([0,0,-120]) translate([0,82,0]) sphere(r=10);
+//translate([-18,32,0]) sphere(r=10);
+//translate([-18,114,0]) sphere(r=11);
+//translate([53,-9,0]) sphere(r=11);
+//translate([-89,-9,0]) sphere(r=11);
+#cylinder(r=114,h=1);
+//#cube([228,228,1],center=true);
+cube([160,160,1],center=true);
