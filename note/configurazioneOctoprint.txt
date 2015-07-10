@@ -150,7 +150,7 @@ server:
   secretKey: fZPsB1b8RcECblDP4ORhJaxbDoXA5UEb
 slicing:
   defaultProfiles:
-    cura: PLA
+    cura: PLA_V
 system:
   actions:
   - action: shutdown
