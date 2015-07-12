@@ -46,15 +46,15 @@ controls:
     - M500
     - G28
     input:
-    - default: -3.4
+    - default: -5.7
       name: deltaX
       parameter: deltax
       slider: false
-    - default: -11.9
+    - default: -12.0
       name: deltaY
       parameter: deltay
       slider: false
-    - default: 0
+    - default: 0.0
       name: deltaZ
       parameter: deltaz
       slider: false
@@ -66,7 +66,7 @@ controls:
     - M500
     - G28
     input:
-    - default: 340.0
+    - default: 390.0
       name: Bracci
       parameter: bracci
       slider: false
@@ -78,7 +78,7 @@ controls:
       name: Calcoli al secondo
       parameter: calcoli
       slider: false
-    - default: -17.1
+    - default: -17.0
       name: Delta Estrusore Probe
       parameter: delta
       slider: false
@@ -140,7 +140,7 @@ printerProfiles:
   defaultProfile: {}
 serial:
   autoconnect: true
-  baudrate: 115200
+  baudrate: 250000
   port: /dev/ttyUSB0
   timeout:
     sdStatus: 5.0
@@ -150,7 +150,7 @@ server:
   secretKey: fZPsB1b8RcECblDP4ORhJaxbDoXA5UEb
 slicing:
   defaultProfiles:
-    cura: PLA_V
+    cura: PLA
 system:
   actions:
   - action: shutdown

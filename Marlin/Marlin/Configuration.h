@@ -60,7 +60,7 @@ Here are some standard links for getting your machine calibrated:
 
 // This determines the communication speed of the printer
 // :[2400,9600,19200,38400,57600,115200,250000]
-#define BAUDRATE 115200
+#define BAUDRATE 250000
 
 // This enables the serial port associated to the Bluetooth interface
 //#define BTENABLED              // Enable BT interface on AT90USB devices
@@ -326,10 +326,10 @@ Here are some standard links for getting your machine calibrated:
   // NOTE NB all values for DELTA_* values MUST be floating point, so always have a decimal point in them
 
   // Center-to-center distance of the holes in the diagonal push rods.
-  #define DELTA_DIAGONAL_ROD 340.0 // mm
+  #define DELTA_DIAGONAL_ROD 390.0 // mm
 
   // Horizontal offset from middle of printer to smooth rod center.
-  #define DELTA_SMOOTH_ROD_OFFSET 230.0 // mm
+  #define DELTA_SMOOTH_ROD_OFFSET 234.0 // mm
 
   // Horizontal offset of the universal joints on the end effector.
   #define DELTA_EFFECTOR_OFFSET 30.0 // mm
@@ -680,7 +680,7 @@ const bool Z_PROBE_ENDSTOP_INVERTING = true; // set to true to invert the logic 
 #ifdef MANUAL_HOME_POSITIONS
   #define MANUAL_X_HOME_POS 0
   #define MANUAL_Y_HOME_POS 0
-  #define MANUAL_Z_HOME_POS 436.5 // For delta: Distance between nozzle and print surface after homing.
+  #define MANUAL_Z_HOME_POS 372.2 // For delta: Distance between nozzle and print surface after homing.
 #endif
 
 // @section movement
@@ -905,7 +905,7 @@ const bool Z_PROBE_ENDSTOP_INVERTING = true; // set to true to invert the logic 
 // Use M851 to set the z-probe vertical offset from the nozzle. Store that setting with M500.
 //
 #define SERVO_ENDSTOPS {-1, -1, 0} // Servo index for X, Y, Z. Disable with -1
-#define SERVO_ENDSTOP_ANGLES {0,0, 0,0, 0,64} // X,Y,Z Axis Extend and Retract angles
+#define SERVO_ENDSTOP_ANGLES {0,0, 0,0, 6,64} // X,Y,Z Axis Extend and Retract angles
 
 /**********************************************************************\
  * Support for a filament diameter sensor

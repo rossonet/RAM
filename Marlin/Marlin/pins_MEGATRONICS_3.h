@@ -72,7 +72,7 @@
 #define HEATER_2_PIN 8
 #define HEATER_BED_PIN 10
 #define FAN_PIN 6
-#define FAN2_PIN 7
+//#define FAN2_PIN 7
 
 #define TEMP_0_PIN   (TEMP_SENSOR_0 == -1 ?  11 : 15) // ANALOG NUMBERING
 #define TEMP_1_PIN   (TEMP_SENSOR_1 == -1 ?  10 : 13) // ANALOG NUMBERING
