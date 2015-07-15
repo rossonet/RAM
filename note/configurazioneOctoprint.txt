@@ -78,7 +78,7 @@ controls:
       name: Calcoli al secondo
       parameter: calcoli
       slider: false
-    - default: -17.0
+    - default: -18.2
       name: Delta Estrusore Probe
       parameter: delta
       slider: false
@@ -91,7 +91,6 @@ gcodeViewer: {}
 plugins:
   ScreenSquish:
     _config_version: null
-    octoprint_max_version: ''
   _disabled:
   - softwareupdate
   - customControl
