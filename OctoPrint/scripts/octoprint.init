@@ -18,33 +18,34 @@
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 DESC="Octoprint Daemon"
 NAME="Octoprint"
-DAEMON=/usr/local/bin/octoprint
-PIDFILE=/var/run/$NAME.pid
+DAEMON=/home/rossonet/RAM/OctoPrint/venv/bin/octoprint
+PIDFILE=/home/rossonet/RAM/OctoPrint/venv/run/$NAME.pid
 PKGNAME=octoprint
-SCRIPTNAME=/etc/init.d/$PKGNAME
+SCRIPTNAME=$PKGNAME
+OCTOPRINT_USER=rossonet
 
 # Read configuration variable file if it is present
-[ -r /etc/default/$PKGNAME ] && . /etc/default/$PKGNAME
+#[ -r /etc/default/$PKGNAME ] && . /etc/default/$PKGNAME
 
 # Exit if the octoprint is not installed
 [ -x "$DAEMON" ] || exit 0
 
 # Load the VERBOSE setting and other rcS variables
-[ -f /etc/default/rcS ] && . /etc/default/rcS
+#[ -f /etc/default/rcS ] && . /etc/default/rcS
 
 # Define LSB log_* functions.
 # Depend on lsb-base (>= 3.0-6) to ensure that this file is present.
-. /lib/lsb/init-functions
+#. /lib/lsb/init-functions
 
-if [ -z "$START" -o "$START" != "yes" ]
-then
-   log_warning_msg "Not starting $PKGNAME, edit /etc/default/$PKGNAME to start it."
-   exit 0
-fi
+#if [ -z "$START" -o "$START" != "yes" ]
+#then
+#   echo "Not starting $PKGNAME, edit /etc/default/$PKGNAME to start it."
+#   exit 0
+#fi
 
 if [ -z "$OCTOPRINT_USER" ]
 then
-    log_warning_msg "Not starting $PKGNAME, OCTOPRINT_USER not set in /etc/default/$PKGNAME."
+    echo "Not starting $PKGNAME, OCTOPRINT_USER not set in /etc/default/$PKGNAME."
     exit 0
 fi
 

@@ -78,7 +78,7 @@ controls:
       name: Calcoli al secondo
       parameter: calcoli
       slider: false
-    - default: -18.2
+    - default: -26
       name: Delta Estrusore Probe
       parameter: delta
       slider: false
@@ -96,7 +96,7 @@ plugins:
   - customControl
   cura:
     _config_version: null
-    cura_engine: /home/rossonet/CuraEngine/build/CuraEngine
+    cura_engine: /usr/bin/CuraEngine
     debug_logging: true
     default_profile: null
   discovery:
@@ -135,8 +135,7 @@ plugins:
     pip_command: null
 printerParameters: {}
 printerProfiles:
-  default: ram
-  defaultProfile: {}
+  default: RAM1
 serial:
   autoconnect: true
   baudrate: 250000
@@ -154,15 +153,36 @@ system:
   actions:
   - action: shutdown
     command: sudo shutdown -h now
-    confirm: You are about to shutdown the system.
+    confirm: Sicuro? Vuoi spegnere il sistema RAM.
     name: Shutdown
   - action: reboot
     command: sudo shutdown -r now
-    confirm: You are about to reboot the system.
+    confirm: Stai riavviando RAM.
     name: Reboot
   - action: Permetti assistenza remota
     command: ~/RAM/note/assistenza.sh
     confirm: Permetti a Rossonet di intervenire.
     name: Assistenza
+  - action: Attiva camera
+    command: nohup /home/rossonet/mjpg-streamer/mjpg-streamer-experimental/mjpg_streamer
+      -i "/home/rossonet/mjpg-streamer/mjpg-streamer-experimental/input_uvc.so -d
+      /dev/video0 -r 640x480 -f 10" -o "/home/rossonet/mjpg-streamer/mjpg-streamer-experimental/output_http.so"
+      > webcam.out 2>webcam.err < /dev/null &
+    confirm: Stai avviando la telecamera
+    name: StartCam
+  - action: Ferma camera
+    command: nohup killall /home/rossonet/mjpg-streamer/mjpg-streamer-experimental/mjpg_streamer
+      > webcam.out 2>webcam.err < /dev/null &
+    confirm: Stai spegnendo la telecamera
+    name: StopCam
 temperature: {}
-webcam: {}
+webcam:
+  ffmpeg: /usr/bin/ffmpeg
+  snapshot: http://ram.rossonet.net/webcam/?action=snapshot
+  stream: http://ram.rossonet.net/webcam/?action=stream
+  timelapse:
+    fps: 25
+    options: {}
+    postRoll: 0
+    type: zchange
+  watermark: false
