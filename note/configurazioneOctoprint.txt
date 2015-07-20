@@ -78,7 +78,7 @@ controls:
       name: Calcoli al secondo
       parameter: calcoli
       slider: false
-    - default: -26
+    - default: -25.4
       name: Delta Estrusore Probe
       parameter: delta
       slider: false
@@ -136,6 +136,37 @@ plugins:
 printerParameters: {}
 printerProfiles:
   default: RAM1
+  defaultProfile:
+    axes:
+      e:
+        inverted: false
+        speed: 300
+      x:
+        inverted: false
+        speed: 6000
+      y:
+        inverted: false
+        speed: 6000
+      z:
+        inverted: false
+        speed: 6000
+    color: red
+    extruder:
+      count: 1
+      nozzleDiameter: 0.4
+      offsets:
+      - - 0.0
+        - 0.0
+    heatedBed: false
+    id: _default
+    model: Rossonet Atom Machine
+    name: Rossonet RAM
+    volume:
+      depth: 228.0
+      formFactor: circular
+      height: 300.0
+      origin: center
+      width: 228.0
 serial:
   autoconnect: true
   baudrate: 250000
@@ -182,7 +213,8 @@ webcam:
   stream: http://ram.rossonet.net/webcam/?action=stream
   timelapse:
     fps: 25
-    options: {}
+    options:
+      interval: 2
     postRoll: 0
-    type: zchange
+    type: timed
   watermark: false
