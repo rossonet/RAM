@@ -32,7 +32,7 @@ Todo:
 - saving source code edited in ACE locally, perhaps 'SaveAs' (.JSCAD, .STL, .AMF)
 - DONE: include(); support of multiple files, see http://jsfiddle.net/yybRu/
 -->
-<title>OpenJSCAD.org</title>
+<title>RAM Interfaccia modello</title>
 <link rel="shortcut icon" href="imgs/favicon.png" type="image/x-png">
 <link rel="stylesheet" href="jquery/themes/base/jquery-ui.css" />
 <script src="jquery/jquery-1.9.1.js"></script>
@@ -121,37 +121,37 @@ $(document).ready(function() {
 });   
 </script>
 <div id="header">
-<img src="imgs/title.png">
+<img src="/static/img/logo.png" width="120px">
 <div id="errordiv"></div>
 </div>
 
 <div id=menu>
 <img id=menuHandle src="imgs/menuHandleVL.png">
 <nav>
-<div id=menuVersion>Version <script>document.write(version);</script></div>
+<!-- div id=menuVersion>Version <script>document.write(version);</script></div -->
 <p/>
-<table class=info>
-<tr><td align=right class=infoOperation>Render Code</td><td class=infoKey>SHIFT + RETURN</td></tr>
-<tr><td align=right class=infoOperation>Rotate XZ</td><td class=infoKey>Left Mouse</td></tr>
-<tr><td align=right class=infoOperation>Pan</td><td class=infoKey>Middle Mouse or SHIFT + Left Mouse</td></tr>
-<tr><td align=right class=infoOperation>Rotate XY</td><td class=infoKey>Right Mouse or ALT + Left Mouse</td></tr>
-<tr><td align=right class=infoOperation>Zoom In/Out</td><td class=infoKey>Wheel Mouse or CTRL + Left Mouse</td></tr>
+<table class=info style="margin-top:60px;">
+<tr><td align=right class=infoOperation>Render Codice</td><td class=infoKey>SHIFT + INVIO</td></tr>
+<tr><td align=right class=infoOperation>Rotazione XZ</td><td class=infoKey>Tasto sinistro mouse</td></tr>
+<tr><td align=right class=infoOperation>Pan</td><td class=infoKey>Tasto centrale mouse or SHIFT + tasto sinistro mouse</td></tr>
+<tr><td align=right class=infoOperation>Rotate XY</td><td class=infoKey>Tasto destro mouse o ALT + tasto sinistro mouse</td></tr>
+<tr><td align=right class=infoOperation>Zoom In/Out</td><td class=infoKey>Wheel mouse o CTRL + tasto sinistro mouse</td></tr>
 </table>
 <p><a class=navlink href="https://github.com/Spiritdude/OpenJSCAD.org/wiki/User-Guide" target=_blank>User Guide / Documentation <img src="imgs/externalLink.png" style=externalLink></a>
-<br/><span class=menuSubInfo>How to program with OpenJSCAD: online, offline & CLI</span></p>
-<p><a class=navlink href="https://plus.google.com/115007999023701819645" rel="publisher" target=_blank>Recent Updates <img src="imgs/externalLink.png" style=externalLink></a>
+<br/><span class=menuSubInfo>Documentazione OpenJScad</span></p>
+<p><!-- a class=navlink href="https://plus.google.com/115007999023701819645" rel="publisher" target=_blank>Recent Updates <img src="imgs/externalLink.png" style=externalLink></a>
 <br/><span class=menuSubInfo>Announcements of recent developments</span></p>
 <p><a class=navlink href="https://plus.google.com/communities/114958480887231067224" target=_blank>Google+ Community <img src="imgs/externalLink.png" style=externalLink></a>
-<br/><span class=menuSubInfo>Discuss with other users &amp; developers</span></p>
-<div id=examplesTitle class=navlink><a href='#' onclick='return false'>Examples</a></div>
+<br/><span class=menuSubInfo>Discuss with other users &amp; developers</span></p -->
+<div id=examplesTitle class=navlink><a href='#' onclick='return false'>Libreria Modelli</a></div>
 <div id=examples></div>
-<span class=menuSubInfo>Dozens of examples to learn from</span></p>
+<span class=menuSubInfo>Modelli parametrizzabili</span></p>
 <p/>
 <!--<div id=optionsTitle class=navlink><a href='#' onclick='return false'>Options</a></div>
 <div id=options>...</div>
 <span class=menuSubInfo>Your personal settings</span></p>
 <p/>-->
-<b>Supported Formats</b>
+<!-- b>Supported Formats</b>
 <table class=info>
 <tr><td align=right><b>jscad</b></td><td><a target=_blank href="https://github.com/Spiritdude/OpenJSCAD.org/wiki/User-Guide">OpenJSCAD</a> (native, import/export)</td></tr>
 <tr><td align=right><b>scad</b></td><td><a target=_blank href="http://openscad.org">OpenSCAD</a> (<a target=_blank href="https://github.com/Spiritdude/OpenJSCAD.org/wiki/User-Guide#direct-openscad-scad-import">experimental</a>, import)</td></tr>
@@ -159,7 +159,7 @@ $(document).ready(function() {
 <tr><td align=right><b>amf</b></td><td><a target=_blank href="http://en.wikipedia.org/wiki/Additive_Manufacturing_File_Format">AMF format</a> (experimental, import/export)</td></tr>
 </table>
 <p><a class=navlink href="#" onclick="$('#about').show(); return false;">About</a></p>
-</nav>
+</nav -->
 </div> <!-- /menu -->
 
 <div id=about>

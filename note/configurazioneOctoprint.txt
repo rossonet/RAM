@@ -78,7 +78,7 @@ controls:
       name: Calcoli al secondo
       parameter: calcoli
       slider: false
-    - default: -25.4
+    - default: -23.8
       name: Delta Estrusore Probe
       parameter: delta
       slider: false
@@ -94,6 +94,7 @@ plugins:
   _disabled:
   - softwareupdate
   - customControl
+  - virtual_printer
   cura:
     _config_version: null
     cura_engine: /usr/bin/CuraEngine
