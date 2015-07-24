@@ -215,7 +215,7 @@ webcam:
   timelapse:
     fps: 25
     options:
-      interval: 2
+      interval: 3
     postRoll: 0
     type: timed
   watermark: false

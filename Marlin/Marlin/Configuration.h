@@ -47,8 +47,8 @@ Here are some standard links for getting your machine calibrated:
 // startup. Implementation of an idea by Prof Braino to inform user that any changes made to this
 // build by the user have been successfully uploaded into firmware.
 #define STRING_CONFIG_H_AUTHOR "Andrea Ambrosini (Rossonet)" // Who made the changes.
-#define STRING_SPLASH_LINE1 BUILD_VERSION // will be shown during bootup in line 1
-//#define STRING_SPLASH_LINE2 STRING_DISTRIBUTION_DATE // will be shown during bootup in line 2
+#define STRING_SPLASH_LINE1 BUILD_VERSION "Rossonet"// will be shown during bootup in line 1
+#define STRING_SPLASH_LINE2 STRING_DISTRIBUTION_DATE "Atom Machine"// will be shown during bootup in line 2
 
 // @section machine
 
@@ -77,7 +77,7 @@ Here are some standard links for getting your machine calibrated:
 
 // Define this to set a unique identifier for this printer, (Used by some programs to differentiate between machines)
 // You can use an online service to generate a random UUID. (eg http://www.uuidgenerator.net/version4)
-// #define MACHINE_UUID "00000000-0000-0000-0000-000000000000"
+#define MACHINE_UUID "8f37445a-81b1-41d2-9626-f9b002295828"
 
 // This defines the number of extruders
 // :[1,2,3,4]
@@ -206,14 +206,21 @@ Here are some standard links for getting your machine calibrated:
   #define K1 0.95 //smoothing factor within the PID
 
   // If you are using a pre-configured hotend then you can use one of the value sets by uncommenting it
+  //
+  //
+  // E3D V6
+  #define  DEFAULT_Kp 39.64
+  #define  DEFAULT_Ki 3.67
+  #define  DEFAULT_Kd 107.15
+
   // Ultimaker
   //#define  DEFAULT_Kp 22.2
   //#define  DEFAULT_Ki 1.08
   //#define  DEFAULT_Kd 114
 
-  #define DEFAULT_Kp 18.07
-  #define DEFAULT_Ki 2.15
-  #define DEFAULT_Kd 37.89
+  //#define DEFAULT_Kp 18.07
+  //#define DEFAULT_Ki 2.15
+  //#define DEFAULT_Kd 37.89
 
   // MakerGear
   //#define  DEFAULT_Kp 7.0
@@ -278,7 +285,7 @@ Here are some standard links for getting your machine calibrated:
 //if PREVENT_DANGEROUS_EXTRUDE is on, you can still disable (uncomment) very long bits of extrusion separately.
 #define PREVENT_LENGTHY_EXTRUDE
 
-#define EXTRUDE_MINTEMP 170
+#define EXTRUDE_MINTEMP 180
 #define EXTRUDE_MAXLENGTH (X_MAX_LENGTH+Y_MAX_LENGTH) //prevent extrusion of very large distances.
 
 //===========================================================================
@@ -530,7 +537,7 @@ const bool Z_PROBE_ENDSTOP_INVERTING = true; // set to true to invert the logic 
   // X and Y offsets must be integers
   #define X_PROBE_OFFSET_FROM_EXTRUDER -18     // Probe on: -left  +right
   #define Y_PROBE_OFFSET_FROM_EXTRUDER -32   // Probe on: -front +behind
-  #define Z_PROBE_OFFSET_FROM_EXTRUDER -26  // -below (always!)
+  #define Z_PROBE_OFFSET_FROM_EXTRUDER -23.8  // -below (always!)
 
   #define Z_RAISE_BEFORE_HOMING 4       // (in mm) Raise Z before homing (G28) for Probe Clearance.
                                         // Be sure you have this distance over your Z_MAX_POS in case
@@ -719,8 +726,8 @@ const bool Z_PROBE_ENDSTOP_INVERTING = true; // set to true to invert the logic 
 #ifdef CUSTOM_M_CODES
   #ifdef ENABLE_AUTO_BED_LEVELING
     #define CUSTOM_M_CODE_SET_Z_PROBE_OFFSET 851
-    #define Z_PROBE_OFFSET_RANGE_MIN -100
-    #define Z_PROBE_OFFSET_RANGE_MAX 20
+    #define Z_PROBE_OFFSET_RANGE_MIN -26
+    #define Z_PROBE_OFFSET_RANGE_MAX -22
   #endif
 #endif
 
@@ -744,11 +751,11 @@ const bool Z_PROBE_ENDSTOP_INVERTING = true; // set to true to invert the logic 
 // Preheat Constants
 #define PLA_PREHEAT_HOTEND_TEMP 180
 #define PLA_PREHEAT_HPB_TEMP 70
-#define PLA_PREHEAT_FAN_SPEED 255   // Insert Value between 0 and 255
+#define PLA_PREHEAT_FAN_SPEED 60   // Insert Value between 0 and 255
 
 #define ABS_PREHEAT_HOTEND_TEMP 240
 #define ABS_PREHEAT_HPB_TEMP 100
-#define ABS_PREHEAT_FAN_SPEED 255   // Insert Value between 0 and 255
+#define ABS_PREHEAT_FAN_SPEED 100   // Insert Value between 0 and 255
 
 //==============================LCD and SD support=============================
 // @section lcd
