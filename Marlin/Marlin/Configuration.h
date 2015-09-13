@@ -537,7 +537,7 @@ const bool Z_PROBE_ENDSTOP_INVERTING = true; // set to true to invert the logic 
   // X and Y offsets must be integers
   #define X_PROBE_OFFSET_FROM_EXTRUDER -18     // Probe on: -left  +right
   #define Y_PROBE_OFFSET_FROM_EXTRUDER -32   // Probe on: -front +behind
-  #define Z_PROBE_OFFSET_FROM_EXTRUDER -23.8  // -below (always!)
+  #define Z_PROBE_OFFSET_FROM_EXTRUDER -24.0  // -below (always!)
 
   #define Z_RAISE_BEFORE_HOMING 4       // (in mm) Raise Z before homing (G28) for Probe Clearance.
                                         // Be sure you have this distance over your Z_MAX_POS in case
@@ -726,8 +726,8 @@ const bool Z_PROBE_ENDSTOP_INVERTING = true; // set to true to invert the logic 
 #ifdef CUSTOM_M_CODES
   #ifdef ENABLE_AUTO_BED_LEVELING
     #define CUSTOM_M_CODE_SET_Z_PROBE_OFFSET 851
-    #define Z_PROBE_OFFSET_RANGE_MIN -26
-    #define Z_PROBE_OFFSET_RANGE_MAX -22
+    #define Z_PROBE_OFFSET_RANGE_MIN -35
+    #define Z_PROBE_OFFSET_RANGE_MAX -10
   #endif
 #endif
 

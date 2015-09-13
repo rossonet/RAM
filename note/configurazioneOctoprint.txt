@@ -35,7 +35,6 @@ controls:
   - commands:
     - G28
     - G29 S9000
-    - M500
     name: Allineamento Automatico
     type: command
   layout: horizontal
@@ -78,7 +77,7 @@ controls:
       name: Calcoli al secondo
       parameter: calcoli
       slider: false
-    - default: -23.8
+    - default: -24.00
       name: Delta Estrusore Probe
       parameter: delta
       slider: false
