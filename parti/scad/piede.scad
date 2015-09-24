@@ -13,7 +13,7 @@ holder_h=16.5;
 rod_distance=50;
 rod_dia=11.5;
 wall_w=rod_distance-(rod_dia/2);
-$fn=30;
+$fn=240;
 
 module vite() {
   for (x = [-w/2, w/2]) {
@@ -50,7 +50,7 @@ module agganci() {
 // Scasso pannello plexiglass
 module plexiglass(){
     difference(){
-        cylinder(r=80,h=58,center=true,$fn=90);
+        cylinder(r=80,h=58,center=true);
         union() {
             cylinder(r=60,h=60,center=true);
             translate([0, 34, 0])cube([200,100,60],center=true);
@@ -77,8 +77,8 @@ module cavetti() {
     intersection() {
         cube([80,80,80]);
         difference(){
-            cylinder(r=61,h=6,$fn=90);
-            translate([0,0,-1])cylinder(r=56,h=8,$fn=90);
+            cylinder(r=61,h=6);
+            translate([0,0,-1])cylinder(r=56,h=8);
         }
     }
 }
@@ -87,9 +87,9 @@ module blocco_motore() {
     difference(){
         // sfera base
         union(){
-            sphere(r=65,center=true,$fn=90);
-            //translate([0, 0, 6])sphere(r=66,center=true,$fn=90);
-            //translate([0, 0, -6])sphere(r=66,center=true,$fn=90);
+            sphere(r=65,center=true);
+            //translate([0, 0, 6])sphere(r=66,center=true);
+            //translate([0, 0, -6])sphere(r=66,center=true);
             struttura_esterna();
         }
         // SOTTRAZIONE
@@ -104,13 +104,13 @@ module blocco_motore() {
             difference(){
                 cube([40,20,80],center=true);
                 translate([-22,12,0])
-                cylinder(r=4,h=100,center=true,$fn=90);
+                cylinder(r=4,h=100,center=true);
             }
             translate([-59,-15,25])
             difference(){
                 cube([40,20,80],center=true);
                 translate([22,12,0])
-                cylinder(r=4,h=100,center=true,$fn=90);
+                cylinder(r=4,h=100,center=true);
             }
             // parte bassa
             translate([0,0,-65])
@@ -120,11 +120,11 @@ module blocco_motore() {
             cube([120,150,40],center=true);
             // bullone aggancio piede (M8)
             translate([0,0,-40])
-            cylinder(r=5,h=100,center=true,$fn=90);
+            cylinder(r=5,h=100,center=true);
             translate([0,0,-17])
             cylinder(r=9.5,h=8,center=true,$fn=6);
             translate([0,0,-44])
-            cylinder(r=16,h=4,center=true,$fn=90);
+            cylinder(r=16,h=4,center=true);
             // struttura
             struttura();
             // agganci piatto
@@ -190,8 +190,8 @@ module struttura_esterna(){
 
 module passante(){
     difference(){
-        cylinder(r=9,h=80,center=true,$fn=90);
-        cylinder(r=5,h=82,center=true,$fn=90);
+        cylinder(r=9,h=80,center=true);
+        cylinder(r=5,h=82,center=true);
     }
     
 }
@@ -226,22 +226,22 @@ module fori_m8() {
         translate([0,43,0]){
         rotate([0,0,60])
         translate([0,-30,0])
-            cylinder(r=5,h=86,center=true,$fn=90);
+            cylinder(r=5,h=86,center=true);
         rotate([0,0,-60])
         translate([0,-30,0])
-            cylinder(r=5,h=86,center=true,$fn=90);
+            cylinder(r=5,h=86,center=true);
         rotate([0,0,60])
         translate([0,-50,0])
-            cylinder(r=5,h=86,center=true,$fn=90);
+            cylinder(r=5,h=86,center=true);
         rotate([0,0,-60])
         translate([0,-50,0])
-            cylinder(r=5,h=86,center=true,$fn=90);
+            cylinder(r=5,h=86,center=true);
         rotate([0,0,60])
         translate([0,-70,0])
-            cylinder(r=5,h=86,center=true,$fn=90);
+            cylinder(r=5,h=86,center=true);
         rotate([0,0,-60])
         translate([0,-70,0])
-            cylinder(r=5,h=86,center=true,$fn=90);
+            cylinder(r=5,h=86,center=true);
     }
 }
 
