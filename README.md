@@ -12,11 +12,20 @@ Per maggiori dettagli sulla licenza rimando a [questa voce](http://it.wikipedia.
 
 ##Una "distro" 3d chiavi in mano
 
-Rossonet Atom Machine è un progetto completamente open source per realizzare una piattaforma di prototipazione Agile con attenzione all'usabilità e la scalabilità.
+Rossonet Atom Machine è una macchina a controllo numerico a 3 assi completamente open source.
+
 La macchina è completamente governabile via rete tramite un browser, il software montato a bordo guida l'utente nelle varie fasi di lavorazioni in un contesto social.
-La macchina è composta da parti in plastica derivate da varie versione della [RepRap Rostock](http://reprap.org/wiki/Rostock) e componenti meccaniche (barre rettificate, cuscinetti e cinghie) facilmente reperibili localmente e online.
-I giunti cardanici dell'architettura delta sono tutti magnetici, questo permette una rapida sostituzione delle parti, ma anche la sicurezza che, in caso di errore nella programmazione software, la macchina si smonterà senza danneggiarsi o danneggiare qualcuno o qualcosa. 
-La scheda di controllo è una [Megatronics V3](http://reprapworld.com/mt/megatronics3_src.zip), progetto che integra in un'unica architettura Arduino Mega e RAMPS. Monta un processore Atmega2560 a 16MHz. L'elettronica è governata dal [firmware Marlin](https://github.com/MarlinFirmware/Marlin). Alla scheda di controllo è collegato un computer. Attualmente la macchina monta un [Olinuxino A13](https://www.olimex.com/Products/OLinuXino/A13/A13-OLinuXino/open-source-hardware) con scheda WiFi. Oltre ad una distribuzione Linux ottimizzata per la scheda specifica, il computer offre le fuzionalità di controllo web tramite [OctoPrint](http://octoprint.org/); la virtualizzazione della seriale, per usare la macchina come una CNC, con programmi come [Printrun](https://github.com/kliment/Printrun) o [LinuxCNC](http://sourceforge.net/projects/emc/); le funzionalità di slicing sono gestite con [CuraEngine](https://github.com/Ultimaker/CuraEngine); le funzionalità CAD con [OpenJSCAD](https://github.com/Spiritdude/OpenJSCAD.org/wiki/User-Guide); il CAM (calcolo dei percorsi di incisione o scrittura) con [PyCAM](http://pycam.sourceforge.net/).
+
+La macchina è composta da parti in plastica derivate da varie versione della [RepRap Rostock](http://reprap.org/wiki/Rostock) e componenti meccaniche (barre rettificate, cuscinetti e cinghie) facilmente reperibili localmente e online. I giunti cardanici dell'architettura delta sono tutti magnetici, questo permette una rapida sostituzione delle parti, ma anche la sicurezza che, in caso di errore nella programmazione software, la macchina si smonterà senza danneggiarsi o danneggiare qualcuno o qualcosa.
+ 
+La scheda di controllo è una [Megatronics V3](http://reprapworld.com/mt/megatronics3_src.zip), progetto che integra in un'unica scheda il progetto Arduino Mega e il progetto RAMPS. La scheda monta un processore Atmega2560 a 16MHz.
+
+L'elettronica è governata dal [firmware Marlin](https://github.com/MarlinFirmware/Marlin).
+
+Alla scheda di controllo è collegato un computer. Attualmente il prototipo monta un [BananaPI](http://www.bananapi.org/).
+
+Oltre ad una distribuzione Linux ottimizzata per la scheda specifica, il computer offre le fuzionalità di controllo web tramite [OctoPrint](http://octoprint.org/); la virtualizzazione della seriale, per usare la macchina come una CNC, con programmi come [Printrun](https://github.com/kliment/Printrun) o [LinuxCNC](http://sourceforge.net/projects/emc/); le funzionalità di slicing sono gestite con [CuraEngine](https://github.com/Ultimaker/CuraEngine); le funzionalità CAD con [OpenJSCAD](https://github.com/Spiritdude/OpenJSCAD.org/wiki/User-Guide); il CAM (calcolo dei percorsi di incisione o scrittura) con [PyCAM](http://pycam.sourceforge.net/).
+
 L'interfaccia web è fruibile da dispositivo mobile grazie alla libreria [Twitter Bootstrap](http://getbootstrap.com/2.3.2/).
 
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=aIwhmhjWtVI" target="_blank"><img src="http://img.youtube.com/vi/aIwhmhjWtVI/0.jpg" alt="Rossonet" width="640" height="360" border="10" /></a>

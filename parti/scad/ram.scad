@@ -3,7 +3,7 @@
 use <blocco_motore.scad>
 use <fine_corsa.scad>
 use <carrello.scad>
-use <piattaforma_3dprint.scad>
+use <piattaforma_3dprint_v2.scad>
 
 module asse(){
 	color("red"){
@@ -25,7 +25,7 @@ module assi(){
 	rotate([0,0,0]) translate([0,250,0])asse();
 	rotate([0,0,120]) translate([0,250,0])asse();
 	rotate([0,0,240]) translate([0,250,0])asse();
-	rotate([0,0,95]) translate([0,250,470]) cube([20,20,1000],center=true);
+	//rotate([0,0,95]) translate([0,250,470]) cube([20,20,1000],center=true);
 }
 
 module blocco_stampante(){
