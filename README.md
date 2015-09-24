@@ -14,7 +14,7 @@ Per maggiori dettagli sulla licenza rimando a [questa voce](http://it.wikipedia.
 
 Rossonet Atom Machine è una macchina a controllo numerico a 3 assi completamente open source.
 
-La macchina è completamente governabile via rete tramite un browser, il software montato a bordo guida l'utente nelle varie fasi di lavorazioni in un contesto social.
+La macchina è governabile via rete tramite un browser, il software montato a bordo guida l'utente nelle varie fasi di lavorazioni in un contesto social.
 
 La macchina è composta da parti in plastica derivate da varie versione della [RepRap Rostock](http://reprap.org/wiki/Rostock) e componenti meccaniche (barre rettificate, cuscinetti e cinghie) facilmente reperibili localmente e online. I giunti cardanici dell'architettura delta sono tutti magnetici, questo permette una rapida sostituzione delle parti, ma anche la sicurezza che, in caso di errore nella programmazione software, la macchina si smonterà senza danneggiarsi o danneggiare qualcuno o qualcosa.
  
@@ -39,7 +39,7 @@ L'interfaccia web è fruibile da dispositivo mobile grazie alla libreria [Twitte
 5. Piano di lavoro con aggancio magnetico, in vetro, riscaldato -da implementare-;
 6. Attuatore a siringa per la lavorazione di materiali liquidi -da implementare-;
 7. Help Online integrato nell'interfaccia per imparare con il supporto multimediale come utilizzare e svolgere le procedure di manutenzione della macchina -in sviluppo-;
-8. Sistema di assistenza remoto basato;
+8. Sistema di assistenza remoto basato su chat;
 9. Integrazione software di modellizazione parametrica con libreria online -da implementare-;
 10. [Configurazione con raggio di 23,5cm](http://www.rossonet.org/dati/RAM235.html);
 11. [Configurazione con raggio di 35cm](http://www.rossonet.org/dati/RAM350.html) -da testare-; 

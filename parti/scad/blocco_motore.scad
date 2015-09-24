@@ -13,7 +13,7 @@ holder_h=16.5;
 rod_distance=50;
 rod_dia=11.5;
 wall_w=rod_distance-(rod_dia/2);
-$fn=30;
+$fn=120;
 
 module vite() {
   for (x = [-w/2, w/2]) {
@@ -29,7 +29,7 @@ module vite() {
 module agganci() {
     m = 29;
     translate([0, 0, 0]) {
-        rotate([90, 0, 0]) cylinder(r=12, h=40, center=true, $fn=48);
+        rotate([90, 0, 0]) cylinder(r=13, h=40, center=true, $fn=48);
         cube([12, 40, 12], center=true);
         // Motor mounting screw slots
         translate([m/2, 0, m/2]) rotate([0, -45, 0])
@@ -50,7 +50,7 @@ module agganci() {
 // Scasso pannello plexiglass
 module plexiglass(){
     difference(){
-        cylinder(r=80,h=58,center=true,$fn=90);
+        cylinder(r=80,h=58,center=true);
         union() {
             cylinder(r=60,h=60,center=true);
             translate([0, 34, 0])cube([200,100,60],center=true);
@@ -77,8 +77,8 @@ module cavetti() {
     intersection() {
         cube([80,80,80]);
         difference(){
-            cylinder(r=61,h=6,$fn=90);
-            translate([0,0,-1])cylinder(r=56,h=8,$fn=90);
+            cylinder(r=61,h=6);
+            translate([0,0,-1])cylinder(r=56,h=8);
         }
     }
 }
@@ -87,9 +87,9 @@ module blocco_motore() {
     difference(){
         // sfera base
         union(){
-            sphere(r=65,center=true,$fn=90);
-            translate([0, 0, 6])sphere(r=66,center=true,$fn=90);
-            translate([0, 0, -6])sphere(r=66,center=true,$fn=90);
+            sphere(r=65,center=true);
+            translate([0, 0, 6])sphere(r=66,center=true);
+            translate([0, 0, -6])sphere(r=66,center=true);
             struttura_esterna();
         }
         // SOTTRAZIONE
@@ -101,8 +101,8 @@ module blocco_motore() {
             // vuoto corpo motore
             difference() {
                 union(){
-                    translate([24, 0, 0]) sphere(r=34,center=true,$fn=90);
-                    translate([-24, 0, 0]) sphere(r=34,center=true,$fn=90);
+                    translate([24, 0, 0]) sphere(r=34,center=true);
+                    translate([-24, 0, 0]) sphere(r=34,center=true);
                 }
                 translate([0, -20, 0])
                 cube([300,60,300],center=true);
@@ -116,7 +116,7 @@ module blocco_motore() {
             agganci();
             // passacavo di rete
             translate([-20,25,-30])
-            cylinder(r=3.1,h=40,center=true,$fn=90);
+            cylinder(r=3.1,h=40,center=true);
             // passacavo sensore
             //translate([-5,-18,-20])cavetti();
             // scasso bulloni barra
@@ -124,20 +124,20 @@ module blocco_motore() {
             difference(){
                 cube([40,20,80],center=true);
                 translate([-22,12,0])
-                cylinder(r=4,h=100,center=true,$fn=90);
+                cylinder(r=4,h=100,center=true);
             }
             translate([-59,-15,-6])
             difference(){
                 cube([40,20,80],center=true);
                 translate([22,12,0])
-                cylinder(r=4,h=100,center=true,$fn=90);
+                cylinder(r=4,h=100,center=true);
             }
             // parte bassa
             translate([0,0,-65])
             cube([100,150,40],center=true);
             // bullone aggancio superiore (M8)
             translate([0,0,40])
-            cylinder(r=5,h=100,center=true,$fn=90);
+            cylinder(r=5,h=100,center=true);
             translate([0,0,34])
             cylinder(r=9.5,h=8,center=true,$fn=6);
             // struttura
@@ -194,8 +194,8 @@ module struttura_esterna(){
 
 module passante(){
     difference(){
-        cylinder(r=9,h=80,center=true,$fn=90);
-        cylinder(r=5,h=82,center=true,$fn=90);
+        cylinder(r=9,h=80,center=true);
+        cylinder(r=5,h=82,center=true);
     }
     
 }
@@ -221,22 +221,22 @@ module fori_m8() {
         translate([0,90,0]){
         rotate([0,0,30])
         translate([0,-64,0])
-            cylinder(r=5,h=86,center=true,$fn=90);
+            cylinder(r=5,h=86,center=true);
         rotate([0,0,-30])
         translate([0,-64,0])
-            cylinder(r=5,h=86,center=true,$fn=90);
+            cylinder(r=5,h=86,center=true);
         rotate([0,0,30])
         translate([0,-84,0])
-            cylinder(r=5,h=86,center=true,$fn=90);
+            cylinder(r=5,h=86,center=true);
         rotate([0,0,-30])
         translate([0,-84,0])
-            cylinder(r=5,h=86,center=true,$fn=90);
+            cylinder(r=5,h=86,center=true);
         rotate([0,0,30])
         translate([0,-104,0])
-            cylinder(r=5,h=86,center=true,$fn=90);
+            cylinder(r=5,h=86,center=true);
         rotate([0,0,-30])
         translate([0,-104,0])
-            cylinder(r=5,h=86,center=true,$fn=90);
+            cylinder(r=5,h=86,center=true);
     }
 }
 
@@ -295,13 +295,13 @@ module wall(){
                 translate([18,8.2,3]){
                     hole();	
                 }
-                translate([-1,8.2,3]){
+                translate([-2,8.2,3]){
                     hole();	
                 }
-                translate([-15.5,8.2,3]){
+                translate([-16.5,8.2,3]){
                     hole();	
                 }
-                translate([-15.5,8.2,14]){
+                translate([-16.5,8.2,14]){
                     hole();	
                 }
 			}
