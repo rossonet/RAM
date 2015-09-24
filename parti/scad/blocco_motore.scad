@@ -13,7 +13,7 @@ holder_h=16.5;
 rod_distance=50;
 rod_dia=11.5;
 wall_w=rod_distance-(rod_dia/2);
-$fn=60;
+$fn=240;
 
 module vite() {
   for (x = [-w/2, w/2]) {
