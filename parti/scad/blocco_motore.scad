@@ -13,7 +13,7 @@ holder_h=16.5;
 rod_distance=50;
 rod_dia=11.5;
 wall_w=rod_distance-(rod_dia/2);
-$fn=120;
+$fn=60;
 
 module vite() {
   for (x = [-w/2, w/2]) {
@@ -87,9 +87,9 @@ module blocco_motore() {
     difference(){
         // sfera base
         union(){
-            sphere(r=65,center=true);
-            translate([0, 0, 6])sphere(r=66,center=true);
-            translate([0, 0, -6])sphere(r=66,center=true);
+            sphere(r=70,center=true);
+            //translate([0, 0, 6])sphere(r=66,center=true);
+            //translate([0, 0, -6])sphere(r=66,center=true);
             struttura_esterna();
         }
         // SOTTRAZIONE
