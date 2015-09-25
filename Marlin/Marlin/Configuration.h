@@ -209,9 +209,9 @@ Here are some standard links for getting your machine calibrated:
   //
   //
   // E3D V6
-  #define  DEFAULT_Kp 39.64
-  #define  DEFAULT_Ki 3.67
-  #define  DEFAULT_Kd 107.15
+  #define  DEFAULT_Kp 91.27
+  #define  DEFAULT_Ki 8.60
+  #define  DEFAULT_Kd 242.24
 
   // Ultimaker
   //#define  DEFAULT_Kp 22.2
@@ -285,7 +285,7 @@ Here are some standard links for getting your machine calibrated:
 //if PREVENT_DANGEROUS_EXTRUDE is on, you can still disable (uncomment) very long bits of extrusion separately.
 #define PREVENT_LENGTHY_EXTRUDE
 
-#define EXTRUDE_MINTEMP 180
+#define EXTRUDE_MINTEMP 160
 #define EXTRUDE_MAXLENGTH (X_MAX_LENGTH+Y_MAX_LENGTH) //prevent extrusion of very large distances.
 
 //===========================================================================
