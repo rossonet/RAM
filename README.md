@@ -10,21 +10,23 @@ Per maggiori dettagli sulla licenza rimando a [questa voce](http://it.wikipedia.
 ![alt text](https://www.gnu.org/graphics/gplv3-88x31.png "LGPL Logo")
 
 
-##Una "distro" 3d chiavi in mano
+##Una "distro" 3d
 
-Rossonet Atom Machine è una macchina a controllo numerico a 3 assi completamente open source.
+Rossonet Atom Machine è una macchina a controllo numerico su 3 assi completamente open source.
 
 La macchina è governabile via rete tramite un browser, il software montato a bordo guida l'utente nelle varie fasi di lavorazioni in un contesto social.
 
-La macchina è composta da parti in plastica derivate da varie versione della [RepRap Rostock](http://reprap.org/wiki/Rostock) e componenti meccaniche (barre rettificate, cuscinetti e cinghie) facilmente reperibili localmente e online. I giunti cardanici dell'architettura delta sono tutti magnetici, questo permette una rapida sostituzione delle parti, ma anche la sicurezza che, in caso di errore nella programmazione software, la macchina si smonterà senza danneggiarsi o danneggiare qualcuno o qualcosa.
+La macchina è composta da parti in plastica derivate da varie versione della [RepRap Rostock](http://reprap.org/wiki/Rostock) e componenti meccaniche (barre rettificate, cuscinetti e cinghie) facilmente reperibili localmente e online.
+
+I giunti cardanici sono tutti magnetici, questo permette una rapida sostituzione delle parti, ma anche la sicurezza che, in caso di errore nella programmazione software, la macchina si smonterà senza danneggiarsi o danneggiare qualcuno o qualcosa.
  
-La scheda di controllo è una [Megatronics V3](http://reprapworld.com/mt/megatronics3_src.zip), progetto che integra in un'unica scheda il progetto Arduino Mega e il progetto RAMPS. La scheda monta un processore Atmega2560 a 16MHz.
+L'elettronica di controllo è una [Megatronics V3](http://reprapworld.com/mt/megatronics3_src.zip), architettura che integra in un'unica scheda il progetto Arduino Mega e il progetto RAMPS. La scheda monta un processore Atmega2560 a 16MHz.
 
 L'elettronica è governata dal [firmware Marlin](https://github.com/MarlinFirmware/Marlin).
 
-Alla scheda di controllo è collegato un computer. Attualmente il prototipo monta un [BananaPI](http://www.bananapi.org/).
+Alla scheda di controllo è collegato un computer con processore A20. Sui protipi è montata una scheda [BananaPI](http://www.bananapi.org/).
 
-Oltre ad una distribuzione Linux ottimizzata per la scheda specifica, il computer offre le fuzionalità di controllo web tramite [OctoPrint](http://octoprint.org/); la virtualizzazione della seriale, per usare la macchina come una CNC, con programmi come [Printrun](https://github.com/kliment/Printrun) o [LinuxCNC](http://sourceforge.net/projects/emc/); le funzionalità di slicing sono gestite con [CuraEngine](https://github.com/Ultimaker/CuraEngine); le funzionalità CAD con [OpenJSCAD](https://github.com/Spiritdude/OpenJSCAD.org/wiki/User-Guide); il CAM (calcolo dei percorsi di incisione o scrittura) con [PyCAM](http://pycam.sourceforge.net/).
+Oltre ad una distribuzione Linux ottimizzata per la scheda specifica -Fedora 22-, il computer offre le fuzionalità di controllo web tramite [OctoPrint](http://octoprint.org/); la virtualizzazione della seriale, per usare la macchina come una CNC, con programmi come [Printrun](https://github.com/kliment/Printrun) o [LinuxCNC](http://sourceforge.net/projects/emc/); le funzionalità di slicing sono gestite con [CuraEngine](https://github.com/Ultimaker/CuraEngine); le funzionalità CAD con [OpenJSCAD](https://github.com/Spiritdude/OpenJSCAD.org/wiki/User-Guide); il CAM (calcolo dei percorsi di incisione o scrittura) con [PyCAM](http://pycam.sourceforge.net/).
 
 L'interfaccia web è fruibile da dispositivo mobile grazie alla libreria [Twitter Bootstrap](http://getbootstrap.com/2.3.2/).
 
@@ -32,29 +34,68 @@ L'interfaccia web è fruibile da dispositivo mobile grazie alla libreria [Twitte
 
 ##Funzionalità
 
-1. Stampa 3D a filamento fuso (1,75mm) con temperatura di lavorazione fino 175 gradi (PLA,ABS,ecc...) -In test-;
+1. Stampa 3D a filamento fuso (1,75mm) con temperatura di lavorazione fino 240 gradi (PLA,ABS,ecc...);
 2. Attuatore per l'uso di penne, matite e pennarelli;
 3. Interfaccia web responsible;
 4. Taglio polistirolo -da implementare-;
 5. Piano di lavoro con aggancio magnetico, in vetro, riscaldato -da implementare-;
 6. Attuatore a siringa per la lavorazione di materiali liquidi -da implementare-;
-7. Help Online integrato nell'interfaccia per imparare con il supporto multimediale come utilizzare e svolgere le procedure di manutenzione della macchina -in sviluppo-;
-8. Sistema di assistenza remoto basato su chat;
-9. Integrazione software di modellizazione parametrica con libreria online -da implementare-;
+7. Help Online integrato nell'interfaccia per imparare con il supporto multimediale come utilizzare e svolgere le procedure di manutenzione della macchina -in sviluppo-. In particolare le procedure di calibrazione della struttura, calibrazione del termostato, cambio filamento;
+8. Sistema di assistenza remoto basato su chat web -integrazione Olark-;
+9. Integrazione software di modellizazione parametrica con libreria online in OpenJScad-da implementare-;
 10. [Configurazione con raggio di 23,5cm](http://www.rossonet.org/dati/RAM235.html);
 11. [Configurazione con raggio di 35cm](http://www.rossonet.org/dati/RAM350.html) -da testare-; 
-12. Struttura di montaggio smontabile e studio imballaggi per il traporto -da fare-;
-13. Sistema di autocalibrazione -in test-. 
-14. API per l'interfaccia di software di terze parti;
+12. Studio imballaggi per il traporto -da fare-;
+13. API per l'interfaccia di software di terze parti;
 15. Integrazione MQTT per il monitoraggio integrato nelle reti IoT;
 
-##Elenco materiali
+##Versioni
 
+Esistono 3 versioni preconfigurate della macchina. Il modello Ar4k è pensato per un utilizzo di laboratorio e didattico; il modello Eroina  per adattarsi ad una struttura realizzata con materiale di recupero assemblato manualmente e   
+
+###Versione Eroina
+La versione Eroina è composta da una struttura realizzata in carpenteria (legno, metallo o altre strutture ricavate con il materiale disponibile) e da parti stampate in palstica con sagome inferiori ai 15cm per ogni dimensione.
+
+###Versione "Tampieri"
+da completare definizione.
+
+###Versione Ar4k
+in studio componenti.
+
+##Elenco materiali elettronici
+
+Pack Rossonet
+da fare...
+
+##Elenco materiale stampato
+
+###Versione Eroina
+Pack Rossonet
+da fare...
+
+###Versione Ar4k
+Pack Rossonet
+da fare...
+
+###Versione Tampieri
+Pack Rossonet
+da fare...
+
+##Elenco materiale per struttura
+
+###Versione Ar4k
+Pack Rossonet
+da fare...
+
+###Versione Tampieri
+Pack Tampieri
 da fare...
 
 ##Fasi assemblaggio
-
 da fare..
+
+##Servizi di assemblaggio e assistenza
+da definire...
 
 ##Video laboratorio
 
