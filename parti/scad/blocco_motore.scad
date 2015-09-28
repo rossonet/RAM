@@ -116,7 +116,7 @@ module blocco_motore() {
             agganci();
             // passacavo di rete
             translate([-20,25,-30])
-            cylinder(r=3.1,h=40,center=true);
+            cylinder(r=5,h=40,center=true);
             // passacavo sensore
             //translate([-5,-18,-20])cavetti();
             // scasso bulloni barra
@@ -134,7 +134,7 @@ module blocco_motore() {
             }
             // parte bassa
             translate([0,0,-65])
-            cube([100,150,40],center=true);
+            cube([160,160,40],center=true);
             // bullone aggancio superiore (M8)
             translate([0,0,40])
             cylinder(r=5,h=100,center=true);

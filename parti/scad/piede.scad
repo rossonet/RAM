@@ -139,6 +139,7 @@ module scasso_lineare() {
    for (x = [-w/2, w/2]) {
       translate([x, 0, 160]) {
 		cylinder(r=6.2, h=h+1, center=true);
+		translate([0, 0, -30])cylinder(r=7.7, h=10, center=true);
 		translate([0, -10, 0]) cube([2, 20, h+1], center=true);
       }
     }
