@@ -29,7 +29,7 @@ module vite() {
 module agganci() {
     m = 29;
     translate([0, 0, 0]) {
-        rotate([90, 0, 0]) cylinder(r=12, h=40, center=true, $fn=48);
+        rotate([90, 0, 0]) cylinder(r=13, h=40, center=true, $fn=48);
         cube([12, 40, 12], center=true);
         // Motor mounting screw slots
         translate([m/2, 0, m/2]) rotate([0, -45, 0])
@@ -139,7 +139,8 @@ module scasso_lineare() {
    for (x = [-w/2, w/2]) {
       translate([x, 0, 160]) {
 		cylinder(r=6.2, h=h+1, center=true);
-		translate([0, 0, -30])cylinder(r=7.7, h=10, center=true);
+        // blocca olio
+		translate([0, 0, -65])cylinder(r=7.7, h=10, center=true);
 		translate([0, -10, 0]) cube([2, 20, h+1], center=true);
       }
     }
@@ -157,32 +158,37 @@ module scasso_lineare() {
 
 
 module barre(){
-    rotate([180,0,60])translate([26,250,0])cube([20.4,500,20.4],center=true);
-    rotate([180,0,-60])translate([-26,250,0])cube([20.4,500,20.4],center=true);
+    rotate([180,0,30])translate([42,250,0])cube([50,500,20.5],center=true);
+    rotate([180,0,-30])translate([-42,250,0])cube([50,500,20.5],center=true);
 }
 
 module barre_esterno(){
-    rotate([180,0,60])translate([21,50,0])cube([28,120,20],center=true);
-    rotate([180,0,-60])translate([-21,50,0])cube([28,120,20],center=true);
+    rotate([180,0,30])translate([21,50,0])cube([28,120,20],center=true);
+    rotate([180,0,-30])translate([-21,50,0])cube([28,120,20],center=true);
 }
 
 module struttura(){
-    translate([0,13,50])barre();
-    translate([0,13,-50])barre();
+    //translate([0,40,50])barre();
+    translate([0,32,0])barre();
 }
 
 module struttura_esterna(){
     difference(){
         union(){
-            translate([0,13,40])barre_esterno();
-            translate([0,13,-40])barre_esterno();
+            translate([0,40,15])barre_esterno();
+            translate([0,40,-30])barre_esterno();
         }
         union(){
             struttura();
+            
             translate([0,0,0])
             difference(){
                 cube([400,200,200],center=true);
-                cylinder(r=75,h=300,center=true);
+                union(){
+                    translate([34,15,0])cylinder(r=35,h=300,center=true);
+                    translate([-34,15,0])cylinder(r=35,h=300,center=true);
+                }
+                    
         
         }
         }
@@ -207,41 +213,41 @@ module agganci_base(){
 }
 
 module passanti() {
-    translate([0,43,0]){
-        rotate([0,0,60])
-        translate([0,-30,0])passante();
-        rotate([0,0,-60])
-        translate([0,-30,0])passante();
-        rotate([0,0,60])
-        translate([0,-50,0])passante();
-        rotate([0,0,-60])
-        translate([0,-50,0])passante();
-        rotate([0,0,60])
-        translate([0,-70,0])passante();
-        rotate([0,0,-60])
-        translate([0,-70,0])passante();
+    translate([0,90,0]){
+         rotate([0,0,30])
+         translate([0,-64,0])passante();
+         rotate([0,0,-30])
+         translate([0,-64,0])passante();
+         rotate([0,0,30])
+         translate([0,-84,0])passante();
+         rotate([0,0,-30])
+         translate([0,-84,0])passante();
+         rotate([0,0,30])
+         translate([0,-104,0])passante();
+         rotate([0,0,-30])
+         translate([0,-104,0])passante();
     }
 }
 
 module fori_m8() {
-        translate([0,43,0]){
-        rotate([0,0,60])
-        translate([0,-30,0])
+        translate([0,90,0]){
+        rotate([0,0,30])
+        translate([0,-64,0])
             cylinder(r=5,h=86,center=true);
-        rotate([0,0,-60])
-        translate([0,-30,0])
+        rotate([0,0,-30])
+        translate([0,-64,0])
             cylinder(r=5,h=86,center=true);
-        rotate([0,0,60])
-        translate([0,-50,0])
+        rotate([0,0,30])
+        translate([0,-84,0])
             cylinder(r=5,h=86,center=true);
-        rotate([0,0,-60])
-        translate([0,-50,0])
+        rotate([0,0,-30])
+        translate([0,-84,0])
             cylinder(r=5,h=86,center=true);
-        rotate([0,0,60])
-        translate([0,-70,0])
+        rotate([0,0,30])
+        translate([0,-104,0])
             cylinder(r=5,h=86,center=true);
-        rotate([0,0,-60])
-        translate([0,-70,0])
+        rotate([0,0,-30])
+        translate([0,-104,0])
             cylinder(r=5,h=86,center=true);
     }
 }
@@ -253,7 +259,13 @@ module testa(){
             passanti();
             //rotate([180,180,0])translate([0,8,-45])wall();
         }
-        fori_m8();
+        union(){
+            fori_m8();
+            struttura();
+            //Carrello
+            translate([0,0,75])cube([200,200,100],center=true);
+            translate([0,0,-50])struttura();
+        }
     }
 }
 
