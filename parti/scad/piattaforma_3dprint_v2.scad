@@ -261,11 +261,11 @@ module zprobe() {
 	}
 }
 
-//esploso();
+esploso();
 //platform();
 //tappoA();
 //tappoB();
 //rotate([180,0,0])stampo();
-arm();
+//arm();
 
 
