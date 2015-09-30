@@ -94,7 +94,7 @@ stampa plastica
 7. 3 x [endstop meccanici](http://www.elecfreaks.com/store/images/Mech_Endstop-D.jpg);
 8. telecamera USB compatibile con Fedora 22 su Banana PI;
 9. servo motore z-probe: 9G micro servo;
-10. z-probe: Micro Pulsante PCB 3mmx3.5mmx1.8mm Button Switch;
+10. micro pulsante PCB 3mmx3.5mmx1.8mm button switch (per z-probe);
 11. 6 x barre rettificate da 1mt x 12mm;
 12. 6 x cuscinetti lineari a sfera LM12UU;
 13. cuscinetto piccolo estrusore;
@@ -106,7 +106,11 @@ stampa plastica
 16. ~3mt cavo bipolare per resistenza hotend;
 17. fascette varie;
 18. spinotti per Megatronics v3 (4 stepper, 2 ventole, 3+1 endstop -comprende servo-);
-19. alimentatore 12V da PC.
+19. alimentatore 12V da PC;
+20. scheda SD da 16GB per Banana PI;
+21. scheda microSD per memoria tampone scheda controllo;
+22. cavo USB da maschio A a maschio B per connessione tra Banana PI e Megatronics v3;
+23. terminale maschio micro USB per alimentazione Banana PI. 
 
 ####Elenco materiale stampato
 1. 3 x [blocco motore](https://github.com/rossonet/RAM/blob/master/parti/stl/eroina/blocco_motore_v1.stl);
@@ -134,7 +138,11 @@ La struttura può essere realizzata con diametro a piacere tra i 47 e i 70 centi
 8. 6 x bacchette alluminio diametro 10mm lunghezza da 39,5cm a 62,5cm -a seconda del raggio della struttura portante-;
 
 ####Fasi assemblaggio
-da fare..
+-to do-
+...con foto in archivio git
 
-####Servizi di assemblaggio e assistenza
-da definire...
+####Servizi
+1. download firmware per Banana PI -to do-
+2. vendita online modello "T"
+3. plastiche "Eroina"
+4. elettronica e materiale vario "Eroina" 
