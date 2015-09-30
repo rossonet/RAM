@@ -85,6 +85,9 @@ La versione Eroina è composta da una struttura realizzata in carpenteria (legno
 10. z-probe: Micro Pulsante PCB 3mmx3.5mmx1.8mm Button Switch;
 11. 6 x barre rettificate da 1mt x 12mm;
 12. 6 x cuscinetti lineari a sfera LM12UU;
+13. cuscinetto piccolo estrusore;
+14. cuscinetto grande estrusore;
+15. 3 x cuscinetti fine corsa;
 13. ~7mt cinghia trasmissione 6mm (GT2 -passo 2mm-);
 14. 3 x pulegge alluminio 20 denti (GT2 -passo 2mm-);
 15. ~6mt cavo di rete UTP -da utilizzare per i cablaggi-;
