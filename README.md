@@ -50,27 +50,39 @@ L'interfaccia web è fruibile da dispositivo mobile grazie alla libreria [Twitte
 ##Versioni
 Attualmente sistono due versioni preconfigurate della macchina. La versione "T" con le parti meccaniche realizzate in officina di precisione e il modello Eroina studiato per essere realizzabile partendo da stampe plastiche di piccole dimensioni. 
 
-###Versione Eroina
-La versione Eroina è composta da una struttura realizzata in carpenteria (legno, metallo o altre strutture ricavate con il materiale disponibile) e da parti stampate in plastica con sagome inferiori ai 15cm per ogni dimensione.
+###Versione Eroina (bootstrap progetto)
+La versione Eroina è composta da una struttura realizzata in carpenteria (legno, metallo o altre strutture ricavate con il materiale disponibile) e da parti stampate in plastica con sagome inferiori ai 15cm per ogni dimensione. Il nostro primo prototipo è stato stampato con un [Arduino Materia 101](https://www.arduino.cc/en/Main/ArduinoMateria101).
 
-[Schema di assemblaggio generale](https://github.com/rossonet/RAM/blob/master/parti/stl/eroina/assemblaggio.stl)
+[Schema assemblaggio generale](https://github.com/rossonet/RAM/blob/master/parti/stl/eroina/assemblaggio.stl)
 
-####Video prototipo
+####Video fasi studio prototipo
+studio z-probe
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=OmTOs6jjuCw" target="_blank"><img src="http://img.youtube.com/vi/OmTOs6jjuCw/0.jpg" alt="Rossonet" width="640" height="360" border="10" /></a>
 
+primi test scheda controllo
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=n3oExDMJfP0" target="_blank"><img src="http://img.youtube.com/vi/n3oExDMJfP0/0.jpg" alt="Rossonet" width="640" height="360" border="10" /></a>
 
+primo assemblaggio struttura
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=B5Mmt7lzHgg" target="_blank"><img src="http://img.youtube.com/vi/B5Mmt7lzHgg/0.jpg" alt="Rossonet" width="640" height="360" border="10" /></a>
 
+test usb over ethernet
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=iVD2OGaxWTA" target="_blank"><img src="http://img.youtube.com/vi/iVD2OGaxWTA/0.jpg" alt="Rossonet" width="640" height="360" border="10" /></a>
 
+esperimenti Marlin
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=0e1HDMZBxl4" target="_blank"><img src="http://img.youtube.com/vi/0e1HDMZBxl4/0.jpg" alt="Rossonet" width="640" height="360" border="10" /></a>
 
+esperimenti con Marlin
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=ZnjUfesXWaY" target="_blank"><img src="http://img.youtube.com/vi/ZnjUfesXWaY/0.jpg" alt="Rossonet" width="640" height="360" border="10" /></a>
 
+test GCODE con biglie
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=iLzKpcrZ054" target="_blank"><img src="http://img.youtube.com/vi/iLzKpcrZ054/0.jpg" alt="Rossonet" width="640" height="360" border="10" /></a>
 
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=BmhJSXHelz4" target="_blank"><img src="http://img.youtube.com/vi/BmhJSXHelz4/0.jpg" alt="Rossonet" width="640" height="360" border="10" /></a>
+primi esperimenti scrittura con pennarello
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=tii90TnvsTo" target="_blank"><img src="http://img.youtube.com/vi/tii90TnvsTo/0.jpg" alt="Rossonet" width="640" height="360" border="10" /></a>
+
+stampa plastica
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=GQly_ISp1_0" target="_blank"><img src="http://img.youtube.com/vi/GQly_ISp1_0/0.jpg" alt="Rossonet" width="640" height="360" border="10" /></a>
+
 
 ####Elenco materiali elettronici, movimentazione lineare e hot end 
 1. [E3D v6 HotEnd Full Kit - 1.75mm Universal (Direct) (24v)](http://e3d-online.com/E3D-v6/Full-Kit?product_id=380);
@@ -101,9 +113,10 @@ La versione Eroina è composta da una struttura realizzata in carpenteria (legno
 2. 3 x [rimando cinghia](https://github.com/rossonet/RAM/blob/master/parti/stl/eroina/fine_corsa.stl);
 3. 3 x [carrello](https://github.com/rossonet/RAM/blob/master/parti/stl/eroina/carrello.stl);
 4. 3 x [tensionatore](https://github.com/rossonet/RAM/blob/master/parti/stl/eroina/Belt-Tensioner-V1.stl);
-5. 1 x [attuatore](https://github.com/rossonet/RAM/blob/master/parti/stl/eroina/piattaforma_3dprint_v2.stl): [base](https://github.com/rossonet/RAM/blob/master/parti/stl/eroina/piattaforma_3dprint_v2_base.stl), [coperchio "A"](https://github.com/rossonet/RAM/blob/master/parti/stl/eroina/piattaforma_3dprint_v2_coperchio_a.stl), [coperchio "B"](https://github.com/rossonet/RAM/blob/master/parti/stl/eroina/piattaforma_3dprint_v2_coperchio_b.stl), [braccio z-probe](https://github.com/rossonet/RAM/blob/master/parti/stl/eroina/piattaforma_3dprint_v2_zprobe.stl);
-6. [estrusore](https://github.com/rossonet/RAM/blob/master/parti/stl/eroina/airtripper-extruder-v3.stl);
-7. [attuatore pennarelli](https://github.com/rossonet/RAM/blob/master/parti/stl/eroina/piattaforma_giotto_turbocolor.stl) collaudato con "[Giotto Turbocolor](http://www.fila.it/giotto/prodotti/pennarelli/giotto-turbo-color)" con [questo supporto](https://github.com/rossonet/RAM/blob/master/parti/stl/eroina/supporto_giotto_turbocolor.stl).
+5. 3 x [supporto endstop](https://github.com/rossonet/RAM/blob/master/parti/stl/eroina/supporto_endstop.stl);
+6. 1 x [attuatore](https://github.com/rossonet/RAM/blob/master/parti/stl/eroina/piattaforma_3dprint_v2.stl): [base](https://github.com/rossonet/RAM/blob/master/parti/stl/eroina/piattaforma_3dprint_v2_base.stl), [coperchio "A"](https://github.com/rossonet/RAM/blob/master/parti/stl/eroina/piattaforma_3dprint_v2_coperchio_a.stl), [coperchio "B"](https://github.com/rossonet/RAM/blob/master/parti/stl/eroina/piattaforma_3dprint_v2_coperchio_b.stl), [braccio z-probe](https://github.com/rossonet/RAM/blob/master/parti/stl/eroina/piattaforma_3dprint_v2_zprobe.stl);
+7. [estrusore](https://github.com/rossonet/RAM/blob/master/parti/stl/eroina/airtripper-extruder-v3.stl);
+8. [attuatore pennarelli](https://github.com/rossonet/RAM/blob/master/parti/stl/eroina/piattaforma_giotto_turbocolor.stl) collaudato con "[Giotto Turbocolor](http://www.fila.it/giotto/prodotti/pennarelli/giotto-turbo-color)" con [questo supporto](https://github.com/rossonet/RAM/blob/master/parti/stl/eroina/supporto_giotto_turbocolor.stl).
 
 ####Elenco materiale per struttura e piccola ferramenta
 Il progetto di questa versione prevede la predisposizione delle tre colonne attive su una struttura portante realizzata artigianalmente. Lo schema di montaggio generale è visionabile [qui](https://github.com/rossonet/RAM/blob/master/parti/stl/eroina/assemblaggio.stl). La struttura deve garantire una sufficiente rigidità, attenuare le vibrazioni dei movimenti con adeguati piedi e/o ammortizzatori.
