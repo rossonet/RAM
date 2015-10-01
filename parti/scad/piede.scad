@@ -124,7 +124,7 @@ module blocco_motore() {
             translate([0,0,-17])
             cylinder(r=9.5,h=8,center=true,$fn=6);
             translate([0,0,-44])
-            cylinder(r=16,h=4,center=true);
+            cylinder(r=18,h=4,center=true);
             // struttura
             struttura();
             // agganci piatto
@@ -158,8 +158,8 @@ module scasso_lineare() {
 
 
 module barre(){
-    rotate([180,0,30])translate([42,250,0])cube([50,500,20.5],center=true);
-    rotate([180,0,-30])translate([-42,250,0])cube([50,500,20.5],center=true);
+    rotate([180,0,30])translate([42,250,0])cube([50,500,22],center=true);
+    rotate([180,0,-30])translate([-42,250,0])cube([50,500,22],center=true);
 }
 
 module barre_esterno(){
@@ -208,7 +208,7 @@ module agganci_base(){
         rotate([0,0,angolo])translate([0,-32,-80])cylinder(r=3,h=120);
     }
     for (angolo = [20,-20]) {
-        rotate([0,0,angolo])translate([0,-45,-21])cylinder(r=7.6,h=6.3);
+        rotate([0,0,angolo])translate([0,-45,-21])cylinder(r=8.5,h=6.3);
     }
 }
 
