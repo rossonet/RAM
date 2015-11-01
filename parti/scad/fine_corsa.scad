@@ -57,11 +57,11 @@ module idler_end() {
       translate([0, 7.5, 0]) rotate([90 - tilt, 0, 0]) bearing_mount();
    	 translate([0, 15, -h/2]) stifener(50, 7, 2, 45);
 	 translate([0, 15,  h/2]) rotate([0, 180, 0]) stifener(50, 7, 2, 45);
-	 translate([0, 15,    0]) cube([22, 7, h-3], center=true);
+	 translate([0, 15,    0]) cube([78, 7, h], center=true);
 	 translate([0, 15,    0]) rotate([90, 0, 0]) cylinder(r=8, h=7, center=true, $fn=24);
     }
     translate([0, 8, 0]) rotate([90 - tilt, 0, 0])
-      cylinder(r=4, h=40, center=true);
+      cylinder(r=4, h=40, center=true,$fn=90);
     for (z = [-7, 7]) {
        translate([0, 0, z]) screws();
     }

@@ -28,6 +28,7 @@ module parti_esterne() {
 	rotate([90, 0, 240]) translate([ 0, 4, 45.5])rotate([180, 0, 0]) 9g_motor();
 	//rotate([90, 0, 0]) translate([ 0, 4, 45.5])rotate([180, 0, 0]) 9g_motor();
 	ventola2();
+    ventola3();
 }
 
 module scasso_ventola() {
@@ -124,16 +125,29 @@ module scassi_servo() {
 }
 
 module ventola2() {
-		rotate([90, 0, 0]) translate([ 0, 0, 50])rotate([-50, 0, 0])fan(40, 8, 34);
+	rotate([90, 0, 0]) translate([ 0, 0, 50])rotate([-50, 0, 0])fan(40, 8, 34);
+}
+
+module ventola3() {
+	rotate([90, 0, 120]) translate([ 0, 0, 50])rotate([-50, 0, 0])fan(40, 8, 34);
 }
 
 module scasso_ventola2() {
 		rotate([90, 0, 0]) translate([ 0, 0, 50])rotate([-50, 0, 0])cube([40.2, 40.2, 8],center=true);
-		rotate([90, 0, 0]) translate([ 0, 0, 50])rotate([-50, 0, 0])translate([ -20.1, -20.1, -4])cube([40.2, 40.2, 20]);
-		rotate([90, 0, 0]) translate([ 0, 0, 50])rotate([-50, 0, 0])translate([ -15, -15, -30])cube([30, 30, 50]);
+	rotate([90, 0, 0]) translate([ 0, 0, 50])rotate([-50, 0, 0])translate([ -20.1, -20.1, -4])cube([40.2, 40.2, 20]);
+		//rotate([90, 0, 0]) translate([ 0, 0, 50])rotate([-50, 0, 0])translate([ -15, -15, -30])cube([30, 30, 20]);
 
 		rotate([90, 0, 0]) translate([ 0, 0, 50])rotate([-50, 0, 0])translate([ 17, 17, -10])cylinder(r=1.1,h=100,center=true,$fn=120);
 		rotate([90, 0, 0]) translate([ 0, 0, 50])rotate([-50, 0, 0])translate([ -17, 17, -10])cylinder(r=1.1,h=100,center=true,$fn=120);
+}
+
+module scasso_ventola3() {
+	rotate([90, 0, 120]) translate([ 0, 0, 50])rotate([-50, 0, 0])cube([40.2, 40.2, 8],center=true);
+	rotate([90, 0, 120]) translate([ 0, 0, 50])rotate([-50, 0, 0])translate([ -20.1, -20.1, -4])cube([40.2, 40.2, 20]);
+		//rotate([90, 0, 0]) translate([ 0, 0, 50])rotate([-50, 0, 0])translate([ -15, -15, -30])cube([30, 30, 20]);
+
+	rotate([90, 0, 120]) translate([ 0, 0, 50])rotate([-50, 0, 0])translate([ 17, 17, -10])cylinder(r=1.1,h=100,center=true,$fn=120);
+	rotate([90, 0, 120]) translate([ 0, 0, 50])rotate([-50, 0, 0])translate([ -17, 17, -10])cylinder(r=1.1,h=100,center=true,$fn=120);
 }
 
 module magnetHolder() {
@@ -216,6 +230,7 @@ module platform() {
 			
 			scasso_ventola();
 			scasso_ventola2();
+            scasso_ventola3();
 			scassi_servo();
 			blocchi_testa();
 			passacavi();
@@ -256,7 +271,7 @@ module stampo() {
 }
 
 module zprobe() {
-	color([0,150/255,150/255,0.8]) {
+	color([180/255,0,0,0.8]) {
 		rotate([90, -90, 240]) translate([ 4, -5.5, 28])rotate([180,0, 0])arm();
 	}
 }
