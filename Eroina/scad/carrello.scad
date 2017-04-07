@@ -8,7 +8,7 @@
  
 
 
-use <linear_bearing.scad>
+use <Linear_Bearing.scad>
 use <belt_coupler_v6_Mod.scad>
 
 $fn=75;
@@ -187,14 +187,14 @@ module carriage() {
 		translate([-W/2,  0,  H/2-5])  groove(d+2*5+1, d+2*th-4, 4);
 		translate([-W/2,  0, -H/2+5])  groove(d+2*5+1, d+2*th-4, 4);
 		// Screw hole for adjustable top endstop.
-		translate([15, -17, -H/2+4]) cylinder(r=1.5, h=40, center=true, $fn=12);
+		//translate([15, -17, -H/2+4]) cylinder(r=1.5, h=40, center=true, $fn=12);
 	}
 
 }
 //translate([ w,  0, 0]) cylinder(r=11  , h=H+dH+2, center=true);
 //import("/home/andrea/git/RAM/parti/carrello.stl");
 module carrello() {
-difference(){
+//difference(){
 	union(){
 		intersection(){
 			carriage();
@@ -208,12 +208,15 @@ difference(){
 		translate([-27,-30,0]) magnete();
 		translate([27,-30,0]) magnete();
 	}
-translate([15, -17, 2]) cylinder(r=3.2, h=8, center=true, $fn=6);
-}
+//translate([15, -17, 2]) cylinder(r=3.2, h=8, center=true, $fn=6);
+//}
 //#translate([-27,-30,0])cube([54,2,2]);
 
 // Uncomment the following lines to check endstop alignment.
 // use <idler_end.scad>;
 // translate([0, 0, -20]) rotate([180, 0, 0]) idler_end();
 }
+module supporto_carrello(){
 carrello();
+}
+supporto_carrello();

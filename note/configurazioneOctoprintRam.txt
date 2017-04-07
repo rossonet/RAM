@@ -1,0 +1,240 @@
+accessControl:
+  salt: ObXW6MWwmwi7eEvsVRJlYZ2pCjIPbgsj
+api:
+  allowCrossOrigin: true
+  key: 77DCF1D0F3FF43A0A7595FC31500E27E
+appearance:
+  color: red
+  name: Rossonet Atom Machine
+controls:
+- children:
+  - commands:
+    - M502
+    - M500
+    name: Azzera Impostazioni
+  - commands:
+    - G1 Z300 F6000
+    - G28
+    name: Auto Home
+  - commands:
+    - G1 Z300 F6000
+    - G28
+    - G29
+    name: Z-PROBE
+  - commands:
+    - G28
+    - G1 X-24 Y-20 Z100 F6000
+    - M117 Centro
+    - G30
+    - G1 X-120 Y-110 Z100 F6000
+    - M117 Torre X
+    - G30
+    - G1 X120 Y-120 Z100 F6000
+    - M117 Torre Y
+    - G30
+    - G1 X-20 Y120 Z100 F6000
+    - M117 Torre Z
+    - G30
+    - G1 X0 Y0 Z100 F6000
+    - G1 X0 Y0 Z300 F6000
+    - G28
+    name: Rilevamento Assi
+    regex: 'Bed X: ([\-0-9.]+) Y: ([\-0-9.]+) Z: ([\-0-9.]+)'
+    template: 'Rilevamento: X={0}, Y={1}, Z={2}'
+  layout: horizontal
+  name: Allineamento
+- children:
+  - commands:
+    - M666 X%(deltax)s Y%(deltay)s Z%(deltaz)s
+    - M500
+    - G28
+    input:
+    - default: -2.7
+      name: deltaX
+      parameter: deltax
+      slider: false
+    - default: -1.5
+      name: deltaY
+      parameter: deltay
+      slider: false
+    - default: 0.0
+      name: deltaZ
+      parameter: deltaz
+      slider: false
+    name: End Stop
+    type: parametric_commands
+  - commands:
+    - M665 L%(bracci)s R%(raggioutile)s S%(calcoli)s
+    - M851 Z%(delta)s
+    - M500
+    - G28
+    input:
+    - default: 390.0
+      name: Bracci
+      parameter: bracci
+      slider: false
+    - default: 197.5
+      name: Raggio utile
+      parameter: raggioutile
+      slider: false
+    - default: 200
+      name: Calcoli al secondo
+      parameter: calcoli
+      slider: false
+    - default: -22.6
+      name: Delta Estrusore Probe
+      parameter: delta
+      slider: false
+    name: Parametri Delta
+    type: parametric_commands
+  layout: horizontal_grid
+  name: Calibrazione
+feature: {}
+gcodeViewer: {}
+plugins:
+  ScreenSquish:
+    _config_version: null
+  _disabled:
+  - softwareupdate
+  - customControl
+  - virtual_printer
+  cura:
+    _config_version: null
+    cura_engine: /usr/bin/CuraEngine
+    debug_logging: true
+    default_profile: null
+  discovery:
+    _config_version: null
+    httpPassword: null
+    httpUsername: null
+    model:
+      description: null
+      name: null
+      number: null
+      serial: null
+      url: null
+      vendor: null
+      vendorUrl: null
+    pathPrefix: null
+    publicHost: null
+    publicPort: null
+    upnpUuid: 57d649da-0595-4e68-9c44-ba6f3e2f8d80
+    zeroConf: []
+  softwareupdate:
+    _config_version: 2
+    cache_ttl: 1440
+    checks:
+      octoprint:
+        current: OctoPrint
+        displayName: OctoPrint
+        displayVersion: '{octoprint_version}'
+        repo: OctoPrint
+        restart: octoprint
+        type: github_release
+        update_script: '{python} "/home/rossonet/RAM/OctoPrint/venv/lib/python2.7/site-packages/OctoPrint-OctoPrint-py2.7.egg/octoprint/plugins/softwareupdate/scripts/update-octoprint.py"
+          --python="{python}" "{folder}" {target}'
+        user: foosel
+    environment_restart_command: null
+    octoprint_restart_command: null
+    pip_command: null
+printerParameters: {}
+printerProfiles:
+  default: RAM1
+  defaultProfile:
+    axes:
+      e:
+        inverted: false
+        speed: 300
+      x:
+        inverted: false
+        speed: 6000
+      y:
+        inverted: false
+        speed: 6000
+      z:
+        inverted: false
+        speed: 6000
+    color: red
+    extruder:
+      count: 1
+      nozzleDiameter: 0.6
+      offsets:
+      - - 0.0
+        - 0.0
+    heatedBed: false
+    id: _default
+    model: Rossonet Atom Machine
+    name: Rossonet RAM
+    volume:
+      depth: 228.0
+      formFactor: circular
+      height: 350.0
+      origin: center
+      width: 228.0
+serial:
+  autoconnect: true
+  baudrate: 250000
+  port: AUTO
+  timeout:
+    sdStatus: 5.0
+    temperature: 10.0
+server:
+  firstRun: false
+  secretKey: fZPsB1b8RcECblDP4ORhJaxbDoXA5UEb
+slicing:
+  defaultProfiles:
+    cura: pla_03
+system:
+  actions:
+  - action: shutdown
+    command: sudo shutdown -h now
+    confirm: Sicuro? Vuoi spegnere il sistema RAM.
+    name: Shutdown
+  - action: reboot
+    command: sudo shutdown -r now
+    confirm: Stai riavviando RAM. Sicuro?
+    name: Reboot
+  - action: bobbina
+    command: ~/RAM/note/assistenza.sh
+    confirm: Richiedi un cambio di bobbina?
+    name: Assistenza -cambio bobbina-
+  - action: rimozione
+    command: ~/RAM/note/assistenza.sh
+    confirm: Richiedi lo scarico del vassoio?
+    name: Assistenza -scarico lavorato-
+  - action: Attiva camera
+    command: nohup /home/rossonet/mjpg-streamer/mjpg-streamer-experimental/mjpg_streamer
+      -i "/home/rossonet/mjpg-streamer/mjpg-streamer-experimental/input_uvc.so -d
+      /dev/video0 -r 640x480 -f 10" -o "/home/rossonet/mjpg-streamer/mjpg-streamer-experimental/output_http.so"
+      > webcam.out 2>webcam.err < /dev/null &
+    confirm: Stai avviando la telecamera
+    name: StartCam
+  - action: Ferma camera
+    command: nohup killall /home/rossonet/mjpg-streamer/mjpg-streamer-experimental/mjpg_streamer
+      > webcam.out 2>webcam.err < /dev/null &
+    confirm: Stai spegnendo la telecamera
+    name: StopCam
+temperature:
+  cutoff: 60
+  profiles:
+  - bed: '0'
+    extruder: '210'
+    name: Pulizia
+  - bed: '0'
+    extruder: '190'
+    name: PLA
+  - bed: 0
+    extruder: '220'
+    name: ABS
+webcam:
+  ffmpeg: /usr/bin/ffmpeg
+  snapshot: http://localhost/webcam/?action=snapshot
+  stream: /webcam/?action=stream
+  timelapse:
+    fps: 10
+    options:
+      interval: 4
+    postRoll: 0
+    type: timed
+  watermark: false
+
