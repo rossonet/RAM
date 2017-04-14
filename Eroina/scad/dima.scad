@@ -160,7 +160,7 @@ module scasso_lineare() {
 module barre(){
     //rotate([180,0,30])translate([42,250,0])cube([22,500,22],center=true);
     //rotate([180,0,-30])translate([-42,250,0])cube([50,500,22],center=true);
-    rotate([180,0,-30])translate([-28.4,0,0])cube([22,500,22],center=true);
+    rotate([180,0,-30])translate([-28.4,0,0])cube([21.5,500,26.5],center=true);
 }
 
 module barre_esterno(){
@@ -170,7 +170,7 @@ module barre_esterno(){
 
 module struttura(){
     //translate([0,40,50])barre();
-    translate([0,32,0])barre();
+    translate([0,36,0])barre();
 }
 
 module struttura_esterna(){
@@ -199,7 +199,7 @@ module struttura_esterna(){
 module passante(){
     difference(){
         //cylinder(r=9,h=80,center=true);
-        cylinder(r=4.2,h=82,center=true);
+        cylinder(r=4.3,h=82,center=true);
     }
     
 }
@@ -331,10 +331,10 @@ module wall(){
 //#struttura();
 // Blocco
 //testa();
-difference(){
+ translate([0,0,-53.4])difference(){
     union(){
-        rotate([180,0,-30])translate([-45,8,0])cube([50,90,50],center=true);
-        rotate([180,0,-30])translate([-45,8,25])cylinder(r=60,h=10,center=true);
+        rotate([180,0,-30])translate([-45,3,0])cube([50,75,50],center=true);
+        //rotate([180,0,-30])translate([-45,8,25])cylinder(r=50,h=10,center=true);
         
     }
     union(){
@@ -342,3 +342,6 @@ difference(){
         struttura();
 }
 }
+
+//import("/home/andrea/git/RAM/Eroina/stl/piede.stl");
+//import("/home/andrea/git/RAM/Eroina/stl/blocco_motore_v2.stl");

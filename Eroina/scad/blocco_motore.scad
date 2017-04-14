@@ -237,6 +237,7 @@ module fori_m8() {
         rotate([0,0,-30])
         translate([0,-104,0])
             cylinder(r=5,h=86,center=true);
+            translate([0,-72.5,0])cube([85,10,40],center=true);
     }
 }
 
@@ -314,4 +315,5 @@ module wall(){
 //translate([0, 10, 0])rotate([90,0,0])nema_17();
 // Blocco
 testa();
+//fori_m8();
 //plexiglass();

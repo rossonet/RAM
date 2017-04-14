@@ -2100,19 +2100,19 @@ inline void gcode_G4() {
 inline void gcode_G667() {
 	float centroX = -24.0;
 	float centroY = -20.0;
-	float torreXX = -120;
+	float torreXX = -110;
 	float torreXY = -110;
 	float torreYX = 90;
 	float torreYY = -110;
 	float torreZX = -20;
-	float torreZY = 120;
+	float torreZY = 100;
 
-	float baseRilevamentiZ = 100.0;
+	float baseRilevamentiZ = 40.0;
 
-	int cicliTorri = 3;
-	int cicliRaggio = 9;
+	int cicliTorri = 2;
+	int cicliRaggio = 3;
 
-	float passoRaggio = 3;
+	float passoRaggio = 2;
 
 	float rilevamentoCentro = 0;
 	float rilevamentoX = 0;
@@ -2142,8 +2142,9 @@ inline void gcode_G667() {
 	for (int contatoreCicli = 1; contatoreCicli <= (cicliTorri+cicliRaggio); contatoreCicli++){
 		gcode_G28_ros();
 		st_synchronize();
-		if (contatoreCicli>cicliTorri) rilevamentoCentro = probe_pt(centroX, centroY, baseRilevamentiZ, ProbeDeployAndStow, 1);
-		rilevamentoX = probe_pt(torreXX, torreXY, baseRilevamentiZ, ProbeDeploy, 1);
+		if (contatoreCicli>cicliTorri) rilevamentoCentro = probe_pt(centroX, centroY, baseRilevamentiZ, ProbeDeploy, 1);
+		if (contatoreCicli>cicliTorri) rilevamentoX = probe_pt(torreXX, torreXY, baseRilevamentiZ, ProbeStay, 1);
+		if (!(contatoreCicli>cicliTorri)) rilevamentoX = probe_pt(torreXX, torreXY, baseRilevamentiZ, ProbeDeploy, 1);
 		rilevamentoY = probe_pt(torreYX, torreYY, baseRilevamentiZ, ProbeStay, 1);
 		rilevamentoZ = probe_pt(torreZX, torreZY, baseRilevamentiZ, ProbeStow, 1);
 		SERIAL_ECHOLNPGM("Rilevamento (mm):"); 
@@ -2394,6 +2395,8 @@ inline void gcode_G28() {
   #ifdef DELTA
     // A delta can only safely home all axis at the same time
     // all axis have to home at the same time
+    #undef Z_SAFE_HOMING
+    #undef SLOWDOWN
 
     // Pretend the current position is 0,0,0
     for (int i = X_AXIS; i <= Z_AXIS; i++) current_position[i] = 0;

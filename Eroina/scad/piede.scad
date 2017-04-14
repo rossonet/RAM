@@ -2,8 +2,6 @@ use <Write.scad>
 use <modulo.scad>
 use <nema_17.scad>
 
-//write("Rossonet RAM",h=5,t=3);
-
 //distanza barre
 w=60;
 wall_t=5;
@@ -329,4 +327,7 @@ module wall(){
 // Struttura profilati quadrati 20mm
 //#struttura();
 // Blocco
+difference(){
 testa();
+translate([25,45,23]) rotate([0,0,180]) write("Rossonet RAM",h=6,t=3);
+}
