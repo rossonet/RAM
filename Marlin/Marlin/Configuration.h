@@ -506,7 +506,7 @@ const bool Z_PROBE_ENDSTOP_INVERTING = true; // set to true to invert the logic 
   #ifdef AUTO_BED_LEVELING_GRID
 
     // set the rectangle in which to probe
-    #define DELTA_PROBABLE_RADIUS 114
+    #define DELTA_PROBABLE_RADIUS 120
     #define LEFT_PROBE_BED_POSITION -79
     #define RIGHT_PROBE_BED_POSITION 79
     #define FRONT_PROBE_BED_POSITION -79
@@ -535,9 +535,9 @@ const bool Z_PROBE_ENDSTOP_INVERTING = true; // set to true to invert the logic 
 
   // Offsets to the probe relative to the extruder tip (Hotend - Probe)
   // X and Y offsets must be integers
-  #define X_PROBE_OFFSET_FROM_EXTRUDER -18     // Probe on: -left  +right
-  #define Y_PROBE_OFFSET_FROM_EXTRUDER -32   // Probe on: -front +behind
-  #define Z_PROBE_OFFSET_FROM_EXTRUDER -19.0  // -below (always!)
+  #define X_PROBE_OFFSET_FROM_EXTRUDER -0     // Probe on: -left  +right
+  #define Y_PROBE_OFFSET_FROM_EXTRUDER -10   // Probe on: -front +behind
+  #define Z_PROBE_OFFSET_FROM_EXTRUDER -21.5  // -below (always!)
   // distanza z-probe
 
   #define Z_RAISE_BEFORE_HOMING 4       // (in mm) Raise Z before homing (G28) for Probe Clearance.
@@ -646,7 +646,7 @@ const bool Z_PROBE_ENDSTOP_INVERTING = true; // set to true to invert the logic 
 //If you have enabled the Bed Auto Leveling and are using the same Z Probe for Z Homing,
 //it is highly recommended you let this Z_SAFE_HOMING enabled!!!
 
-  #define Z_SAFE_HOMING   // This feature is meant to avoid Z homing with probe outside the bed area.
+  //#define Z_SAFE_HOMING   // This feature is meant to avoid Z homing with probe outside the bed area.
                           // When defined, it will:
                           // - Allow Z homing only after X and Y homing AND stepper drivers still enabled
                           // - If stepper drivers timeout, it will need X and Y homing again before Z homing
@@ -688,7 +688,7 @@ const bool Z_PROBE_ENDSTOP_INVERTING = true; // set to true to invert the logic 
 #ifdef MANUAL_HOME_POSITIONS
   #define MANUAL_X_HOME_POS 0
   #define MANUAL_Y_HOME_POS 0
-  #define MANUAL_Z_HOME_POS 500.0 // For delta: Distance between nozzle and print surface after homing.
+  #define MANUAL_Z_HOME_POS 510.0 // For delta: Distance between nozzle and print surface after homing.
 #endif
 
 // @section movement
@@ -727,8 +727,8 @@ const bool Z_PROBE_ENDSTOP_INVERTING = true; // set to true to invert the logic 
 #ifdef CUSTOM_M_CODES
   #ifdef ENABLE_AUTO_BED_LEVELING
     #define CUSTOM_M_CODE_SET_Z_PROBE_OFFSET 851
-    #define Z_PROBE_OFFSET_RANGE_MIN -35
-    #define Z_PROBE_OFFSET_RANGE_MAX -10
+    #define Z_PROBE_OFFSET_RANGE_MIN -25
+    #define Z_PROBE_OFFSET_RANGE_MAX -8
   #endif
 #endif
 
@@ -913,7 +913,7 @@ const bool Z_PROBE_ENDSTOP_INVERTING = true; // set to true to invert the logic 
 // Use M851 to set the z-probe vertical offset from the nozzle. Store that setting with M500.
 //
 #define SERVO_ENDSTOPS {-1, -1, 0} // Servo index for X, Y, Z. Disable with -1
-#define SERVO_ENDSTOP_ANGLES {0,0, 0,0, 50,130} // X,Y,Z Axis Extend and Retract angles
+#define SERVO_ENDSTOP_ANGLES {0,0, 0,0, 18,82} // X,Y,Z Axis Extend and Retract angles
 
 /**********************************************************************\
  * Support for a filament diameter sensor

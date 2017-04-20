@@ -124,7 +124,7 @@ module blocco_motore() {
             translate([0,0,-44])
             cylinder(r=18,h=4,center=true);
             // struttura
-            struttura();
+            //struttura();
             // agganci piatto
             agganci_base();
             
@@ -259,10 +259,10 @@ module testa(){
         }
         union(){
             fori_m8();
-            struttura();
+            //struttura();
             //Carrello
             translate([0,0,75])cube([200,200,100],center=true);
-            translate([0,0,-50])struttura();
+            translate([0,0,-48])struttura();
         }
     }
 }
@@ -329,5 +329,5 @@ module wall(){
 // Blocco
 difference(){
 testa();
-translate([25,45,23]) rotate([0,0,180]) write("Rossonet RAM",h=6,t=3);
+translate([-25,45,26]) rotate([0,180,180]) write("Rossonet RAM",h=6,t=3);
 }

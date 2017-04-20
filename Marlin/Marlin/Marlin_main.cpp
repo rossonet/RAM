@@ -2112,7 +2112,7 @@ inline void gcode_G667() {
 	int cicliTorri = 2;
 	int cicliRaggio = 3;
 
-	float passoRaggio = 2;
+	float passoRaggio = 0.9;
 
 	float rilevamentoCentro = 0;
 	float rilevamentoX = 0;
@@ -2263,6 +2263,7 @@ inline void gcode_G667() {
 		
 	}
 	SERIAL_ECHOLNPGM("Fine rilevamenti G667 (by Rossonet)");
+	gcode_G28_ros();
 }
 
 /**
@@ -2310,7 +2311,7 @@ void gcode_G28_ros() {
 	sync_plan_position();
 
 	// Move all carriages up together until the first endstop is hit.
-	for (int i = X_AXIS; i <= Z_AXIS; i++) destination[i] = 10 * Z_MAX_LENGTH;
+	for (int i = X_AXIS; i <= Z_AXIS; i++) destination[i] = 15 * Z_MAX_LENGTH;
 	feedrate = 1.5 * homing_feedrate[X_AXIS];
 	line_to_destination();
 	st_synchronize();
@@ -2403,7 +2404,7 @@ inline void gcode_G28() {
     sync_plan_position();
 
     // Move all carriages up together until the first endstop is hit.
-    for (int i = X_AXIS; i <= Z_AXIS; i++) destination[i] = 10 * Z_MAX_LENGTH;
+    for (int i = X_AXIS; i <= Z_AXIS; i++) destination[i] = 15 * Z_MAX_LENGTH;
     feedrate = 1.732 * homing_feedrate[X_AXIS];
     line_to_destination();
     st_synchronize();
