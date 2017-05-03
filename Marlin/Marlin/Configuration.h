@@ -209,9 +209,9 @@ Here are some standard links for getting your machine calibrated:
   //
   //
   // E3D V6
-  #define  DEFAULT_Kp 91.27
-  #define  DEFAULT_Ki 8.60
-  #define  DEFAULT_Kd 242.24
+  #define  DEFAULT_Kp 71.38
+  #define  DEFAULT_Ki 8.96
+  #define  DEFAULT_Kd 142.10
 
   // Ultimaker
   //#define  DEFAULT_Kp 22.2
@@ -285,7 +285,7 @@ Here are some standard links for getting your machine calibrated:
 //if PREVENT_DANGEROUS_EXTRUDE is on, you can still disable (uncomment) very long bits of extrusion separately.
 #define PREVENT_LENGTHY_EXTRUDE
 
-#define EXTRUDE_MINTEMP 170
+#define EXTRUDE_MINTEMP 190
 #define EXTRUDE_MAXLENGTH (X_MAX_LENGTH+Y_MAX_LENGTH) //prevent extrusion of very large distances.
 
 //===========================================================================
@@ -333,7 +333,7 @@ Here are some standard links for getting your machine calibrated:
   // NOTE NB all values for DELTA_* values MUST be floating point, so always have a decimal point in them
 
   // Center-to-center distance of the holes in the diagonal push rods.
-  #define DELTA_DIAGONAL_ROD 390.0 // mm
+  #define DELTA_DIAGONAL_ROD 410.0 // mm
 
   // Horizontal offset from middle of printer to smooth rod center.
   #define DELTA_SMOOTH_ROD_OFFSET 234.0 // mm
@@ -536,11 +536,11 @@ const bool Z_PROBE_ENDSTOP_INVERTING = true; // set to true to invert the logic 
   // Offsets to the probe relative to the extruder tip (Hotend - Probe)
   // X and Y offsets must be integers
   #define X_PROBE_OFFSET_FROM_EXTRUDER -0     // Probe on: -left  +right
-  #define Y_PROBE_OFFSET_FROM_EXTRUDER -10   // Probe on: -front +behind
-  #define Z_PROBE_OFFSET_FROM_EXTRUDER -21.5  // -below (always!)
+  #define Y_PROBE_OFFSET_FROM_EXTRUDER 10   // Probe on: -front +behind
+  #define Z_PROBE_OFFSET_FROM_EXTRUDER -10.5  // -below (always!)
   // distanza z-probe
 
-  #define Z_RAISE_BEFORE_HOMING 4       // (in mm) Raise Z before homing (G28) for Probe Clearance.
+  #define Z_RAISE_BEFORE_HOMING 6       // (in mm) Raise Z before homing (G28) for Probe Clearance.
                                         // Be sure you have this distance over your Z_MAX_POS in case
 
   #define XY_TRAVEL_SPEED 8000         // X and Y axis travel speed between probes, in mm/min
@@ -653,12 +653,12 @@ const bool Z_PROBE_ENDSTOP_INVERTING = true; // set to true to invert the logic 
                           // - Position the probe in a defined XY point before Z Homing when homing all axis (G28)
                           // - Block Z homing only when the probe is outside bed area.
 
-  #ifdef Z_SAFE_HOMING
-
-    #define Z_SAFE_HOMING_X_POINT ((X_MIN_POS + X_MAX_POS) / 2)    // X point for Z homing when homing all axis (G28)
-    #define Z_SAFE_HOMING_Y_POINT ((Y_MIN_POS + Y_MAX_POS) / 2)    // Y point for Z homing when homing all axis (G28)
-
-  #endif
+  //#ifdef Z_SAFE_HOMING
+//
+  //  #define Z_SAFE_HOMING_X_POINT ((X_MIN_POS + X_MAX_POS) / 2)    // X point for Z homing when homing all axis (G28)
+  //  #define Z_SAFE_HOMING_Y_POINT ((Y_MIN_POS + Y_MAX_POS) / 2)    // Y point for Z homing when homing all axis (G28)
+//
+ // #endif
 
   // Support for a dedicated Z PROBE endstop separate from the Z MIN endstop.
   // If you would like to use both a Z PROBE and a Z MIN endstop together or just a Z PROBE with a custom pin, uncomment #define Z_PROBE_ENDSTOP and read the instructions below.
@@ -704,16 +704,16 @@ const bool Z_PROBE_ENDSTOP_INVERTING = true; // set to true to invert the logic 
 // delta speeds must be the same on xyz
 #define DEFAULT_AXIS_STEPS_PER_UNIT   {76, 76, 76, 100}  // default steps per unit for Kossel (GT2, 20 tooth)
 #define DEFAULT_MAX_FEEDRATE          {500, 500, 500, 25}    // (mm/sec)
-#define DEFAULT_MAX_ACCELERATION      {9000,9000,9000,10000}    // X, Y, Z, E maximum start speed for accelerated moves. E default values are good for skeinforge 40+, for older versions raise them a lot.
+#define DEFAULT_MAX_ACCELERATION      {8000,8000,8000,8000}    // X, Y, Z, E maximum start speed for accelerated moves. E default values are good for skeinforge 40+, for older versions raise them a lot.
 
-#define DEFAULT_ACCELERATION          3000    // X, Y, Z and E acceleration in mm/s^2 for printing moves
+#define DEFAULT_ACCELERATION          2000    // X, Y, Z and E acceleration in mm/s^2 for printing moves
 #define DEFAULT_RETRACT_ACCELERATION  3000    // E acceleration in mm/s^2 for retracts
-#define DEFAULT_TRAVEL_ACCELERATION   3000    // X, Y, Z acceleration in mm/s^2 for travel (non printing) moves
+#define DEFAULT_TRAVEL_ACCELERATION   2000    // X, Y, Z acceleration in mm/s^2 for travel (non printing) moves
 
 // The speed change that does not require acceleration (i.e. the software might assume it can be done instantaneously)
-#define DEFAULT_XYJERK                20.0    // (mm/sec)
-#define DEFAULT_ZJERK                 20.0    // (mm/sec) Must be same as XY for delta
-#define DEFAULT_EJERK                 5.0     // (mm/sec)
+#define DEFAULT_XYJERK                15.0    // (mm/sec)
+#define DEFAULT_ZJERK                 15.0    // (mm/sec) Must be same as XY for delta
+#define DEFAULT_EJERK                 4.0     // (mm/sec)
 
 
 //=============================================================================

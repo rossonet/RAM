@@ -329,5 +329,5 @@ module wall(){
 // Blocco
 difference(){
 testa();
-translate([-25,45,26]) rotate([0,180,180]) write("Rossonet RAM",h=6,t=3);
+#translate([25,45,22]) rotate([0,0,180]) write("Rossonet RAM",h=6,t=3);
 }

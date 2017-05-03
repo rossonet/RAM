@@ -2107,7 +2107,7 @@ inline void gcode_G667() {
 	float torreZX = -20;
 	float torreZY = 100;
 
-	float baseRilevamentiZ = 40.0;
+	float baseRilevamentiZ = 60.0;
 
 	int cicliTorri = 2;
 	int cicliRaggio = 3;
@@ -2311,7 +2311,7 @@ void gcode_G28_ros() {
 	sync_plan_position();
 
 	// Move all carriages up together until the first endstop is hit.
-	for (int i = X_AXIS; i <= Z_AXIS; i++) destination[i] = 15 * Z_MAX_LENGTH;
+	for (int i = X_AXIS; i <= Z_AXIS; i++) destination[i] = 1500 * Z_MAX_LENGTH;
 	feedrate = 1.5 * homing_feedrate[X_AXIS];
 	line_to_destination();
 	st_synchronize();
@@ -2404,7 +2404,7 @@ inline void gcode_G28() {
     sync_plan_position();
 
     // Move all carriages up together until the first endstop is hit.
-    for (int i = X_AXIS; i <= Z_AXIS; i++) destination[i] = 15 * Z_MAX_LENGTH;
+    for (int i = X_AXIS; i <= Z_AXIS; i++) destination[i] = 1500 * Z_MAX_LENGTH;
     feedrate = 1.732 * homing_feedrate[X_AXIS];
     line_to_destination();
     st_synchronize();
