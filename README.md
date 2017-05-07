@@ -27,7 +27,7 @@ Oltre ad una distribuzione Linux ottimizzata per la scheda specifica -Fedora 22-
 
 L'interfaccia web è fruibile da dispositivo mobile grazie alla libreria [Twitter Bootstrap](http://getbootstrap.com/2.3.2/).
 
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=aIwhmhjWtVI" target="_blank"><img src="http://img.youtube.com/vi/aIwhmhjWtVI/0.jpg" alt="Rossonet" width="640" height="360" border="10" /></a>
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=1BcRuSaGWxI" target="_blank"><img src="http://img.youtube.com/vi/1BcRuSaGWxI/0.jpg" alt="Rossonet" width="640" height="360" border="10" /></a>
 
 ##Funzionalità
 1. stampa 3D a filamento fuso (1,75mm) con temperatura di lavorazione fino 240 gradi (PLA,ABS,ecc...);

@@ -2098,19 +2098,21 @@ inline void gcode_G4() {
  *
  */
 inline void gcode_G667() {
-	float centroX = -24.0;
-	float centroY = -20.0;
-	float torreXX = -110;
-	float torreXY = -110;
-	float torreYX = 90;
-	float torreYY = -110;
-	float torreZX = -20;
-	float torreZY = 100;
+	float centroX = 20;
+	float centroY = 20;
+	float torreXX = -70;
+	float torreXY = -30;
+	float torreYX = 105;
+	float torreYY = -30;
+	float torreZX = 20;
+	float torreZY = 114;
 
 	float baseRilevamentiZ = 60.0;
 
-	int cicliTorri = 2;
-	int cicliRaggio = 3;
+	int cicliTorri = 3;
+	int cicliRaggio = 2;
+
+	int scartoAccettato = 0.5;
 
 	float passoRaggio = 0.9;
 
@@ -2119,7 +2121,7 @@ inline void gcode_G667() {
 	float rilevamentoY = 0;
 	float rilevamentoZ = 0;
 
-	SERIAL_ECHOLNPGM("Suggerimento automatico parametri di configurazione");
+	SERIAL_ECHOLNPGM("Configurazioni automatiche fine corsa e diametro");
 	SERIAL_ECHOLNPGM("by Rossonet");
 	SERIAL_ECHOLNPGM("ATTENZIONE! Versione beta, monitorare la macchina durante l'esecuzione...");
 	CONFIG_ECHO_START; 
@@ -2311,10 +2313,12 @@ void gcode_G28_ros() {
 	sync_plan_position();
 
 	// Move all carriages up together until the first endstop is hit.
-	for (int i = X_AXIS; i <= Z_AXIS; i++) destination[i] = 1500 * Z_MAX_LENGTH;
-	feedrate = 1.5 * homing_feedrate[X_AXIS];
-	line_to_destination();
-	st_synchronize();
+	while (! ((READ(X_MAX_PIN)^X_MAX_ENDSTOP_INVERTING)||(READ(Y_MAX_PIN)^Y_MAX_ENDSTOP_INVERTING)||(READ(Z_MAX_PIN)^Z_MAX_ENDSTOP_INVERTING))){
+		for (int i = X_AXIS; i <= Z_AXIS; i++) destination[i] = 150 * Z_MAX_LENGTH;
+		feedrate = 3 * homing_feedrate[X_AXIS];
+		line_to_destination();
+		st_synchronize();
+		}
 	endstops_hit_on_purpose(); // clear endstop hit flags
 
 	// Destination reached
@@ -2404,10 +2408,12 @@ inline void gcode_G28() {
     sync_plan_position();
 
     // Move all carriages up together until the first endstop is hit.
-    for (int i = X_AXIS; i <= Z_AXIS; i++) destination[i] = 1500 * Z_MAX_LENGTH;
-    feedrate = 1.732 * homing_feedrate[X_AXIS];
-    line_to_destination();
-    st_synchronize();
+    while (! ((READ(X_MAX_PIN)^X_MAX_ENDSTOP_INVERTING)||(READ(Y_MAX_PIN)^Y_MAX_ENDSTOP_INVERTING)||(READ(Z_MAX_PIN)^Z_MAX_ENDSTOP_INVERTING))){
+    	for (int i = X_AXIS; i <= Z_AXIS; i++) destination[i] = 50 * Z_MAX_LENGTH;
+    	feedrate = 2 * homing_feedrate[X_AXIS];
+    	line_to_destination();
+	st_synchronize();
+	}
     endstops_hit_on_purpose(); // clear endstop hit flags
 
     // Destination reached
