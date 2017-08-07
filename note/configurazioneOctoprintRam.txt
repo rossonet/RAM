@@ -4,29 +4,14 @@ api:
   allowCrossOrigin: true
   key: 77DCF1D0F3FF43A0A7595FC31500E27E
 appearance:
-  color: red
-  name: Rossonet Atom Machine
+  color: orange
+  name: Rossonet Materia 101
 controls:
 - children:
   - commands:
     - M502
     - M500
-    name: Azzera configurazioni
-  - commands:
-    - M500
-    name: Salva configurazioni
-  - commands:
-    - G1 Z300 F6000
-    - G28
-    name: Auto home
-  - commands:
-    - G1 Z300 F6000
-    - G28
-    - G29
-    name: Autolivellamento piano
-  - commands:
-    - G667
-    name: Rilevamento assi e diametro
+    name: Azzera Impostazioni
   layout: horizontal
   name: Allineamento
 feature: {}
@@ -38,6 +23,7 @@ plugins:
   - softwareupdate
   - customControl
   - virtual_printer
+  - slic3r
   cura:
     _config_version: null
     cura_engine: /usr/bin/CuraEngine
@@ -60,6 +46,11 @@ plugins:
     publicPort: null
     upnpUuid: 57d649da-0595-4e68-9c44-ba6f3e2f8d80
     zeroConf: []
+  slic3r:
+    _config_version: null
+    debug_logging: true
+    default_profile: null
+    slic3r_engine: /usr/bin/slic3r
   softwareupdate:
     _config_version: 2
     cache_ttl: 1440
@@ -79,48 +70,41 @@ plugins:
     pip_command: null
 printerParameters: {}
 printerProfiles:
-  default: RAM1
+  default: arduino_materia_101
   defaultProfile:
     axes:
       e:
         inverted: false
-        speed: 100
+        speed: 300
       x:
         inverted: false
-        speed: 6000
+        speed: 3000
       y:
         inverted: false
-        speed: 6000
+        speed: 3000
       z:
         inverted: false
-        speed: 6000
-    color: red
+        speed: 300
+    color: blue
     extruder:
       count: 1
-      nozzleDiameter: 0.3
+      nozzleDiameter: 0.35
       offsets:
       - - 0.0
         - 0.0
     heatedBed: false
-    id: _default
-    model: Rossonet Atom Machine
-    name: Rossonet RAM
+    id: MAT101
+    model: Arduino Materia 101
+    name: Materia101
     volume:
-      depth: 228.0
-      formFactor: circular
-      height: 400.0
-      origin: center
-      width: 228.0
+      depth: 100.0
+      formFactor: rectangular
+      height: 100.0
+      origin: lowerleft
+      width: 140.0
 serial:
   autoconnect: true
-  baudrate: 250000
-  longRunningCommands:
-  - G4
-  - G28
-  - G29
-  - G30
-  - G32
-  - G667
+  baudrate: 115200
   port: AUTO
   timeout:
     sdStatus: 5.0
@@ -130,7 +114,7 @@ server:
   secretKey: fZPsB1b8RcECblDP4ORhJaxbDoXA5UEb
 slicing:
   defaultProfiles:
-    cura: pla_03
+    cura: MAT101_2
 system:
   actions:
   - action: shutdown
@@ -139,20 +123,16 @@ system:
     name: Shutdown
   - action: reboot
     command: sudo shutdown -r now
-    confirm: Stai riavviando RAM. Sicuro?
+    confirm: Stai riavviando RAM.
     name: Reboot
-  - action: bobbina
+  - action: Permetti assistenza remota
     command: ~/RAM/note/assistenza.sh
-    confirm: Richiedi un cambio di bobbina?
-    name: Assistenza -cambio bobbina-
-  - action: rimozione
-    command: ~/RAM/note/assistenza.sh
-    confirm: Richiedi lo scarico del vassoio?
-    name: Assistenza -scarico lavorato-
+    confirm: Permetti a Rossonet di intervenire.
+    name: Assistenza
   - action: Attiva camera
     command: nohup /home/rossonet/mjpg-streamer/mjpg-streamer-experimental/mjpg_streamer
       -i "/home/rossonet/mjpg-streamer/mjpg-streamer-experimental/input_uvc.so -d
-      /dev/video0 -r 640x480 -f 10" -o "/home/rossonet/mjpg-streamer/mjpg-streamer-experimental/output_http.so"
+      /dev/video0 -r VGA -f 10" -o "/home/rossonet/mjpg-streamer/mjpg-streamer-experimental/output_http.so"
       > webcam.out 2>webcam.err < /dev/null &
     confirm: Stai avviando la telecamera
     name: StartCam
@@ -168,10 +148,10 @@ temperature:
     extruder: '210'
     name: Pulizia
   - bed: '0'
-    extruder: '210'
+    extruder: '180'
     name: PLA
   - bed: 0
-    extruder: '240'
+    extruder: '220'
     name: ABS
 webcam:
   ffmpeg: /usr/bin/ffmpeg
