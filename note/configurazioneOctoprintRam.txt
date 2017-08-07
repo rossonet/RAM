@@ -11,84 +11,24 @@ controls:
   - commands:
     - M502
     - M500
-    name: Azzera Impostazioni
+    name: Azzera configurazioni
+  - commands:
+    - M500
+    name: Salva configurazioni
   - commands:
     - G1 Z300 F6000
     - G28
-    name: Auto Home
+    name: Auto home
   - commands:
     - G1 Z300 F6000
     - G28
     - G29
-    name: Z-PROBE
+    name: Autolivellamento piano
   - commands:
-    - G28
-    - G1 X-24 Y-20 Z100 F6000
-    - M117 Centro
-    - G30
-    - G1 X-120 Y-110 Z100 F6000
-    - M117 Torre X
-    - G30
-    - G1 X120 Y-120 Z100 F6000
-    - M117 Torre Y
-    - G30
-    - G1 X-20 Y120 Z100 F6000
-    - M117 Torre Z
-    - G30
-    - G1 X0 Y0 Z100 F6000
-    - G1 X0 Y0 Z300 F6000
-    - G28
-    name: Rilevamento Assi
-    regex: 'Bed X: ([\-0-9.]+) Y: ([\-0-9.]+) Z: ([\-0-9.]+)'
-    template: 'Rilevamento: X={0}, Y={1}, Z={2}'
+    - G667
+    name: Rilevamento assi e diametro
   layout: horizontal
   name: Allineamento
-- children:
-  - commands:
-    - M666 X%(deltax)s Y%(deltay)s Z%(deltaz)s
-    - M500
-    - G28
-    input:
-    - default: -2.7
-      name: deltaX
-      parameter: deltax
-      slider: false
-    - default: -1.5
-      name: deltaY
-      parameter: deltay
-      slider: false
-    - default: 0.0
-      name: deltaZ
-      parameter: deltaz
-      slider: false
-    name: End Stop
-    type: parametric_commands
-  - commands:
-    - M665 L%(bracci)s R%(raggioutile)s S%(calcoli)s
-    - M851 Z%(delta)s
-    - M500
-    - G28
-    input:
-    - default: 390.0
-      name: Bracci
-      parameter: bracci
-      slider: false
-    - default: 197.5
-      name: Raggio utile
-      parameter: raggioutile
-      slider: false
-    - default: 200
-      name: Calcoli al secondo
-      parameter: calcoli
-      slider: false
-    - default: -22.6
-      name: Delta Estrusore Probe
-      parameter: delta
-      slider: false
-    name: Parametri Delta
-    type: parametric_commands
-  layout: horizontal_grid
-  name: Calibrazione
 feature: {}
 gcodeViewer: {}
 plugins:
@@ -144,7 +84,7 @@ printerProfiles:
     axes:
       e:
         inverted: false
-        speed: 300
+        speed: 100
       x:
         inverted: false
         speed: 6000
@@ -157,7 +97,7 @@ printerProfiles:
     color: red
     extruder:
       count: 1
-      nozzleDiameter: 0.6
+      nozzleDiameter: 0.3
       offsets:
       - - 0.0
         - 0.0
@@ -168,12 +108,19 @@ printerProfiles:
     volume:
       depth: 228.0
       formFactor: circular
-      height: 350.0
+      height: 400.0
       origin: center
       width: 228.0
 serial:
   autoconnect: true
   baudrate: 250000
+  longRunningCommands:
+  - G4
+  - G28
+  - G29
+  - G30
+  - G32
+  - G667
   port: AUTO
   timeout:
     sdStatus: 5.0
@@ -221,10 +168,10 @@ temperature:
     extruder: '210'
     name: Pulizia
   - bed: '0'
-    extruder: '190'
+    extruder: '210'
     name: PLA
   - bed: 0
-    extruder: '220'
+    extruder: '240'
     name: ABS
 webcam:
   ffmpeg: /usr/bin/ffmpeg
@@ -237,4 +184,3 @@ webcam:
     postRoll: 0
     type: timed
   watermark: false
-
