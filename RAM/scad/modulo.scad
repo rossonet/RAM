@@ -14,7 +14,7 @@ module screws() {
   for (x = [-w/2, w/2]) {
     translate([x, 0, 0]) {
 	 // Push-through M3 screw hole.
-      translate([0, -10, 0]) rotate([0, 90, 0]) cylinder(r=1.65, h=20, center=true); 
+      translate([0, -10, 0]) rotate([0, 90, 0]) cylinder(r=1.65, h=25, center=true); 
 	 // M3 nut holder.
       translate([-x/3.8, -10, 0]) rotate([0, 90, 0]) cylinder(r=3.2, h=2.3, center=true, $fn=6);  //rotate([30, 0, 0]) 
     }
@@ -24,7 +24,7 @@ module screws() {
 module bracket(h) {
   difference() {
     union() {
-      translate([   0, -1, 0]) cube([w+18, 30, h], center=true);
+      translate([   0, -1, 0]) cube([w+21, 30, h], center=true);
       // Sandwich mount.
       //translate([-w/2, 12.5, 0]) cylinder(r=9, h=h, center=true);
       //translate([ w/2, 12.5, 0]) cylinder(r=9, h=h, center=true);
