@@ -20,7 +20,7 @@ $fn=75;
 
 motor_end_height      =  64;  // Was 44
 idler_end_height      =  28;
-carriage_height       =  32; // Adapted to cover full length +2 of the Linear bearing
+carriage_height       =  80;//32; // Adapted to cover full length +2 of the Linear bearing
 platform_thickness    =   8;
 bed_thickness         =  12;
 pcb_thickness         =   2;
@@ -153,15 +153,17 @@ module belt_mount3() {
 			translate([9, -5.25, 0]) cube([17, 4.5, H+th], center=true);
 			translate([9, 0, (H+th)/2-7]) 
 			difference() {
-				cube([17, 7, 14], center=true);
-				translate([0, 2, -5]) rotate([-45, 0,  0]) cube([18, 6, 12], center=true);
+				translate([0, 0, -10])cube([17, 7, 34], center=true);
+				translate([0, 2, -25]) rotate([-45, 0,  0]) cube([18, 6, 12], center=true);
 			}
-		translate([9, 0, -(H+th)/2+2.]) cube([17, 6, 4], center=true);
+		translate([9, 0, -(H+th)/2+12.5]) cube([17, 6, 25], center=true);
 		}
 	translate([12.0,  0, 0]) cylinder(r=1.6, h=H+th+2, center=true, $fn=12);
 	translate([ 3.5,  0, 0]) cylinder(r=1.6, h=H+th+2, center=true, $fn=12);
-	translate([ 7.8, 14.35, -(H+th)/2+1]) rotate([90, -90, 0]) belt();
-	translate([ 8.2, 13.85, -(H+th)/2+1]) rotate([90, -90, 0]) belt(); // Slightly enlarge the gap of the belt
+    translate([ 7.8, 14.35, -(H+th)/2+1]) rotate([90, -90, 0]) belt();
+	translate([ 8.2, 13.85, -(H+th)/2+1]) rotate([90, -90, 0]) belt();
+    translate([ 7.8, 14.35, -(H-85+th)/2+1]) rotate([90, -90, 0]) belt();
+	translate([ 8.2, 13.85, -(H-85+th)/2+1]) rotate([90, -90, 0]) belt(); // Slightly enlarge the gap of the belt
 	translate([8, 0.5, -(H+th)/2+2.5]) cube([3, 6, 6], center=true);
 	}
 }
@@ -177,8 +179,16 @@ module carriage() {
 				translate([-W/2,   0, 0]) cylinder(r=d/2+1,    h=H+4+2, center=true);
 			}
 			// 0.10° rotation to compensate play on different axis
-			rotate([0, 0.10,  0]) LB_holder(d,  W/2, H, 4); 
-			rotate([0.10,  0, 0]) LB_holder(d, -W/2, H, 4);
+			rotate([0, 0.10,  0]){ 
+                LB_holder(d,  W/2, H, 4);
+                translate([ 0,   0, -24])  LB_holder(d,  W/2, 32, 4); 
+                translate([ 0,   0, 24]) LB_holder(d,  W/2, 32, 4);
+            } 
+			rotate([0.10,  0, 0]){
+                LB_holder(d, -W/2, H, 4);
+                translate([ 0,   0, -24])  LB_holder(d,  -W/2, 32, 4); 
+                translate([ 0,   0, 24]) LB_holder(d,  -W/2, 32, 4);
+            }
     			belt_mount3();
 		}
 		// Grooves
@@ -186,6 +196,13 @@ module carriage() {
 		translate([ W/2,  0, -H/2+5])  groove(d+2*5+1, d+2*th-4, 4);
 		translate([-W/2,  0,  H/2-5])  groove(d+2*5+1, d+2*th-4, 4);
 		translate([-W/2,  0, -H/2+5])  groove(d+2*5+1, d+2*th-4, 4);
+        		// Grooves
+        
+		translate([ W/2,  0,  H/2-20])  groove(d+2*5+1, d+2*th-4, 4);
+		translate([ W/2,  0, -H/2+25])  groove(d+2*5+1, d+2*th-4, 4);
+		translate([-W/2,  0,  H/2-25])  groove(d+2*5+1, d+2*th-4, 4);
+		translate([-W/2,  0, -H/2+25])  groove(d+2*5+1, d+2*th-4, 4);
+        
 		// Screw hole for adjustable top endstop.
 		//translate([15, -17, -H/2+4]) cylinder(r=1.5, h=40, center=true, $fn=12);
 	}
@@ -199,14 +216,14 @@ module carrello() {
 		intersection(){
 			carriage();
 			union() {
-				translate([-27,-25,0]) cylinder(r=16, h=40, center=true);
-				translate([27,-25,0]) cylinder(r=16, h=40, center=true);
+				translate([-27,-25,-22]) cylinder(r=16, h=40, center=true);
+				translate([27,-25,-22]) cylinder(r=16, h=40, center=true);
 				cube([100, 40, 100], center=true);
-				translate([0,0,-13]) cube([50, 100, 10], center=true);
+				translate([0,0,-35]) cube([50, 100, 10], center=true);
 			}
 		}
-		translate([-27,-30,0]) magnete();
-		translate([27,-30,0]) magnete();
+		translate([-27,-30,-22]) magnete();
+		translate([27,-30,-22]) magnete();
 	}
 //translate([15, -17, 2]) cylinder(r=3.2, h=8, center=true, $fn=6);
 //}
@@ -217,6 +234,13 @@ module carrello() {
 // translate([0, 0, -20]) rotate([180, 0, 0]) idler_end();
 }
 module supporto_carrello(){
-carrello();
+    difference(){
+        carrello();
+        union(){
+            translate([0,0,-32]) rotate([90, 0, 0])cylinder(r=2.6, h=40, center=true);
+            translate([0,0,-8]) rotate([90, 0, 0])cylinder(r=2.6, h=40, center=true);
+                translate([0,0,18]) rotate([90, 0, 0])cylinder(r=2.6, h=40, center=true);
+        }
+    }            
 }
 supporto_carrello();

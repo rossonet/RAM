@@ -728,7 +728,7 @@ const bool Z_PROBE_ENDSTOP_INVERTING = true; // set to true to invert the logic 
   #ifdef ENABLE_AUTO_BED_LEVELING
     #define CUSTOM_M_CODE_SET_Z_PROBE_OFFSET 851
     #define Z_PROBE_OFFSET_RANGE_MIN -25
-    #define Z_PROBE_OFFSET_RANGE_MAX -8
+    #define Z_PROBE_OFFSET_RANGE_MAX -2
   #endif
 #endif
 

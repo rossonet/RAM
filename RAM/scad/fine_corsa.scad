@@ -48,6 +48,35 @@ module stifener(l, w, z, a) {
 	}
 }
 */
+module passante(){
+    difference(){
+        //cylinder(r=9,h=80,center=true);
+        cylinder(r=5,h=82,center=true);
+    }
+    
+}
+module passanti() {
+    translate([0,90,0]){
+         rotate([0,0,30])
+         translate([0,-64,0])passante();
+         rotate([0,0,-30])
+         translate([0,-64,0])passante();
+         rotate([0,0,30])
+         translate([0,-84,0])passante();
+         rotate([0,0,-30])
+         translate([0,-84,0])passante();
+         rotate([0,0,30])
+         translate([0,-104,0])passante();
+         rotate([0,0,-30])
+         translate([0,-104,0])passante();
+    }
+    for (x = [30, -30]) {
+      translate([x, 0, 0]) 
+		cylinder(r=6.2, h=250, center=true);
+    }
+      
+}
+
 
 module idler_end() {
   translate([0, 0, h/2]) 
@@ -68,4 +97,24 @@ module idler_end() {
   }
 }
 
-idler_end();
+difference(){
+    union(){
+        idler_end();
+        
+        hull(){
+        translate([24,17,0])cylinder(r=6,h=35);
+        translate([42,17,0])cylinder(r=12,h=35);
+        translate([32,35,0])cylinder(r=20,h=35);
+        translate([51,2,0])cylinder(r=12,h=35);
+        }
+        
+        
+               hull(){
+        translate([-24,17,0])cylinder(r=6,h=35);
+        translate([-42,17,0])cylinder(r=12,h=35);
+                translate([-32,35,0])cylinder(r=20,h=35);
+                           translate([-51,2,0])cylinder(r=12,h=35);
+               }
+    }
+passanti();
+}
