@@ -209,9 +209,9 @@ Here are some standard links for getting your machine calibrated:
   //
   //
   // E3D V6
-  #define  DEFAULT_Kp 71.38
-  #define  DEFAULT_Ki 8.96
-  #define  DEFAULT_Kd 142.10
+  #define  DEFAULT_Kp 57.15
+  #define  DEFAULT_Ki 6.92
+  #define  DEFAULT_Kd 117.98
 
   // Ultimaker
   //#define  DEFAULT_Kp 22.2
@@ -333,10 +333,10 @@ Here are some standard links for getting your machine calibrated:
   // NOTE NB all values for DELTA_* values MUST be floating point, so always have a decimal point in them
 
   // Center-to-center distance of the holes in the diagonal push rods.
-  #define DELTA_DIAGONAL_ROD 410.0 // mm
+  #define DELTA_DIAGONAL_ROD 404.0 // mm
 
   // Horizontal offset from middle of printer to smooth rod center.
-  #define DELTA_SMOOTH_ROD_OFFSET 234.0 // mm
+  #define DELTA_SMOOTH_ROD_OFFSET 256.49 // mm
 
   // Horizontal offset of the universal joints on the end effector.
   #define DELTA_EFFECTOR_OFFSET 30.0 // mm

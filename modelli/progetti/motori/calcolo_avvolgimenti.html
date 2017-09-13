@@ -1,0 +1,178 @@
+
+<html>
+<head>
+<title>Motorwicklungsschema berechnen</title>
+    <style type="text/css">
+    <!--
+    body { font-family: arial; font-size: 14px}
+    td { font-family: arial; font-size: 14px}
+    .result { background-color: #d0c0c0 }
+    -->
+    </style>              
+
+<script language="JavaScript">
+
+//	Lizenz:
+//	Verwendung und/oder Modifikation für eigene Homepage 
+//	nur mit folgendem Verweis auf das Original:
+//	http://www.maltemedia.de/brushless/wicklungsschema/
+//	(C) 2004 overclocker_2001 alias oc2k1 & DrM (drmalte@maltemedia.de)
+//
+//	Modifikation nur mit dem Einverständnis, daß die Modifikationen
+//	auch in das Original eingebaut werden dürfen.
+
+function init()
+{
+	document.Windungsrechner.Nuten.focus();
+	document.Windungsrechner.Nuten.value = "";
+	document.Windungsrechner.Pole.value = "";
+	document.Windungsrechner.Ergebnis.value = "";
+}
+
+function berechnen( form )
+{
+	Nuten = eval( form.Nuten.value );
+	Pole  = eval( form.Pole.value );
+	
+	if( Nuten % 3 != 0 || Nuten < 3 ) {
+		document.Windungsrechner.Ergebnis.value = "Nutanzahl muss durch 3 teilbar sein!";
+		document.Windungsrechner.Nuten.focus();
+		document.Windungsrechner.Nuten.select();
+		
+		return;
+	}
+
+	if( Pole % 2 != 0 || Pole < 2 ) {
+		document.Windungsrechner.Ergebnis.value = "Polanzahl muss gerade sein!";
+		document.Windungsrechner.Pole.focus();
+		document.Windungsrechner.Pole.select();
+
+		return;
+	}
+	
+	if( Pole == Nuten ) {
+		document.Windungsrechner.Ergebnis.value = "Polanzahl muss ungleich Nutanzahl sein!";
+		document.Windungsrechner.Pole.focus();
+		document.Windungsrechner.Pole.select();
+
+		return;
+	}
+		
+	Winkel = 180 * Pole / Nuten;
+	a = 0; b = 0; c = 0;
+	A = 0; B = 0; C = 0;
+	schema = ""
+	summe = 0;
+	
+	for( i = 0; i < Nuten; i++ ){
+
+		if( summe >= 330 || summe <  30 ) {
+			schema += "A";
+			A++;
+		}
+
+		if( summe >=  30 && summe <  90 ) {
+			schema += "b";
+			b++;
+		}
+
+		if( summe >=  90 && summe < 150 ) {
+			schema += "C";
+			C++;
+		}
+
+		if( summe >= 150 && summe < 210 ) {
+			schema += "a";
+			a++;
+		}
+
+		if( summe >= 210 && summe < 270 ) {
+			schema += "B";
+			B++;
+		}
+
+		if( summe >= 270 && summe < 330 ) {
+			schema += "c";
+			c++;
+		}
+
+		summe = ( summe + Winkel ) % 360;
+	}
+
+	if( a == b && a == c && A == B && A == C ) {
+
+		while( schema.charAt(schema.length-1) == 'a' || schema.charAt(schema.length-1) == 'A' ) {
+			schema = schema.charAt(schema.length-1) + schema.slice( 0, -1 );
+		}
+
+		if( schema.charAt( 0 ) == "a" ) {
+			schema = schema.replace( /a/g, 'x' );
+			schema = schema.replace( /b/g, 'y' );
+			schema = schema.replace( /c/g, 'z' );
+			schema = schema.replace( /A/g, 'a' );
+			schema = schema.replace( /B/g, 'b' );
+			schema = schema.replace( /C/g, 'c' );
+			schema = schema.replace( /x/g, 'A' );
+			schema = schema.replace( /y/g, 'B' );
+			schema = schema.replace( /z/g, 'C' );
+		}
+
+		if( schema.search( /[bB]/ ) > schema.search( /[cC]/ ) ) {
+			schema = schema.replace( /b/g, 'x' );
+			schema = schema.replace( /c/g, 'y' );
+			schema = schema.replace( /x/g, 'c' );
+			schema = schema.replace( /y/g, 'b' );
+			schema = schema.replace( /B/g, 'x' );
+			schema = schema.replace( /C/g, 'y' );
+			schema = schema.replace( /x/g, 'C' );
+			schema = schema.replace( /y/g, 'B' );
+		}
+		
+		document.Windungsrechner.Ergebnis.value = schema;
+
+	} else {
+		document.Windungsrechner.Ergebnis.value = "Lösung unausgewogen! ("+schema+")";
+	}
+}
+
+</script>
+</head>
+
+<body bgcolor=white onload="init()">
+<form name="Windungsrechner">
+
+<BR><BR>			
+<div align="center"><center>
+<!-- <B>Das Script funktioniert noch nicht. Bitte um etwas Geduld ;)</B><BR> -->
+<B>Motorwicklungsschema berechnen V1.0</B><BR><BR>
+Gib die Anzahl der Nuten und Pole ein und drücke auf das Gleichheitszeichen oder Enter.
+<BR><BR>
+<table border="1" cellpadding=5 CELLSPACING=0>
+	<tr>
+		<td>Nuten:</td>
+		<td><input type="text" size="3" name="Nuten" maxlength="3"></td>
+		<td>Pole:</td>
+		<td><input type="text" size="3" maxlength="3" name="Pole"></td>
+		<td><input type="submit" name="Berechnen" value="=" onclick="berechnen(this.form);return false;"></td>
+		<td><input type="text" size="64" name="Ergebnis" readonly class=result></td>
+	</tr>
+</table>
+<BR>
+<!--
+Die Anzahl der Nuten muss ein Vielfaches von 3 sein und die Anzahl der Pole ein Vielfaches von 2.<BR>
+Es sind nur Ergebnisse gültig, die gleich viele A/a B/b und C/c's enthalten. 12N18P oder 15N12P geht z.B. nicht.
+-->
+<BR><BR>
+<A HREF="http://www.rclineforum.de/forum/thread.php?threadid=60302&sid=">Der Ursprung</A>
+</center>
+</div>
+</form>
+<p></p>
+<noscript>
+Bitte Javascript aktivieren
+</noscript>
+
+<a href="source.txt">Quelltext</a>
+
+</body>
+</html>
