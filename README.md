@@ -1,5 +1,4 @@
-
-#Rossonet Atom Machine
+# Rossonet Atom Machine
 
 ![alt text](http://www.rossonet.org/wp-content/uploads/2015/01/logoRossonet4.png "Rossonet")
 
@@ -32,7 +31,7 @@ L'interfaccia web è fruibile da dispositivo mobile grazie alla libreria [Twitte
 
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=1BcRuSaGWxI" target="_blank"><img src="http://img.youtube.com/vi/1BcRuSaGWxI/0.jpg" alt="Rossonet" width="640" height="360" border="10" /></a>
 
-##Funzionalità
+## Funzionalità
 1. stampa 3D a filamento fuso (1,75mm) con temperatura di lavorazione fino 240 gradi (PLA,ABS,ecc...);
 2. attuatore per eseguire GCODE con penne, matite, pennarelli, ecc...;
 3. interfaccia web responsible;
@@ -50,15 +49,15 @@ L'interfaccia web è fruibile da dispositivo mobile grazie alla libreria [Twitte
 15. slicing sampa plastica integrato con [CuraEngine](https://github.com/Ultimaker/CuraEngine);
 16. timelaps automatico.
 
-##Versioni
+## Versioni
 Attualmente sistono due versioni preconfigurate della macchina. La versione "T" con le parti meccaniche realizzate in officina di precisione e il modello Eroina studiato per essere realizzabile partendo da stampe plastiche di piccole dimensioni. 
 
-###Versione Eroina (bootstrap progetto)
+### Versione Eroina (bootstrap progetto)
 La versione Eroina è composta da una struttura realizzata in carpenteria (legno, metallo o altre strutture ricavate con il materiale disponibile) e da parti stampate in plastica con sagome inferiori ai 15cm per ogni dimensione. Il nostro primo prototipo è stato stampato con un [Arduino Materia 101](https://www.arduino.cc/en/Main/ArduinoMateria101).
 
 [Schema assemblaggio generale](https://github.com/rossonet/RAM/blob/master/parti/stl/eroina/assemblaggio.stl)
 
-####Video fasi studio prototipo
+#### Video fasi studio prototipo
 studio z-probe
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=OmTOs6jjuCw" target="_blank"><img src="http://img.youtube.com/vi/OmTOs6jjuCw/0.jpg" alt="Rossonet" width="640" height="360" border="10" /></a>
 
@@ -87,7 +86,7 @@ stampa plastica
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=GQly_ISp1_0" target="_blank"><img src="http://img.youtube.com/vi/GQly_ISp1_0/0.jpg" alt="Rossonet" width="640" height="360" border="10" /></a>
 
 
-####Elenco materiali elettronici, movimentazione lineare e hot end 
+#### Elenco materiali elettronici, movimentazione lineare e hot end 
 1. [E3D v6 HotEnd Full Kit - 1.75mm Universal (Direct) (24v)](http://e3d-online.com/E3D-v6/Full-Kit?product_id=380);
 2. ventola raffreddamento 30mmx30mmx10mm 12V;
 3. [Banana PI](http://www.bananapi.org/p/product.html);
@@ -115,7 +114,7 @@ stampa plastica
 22. cavo USB da maschio A a maschio B per connessione tra Banana PI e Megatronics v3;
 23. terminale maschio micro USB per alimentazione Banana PI. 
 
-####Elenco materiale stampato
+#### Elenco materiale stampato
 1. 3 x [blocco motore](https://github.com/rossonet/RAM/blob/master/parti/stl/eroina/blocco_motore_v1.stl);
 2. 3 x [rimando cinghia](https://github.com/rossonet/RAM/blob/master/parti/stl/eroina/fine_corsa.stl);
 3. 3 x [carrello](https://github.com/rossonet/RAM/blob/master/parti/stl/eroina/carrello.stl);
@@ -125,7 +124,7 @@ stampa plastica
 7. [estrusore](https://github.com/rossonet/RAM/blob/master/parti/stl/eroina/airtripper-extruder-v3.stl);
 8. [attuatore pennarelli](https://github.com/rossonet/RAM/blob/master/parti/stl/eroina/piattaforma_giotto_turbocolor.stl) collaudato con "[Giotto Turbocolor](http://www.fila.it/giotto/prodotti/pennarelli/giotto-turbo-color)" con [questo supporto](https://github.com/rossonet/RAM/blob/master/parti/stl/eroina/supporto_giotto_turbocolor.stl).
 
-####Elenco materiale per struttura e piccola ferramenta
+#### Elenco materiale per struttura e piccola ferramenta
 Il progetto di questa versione prevede la predisposizione delle tre colonne attive su una struttura portante realizzata artigianalmente. Lo schema di montaggio generale è visionabile [qui](https://github.com/rossonet/RAM/blob/master/parti/stl/eroina/assemblaggio.stl). La struttura deve garantire una sufficiente rigidità, attenuare le vibrazioni dei movimenti con adeguati piedi e/o ammortizzatori.
 
 La struttura può essere realizzata con diametro a piacere tra i 47 e i 70 centimetri. Al diminuire del diametro proporzianalmete diminuiscono i bracci diagonali dell'attuatore, aumenta l'altezza e diminuisce il raggio utile per la stampa. Per esempio nella [configurazione con raggio di 23,5cm](http://www.rossonet.org/dati/RAM235.html) si ottiene un area di stampa cilindrica con un raggio di 19,5cm e altezza di 43,5cm, i bracci diagonali sono lunghi 395mm. Nella [configurazione con raggio di 35cm](http://www.rossonet.org/dati/RAM350.html) il cilindro utile ha raggio di 31cm e altezza di 20,5cm, i bracci sono lunghi 625mm. 
@@ -140,11 +139,11 @@ La struttura può essere realizzata con diametro a piacere tra i 47 e i 70 centi
 7. 12 x supporti distanziatori in plastica per magneti -da verificare-;
 8. 6 x bacchette alluminio diametro 10mm lunghezza da 39,5cm a 62,5cm -a seconda del raggio della struttura portante-;
 
-####Fasi assemblaggio
+#### Fasi assemblaggio
 -to do-
 ...con foto in archivio git
 
-####Servizi
+#### Servizi
 1. download firmware per Banana PI -to do-
 2. vendita online modello "T"
 3. plastiche "Eroina"
