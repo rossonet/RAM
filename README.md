@@ -2,7 +2,7 @@
 
 ![alt text](http://www.rossonet.org/wp-content/uploads/2015/01/logoRossonet4.png "Rossonet")
 
-[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](2BEWU4R26WVNL)
+[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](andrea.ambrosini@rossonet.com)
 
 [http://www.rossonet.org](http://www.rossonet.org)
 
