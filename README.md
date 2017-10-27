@@ -2,7 +2,7 @@
 
 ![alt text](http://www.rossonet.org/wp-content/uploads/2015/01/logoRossonet4.png "Rossonet")
 
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" markdown="1">
 <input type="hidden" name="cmd" value="_s-xclick">
 <input type="hidden" name="hosted_button_id" value="2BEWU4R26WVNL">
 <input type="image" src="https://www.paypalobjects.com/it_IT/IT/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal è il metodo rapido e sicuro per pagare e farsi pagare online.">
