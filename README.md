@@ -1,8 +1,8 @@
 #Rossonet Atom Machine
 
-[![Build Status](http://prometeo.rossonet.net:8080/job/RAM/badge/icon)](http://prometeo.rossonet.net:8080/job/RAM/)
-
 ![alt text](http://www.rossonet.org/wp-content/uploads/2015/01/logoRossonet4.png "Rossonet")
+
+[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](2BEWU4R26WVNL)
 
 [http://www.rossonet.org](http://www.rossonet.org)
 
